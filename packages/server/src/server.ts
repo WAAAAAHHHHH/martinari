@@ -46,7 +46,7 @@ async function buildApp() {
   await fastify.register(signalingRoutes);
 
   // Serve static files from the client's dist folder
-  const clientDist = path.join(__dirname, '../../../client/dist');
+  const clientDist = path.join(__dirname, '../../client/dist');
   await fastify.register(fastifyStatic, {
     root: clientDist,
     prefix: '/',
