@@ -1,0 +1,8 @@
+node_modules
+.DS_Store
+dist
+dist-tsc
+*.log
+.env
+.env.*
+!.env.example

@@ -1,0 +1,17 @@
+{
+  "name": "martinari",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/server",
+    "packages/client"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspaces --if-present",
+    "build": "npm run build --workspaces --if-present",
+    "start": "npm run start --workspace=packages/server"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
