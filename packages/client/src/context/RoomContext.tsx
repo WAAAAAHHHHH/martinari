@@ -16,6 +16,8 @@ import type {
   Peer,
   SignalMessage,
   RoomConnectionStatus,
+  IncomingBatch,
+  TransferProtocolMessage,
 } from '../types/index.js';
 
 // ─── State ────────────────────────────────────────────────────────────────────
@@ -25,6 +27,7 @@ const initialState: RoomState = {
   connectionStatus: 'idle',
   peers: [],
   transfers: [],
+  incomingBatches: [],
   localPeerId: '',
 };
 
@@ -36,6 +39,8 @@ type Action =
   | { type: 'UPDATE_PEER'; peerId: string; updates: Partial<Peer> }
   | { type: 'UPSERT_TRANSFER'; transfer: FileTransfer }
   | { type: 'CLEAR_TRANSFERS' }
+  | { type: 'ADD_INCOMING_BATCH'; batch: Omit<IncomingBatch, 'peerLabel'> }
+  | { type: 'REMOVE_INCOMING_BATCH'; batchId: string }
   | { type: 'SET_ERROR'; message: string };
 
 function reducer(state: RoomState, action: Action): RoomState {
@@ -72,6 +77,18 @@ function reducer(state: RoomState, action: Action): RoomState {
           (t) => t.status === 'transferring' || t.status === 'paused'
         ),
       };
+    case 'ADD_INCOMING_BATCH': {
+      const peer = state.peers.find(p => p.id === action.batch.peerId);
+      const batch: IncomingBatch = { ...action.batch, peerLabel: peer?.label || 'Peer' };
+      // Prevent duplicates
+      if (state.incomingBatches.find(b => b.batchId === batch.batchId)) return state;
+      return { ...state, incomingBatches: [...state.incomingBatches, batch] };
+    }
+    case 'REMOVE_INCOMING_BATCH':
+      return {
+        ...state,
+        incomingBatches: state.incomingBatches.filter(b => b.batchId !== action.batchId)
+      };
     case 'SET_ERROR':
       return { ...state, connectionStatus: 'error', errorMessage: action.message };
     default:
@@ -90,6 +107,9 @@ interface RoomContextValue {
   pauseTransfer: (id: string) => void;
   resumeTransfer: (id: string) => void;
   clearTransfers: () => void;
+  requestSendFiles: (files: File[], targetPeerId?: string) => void;
+  acceptBatch: (batchId: string, peerId: string) => void;
+  rejectBatch: (batchId: string, peerId: string) => void;
 }
 
 const RoomContext = createContext<RoomContextValue | null>(null);
@@ -116,6 +136,7 @@ export function RoomProvider({ children }: { children: React.ReactNode }) {
   const transferServiceRef = useRef<TransferService | null>(null);
   const localPeerIdRef = useRef<string>('');
   const roomCodeRef = useRef<string>('');
+  const outgoingBatchesRef = useRef<Map<string, { files: File[]; targetPeerId?: string }>>(new Map());
 
   // ── Transfer callbacks ───────────────────────────────────────────────────
 
@@ -247,10 +268,30 @@ export function RoomProvider({ children }: { children: React.ReactNode }) {
         signaling,
         // onMessage from data channel
         (peerId, msg) => {
+          if (msg.kind === 'batch-request') {
+            dispatch({
+              type: 'ADD_INCOMING_BATCH',
+              batch: {
+                batchId: msg.batchId,
+                peerId,
+                fileCount: msg.fileCount,
+                totalSize: msg.totalSize
+              }
+            });
+            return;
+          }
+          if (msg.kind === 'batch-response') {
+            const batch = outgoingBatchesRef.current.get(msg.batchId);
+            if (batch && msg.accept) {
+              const ts = transferServiceRef.current;
+              // We need peerLabel. We can just use 'Peer' for now, or maybe look it up.
+              if (ts) ts.sendFiles(batch.files, peerId, 'Peer');
+            }
+            return;
+          }
+
           const transfer = transferServiceRef.current;
           if (!transfer) return;
-          // We need to find the peer label — it's stored in the reducer state
-          // Use a ref-captured callback approach to avoid stale closure
           transfer.handleIncoming(peerId, `Peer`, msg);
         },
         // onStatus
@@ -295,20 +336,58 @@ export function RoomProvider({ children }: { children: React.ReactNode }) {
 
   // ── Send files ────────────────────────────────────────────────────────────
 
+  const requestSendFiles = useCallback((files: File[], targetPeerId?: string) => {
+    const ps = peerServiceRef.current;
+    if (!ps) return;
+
+    const batchId = nanoid();
+    outgoingBatchesRef.current.set(batchId, { files, targetPeerId });
+
+    const totalSize = files.reduce((acc, f) => acc + f.size, 0);
+    const msg: TransferProtocolMessage = {
+      kind: 'batch-request',
+      batchId,
+      fileCount: files.length,
+      totalSize,
+    };
+
+    if (targetPeerId) {
+      ps.sendToPeer(targetPeerId, msg);
+    } else {
+      // Send to all connected peers
+      const allPeers = Array.from(ps['dataChannels'].keys());
+      for (const p of allPeers) {
+        ps.sendToPeer(p, msg);
+      }
+    }
+  }, []);
+
+  const acceptBatch = useCallback((batchId: string, peerId: string) => {
+    dispatch({ type: 'REMOVE_INCOMING_BATCH', batchId });
+    peerServiceRef.current?.sendToPeer(peerId, { kind: 'batch-response', batchId, accept: true });
+  }, []);
+
+  const rejectBatch = useCallback((batchId: string, peerId: string) => {
+    dispatch({ type: 'REMOVE_INCOMING_BATCH', batchId });
+    peerServiceRef.current?.sendToPeer(peerId, { kind: 'batch-response', batchId, accept: false });
+  }, []);
+
   const sendFiles = useCallback(async (files: File[], targetPeerId?: string) => {
     const ts = transferServiceRef.current;
     const ps = peerServiceRef.current;
+
     if (!ts || !ps) return;
 
-    const peers = targetPeerId
-      ? [targetPeerId]
-      : state.peers
-          .filter((p) => !p.isLocal)
-          .map((p) => p.id);
-
-    for (const peerId of peers) {
-      const peer = state.peers.find((p) => p.id === peerId);
-      await ts.sendFiles(files, peerId, peer?.label ?? 'Peer');
+    if (targetPeerId) {
+      if (!ps.isConnectedTo(targetPeerId)) return;
+      // We don't have peer label here easily, but TransferService will update it.
+      await ts.sendFiles(files, targetPeerId, 'Peer');
+    } else {
+      // Send to all connected peers
+      for (const peer of state.peers) {
+        if (peer.isLocal || peer.connectionStatus !== 'connected') continue;
+        await ts.sendFiles(files, peer.id, peer.label);
+      }
     }
   }, [state.peers]);
 
@@ -337,12 +416,15 @@ export function RoomProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   return (
-    <RoomContext.Provider
+      <RoomContext.Provider
       value={{
         state,
         joinRoom,
         leaveRoom,
         sendFiles,
+        requestSendFiles,
+        acceptBatch,
+        rejectBatch,
         cancelTransfer,
         pauseTransfer,
         resumeTransfer,

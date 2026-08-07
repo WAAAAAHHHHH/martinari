@@ -1,19 +1,23 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { RoomProvider, useRoomContext } from '../context/RoomContext.js';
 import { RoomHeader } from '../components/RoomHeader.js';
 import { DropZone } from '../components/DropZone.js';
 import { PeerList } from '../components/PeerList.js';
 import { TransferList } from '../components/TransferList.js';
 import { isValidRoomCode } from '../utils/validateCode.js';
+import { Button } from '../components/ui/Button.js';
 
 const API_BASE = import.meta.env.VITE_API_URL ?? '';
 
 function RoomPageInner({ code }: { code: string }) {
   const navigate = useNavigate();
-  const { state, joinRoom, leaveRoom, sendFiles, cancelTransfer, pauseTransfer, resumeTransfer, clearTransfers } =
-    useRoomContext();
+  const { 
+    state, joinRoom, leaveRoom, sendFiles, requestSendFiles, 
+    acceptBatch, rejectBatch, cancelTransfer, pauseTransfer, 
+    resumeTransfer, clearTransfers 
+  } = useRoomContext();
 
   const hasRemotePeer = state.peers.some((p) => !p.isLocal);
 
@@ -30,8 +34,23 @@ function RoomPageInner({ code }: { code: string }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [code]);
 
+  const [pendingSend, setPendingSend] = useState<File[] | null>(null);
+
   const handleLeave = () => { leaveRoom(); navigate('/'); };
-  const handleFiles = (files: File[]) => { if (hasRemotePeer) sendFiles(files); };
+  const handleFiles = (files: File[]) => { if (hasRemotePeer) setPendingSend(files); };
+
+  const confirmSend = () => {
+    if (pendingSend) {
+      requestSendFiles(pendingSend);
+      setPendingSend(null);
+    }
+  };
+
+  const cancelSend = () => {
+    setPendingSend(null);
+  };
+
+  const incomingBatch = state.incomingBatches?.[0];
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -90,6 +109,52 @@ function RoomPageInner({ code }: { code: string }) {
           </motion.div>
         </div>
       </main>
+
+      {/* Sender Confirmation Modal */}
+      <AnimatePresence>
+        {pendingSend && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-background/80 backdrop-blur-md">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              className="card p-6 max-w-sm w-full text-center"
+            >
+              <h3 className="text-lg font-semibold text-primary mb-2">Send Files</h3>
+              <p className="text-sm text-secondary mb-6">
+                You are about to send {pendingSend.length} files. Do you want to proceed?
+              </p>
+              <div className="flex gap-3">
+                <Button variant="secondary" fullWidth onClick={cancelSend}>Cancel</Button>
+                <Button variant="primary" fullWidth onClick={confirmSend}>Proceed</Button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
+      {/* Receiver Confirmation Modal */}
+      <AnimatePresence>
+        {incomingBatch && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-background/80 backdrop-blur-md">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              className="card p-6 max-w-sm w-full text-center"
+            >
+              <h3 className="text-lg font-semibold text-primary mb-2">Receive Files</h3>
+              <p className="text-sm text-secondary mb-6">
+                {incomingBatch.peerLabel} wants to send you {incomingBatch.fileCount} files. Do you want to proceed?
+              </p>
+              <div className="flex gap-3">
+                <Button variant="secondary" fullWidth onClick={() => rejectBatch(incomingBatch.batchId, incomingBatch.peerId)}>Reject</Button>
+                <Button variant="primary" fullWidth onClick={() => acceptBatch(incomingBatch.batchId, incomingBatch.peerId)}>Proceed</Button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
