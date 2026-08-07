@@ -134,20 +134,11 @@ export type RoomConnectionStatus =
   | 'disconnected'
   | 'error';
 
-export interface IncomingBatch {
-  batchId: string;
-  peerId: string;
-  peerLabel: string;
-  fileCount: number;
-  totalSize: number;
-}
-
 export interface RoomState {
   code: string;
   connectionStatus: RoomConnectionStatus;
   peers: Peer[];
   transfers: FileTransfer[];
-  incomingBatches: IncomingBatch[];
   localPeerId: string;
   errorMessage?: string;
 }
@@ -176,22 +167,4 @@ export interface TransferControl {
   action: 'cancel' | 'pause' | 'resume' | 'ack';
 }
 
-export interface TransferBatchRequest {
-  kind: 'batch-request';
-  batchId: string;
-  fileCount: number;
-  totalSize: number;
-}
-
-export interface TransferBatchResponse {
-  kind: 'batch-response';
-  batchId: string;
-  accept: boolean;
-}
-
-export type TransferProtocolMessage = 
-  | TransferMetadata 
-  | TransferChunk 
-  | TransferControl 
-  | TransferBatchRequest 
-  | TransferBatchResponse;
+export type TransferProtocolMessage = TransferMetadata | TransferChunk | TransferControl;
