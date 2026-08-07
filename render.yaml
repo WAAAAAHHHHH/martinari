@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: martinari
+    env: docker
+    region: frankfurt
+    plan: free
+    healthCheckPath: /
