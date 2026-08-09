@@ -182,7 +182,7 @@ export default function HomePage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
-          className="mt-auto pt-20 pb-6 text-center"
+          className="mt-auto pt-20 pb-6 flex flex-col items-center gap-4 text-center"
         >
           <div className="flex flex-wrap items-center justify-center gap-1.5 text-[10px] text-muted/40 hover:text-muted transition-colors">
             <span>made by</span>
@@ -194,6 +194,11 @@ export default function HomePage() {
                 {i < TEAM.length - 1 && <span>·</span>}
               </React.Fragment>
             ))}
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            <Button variant="ghost" size="sm" onClick={() => navigate('/terms')} className="text-[10px] text-muted/40 hover:text-primary px-2 h-6">Terms of Service</Button>
+            <Button variant="ghost" size="sm" onClick={() => navigate('/privacy')} className="text-[10px] text-muted/40 hover:text-primary px-2 h-6">Privacy Policy</Button>
+            <Button variant="ghost" size="sm" onClick={() => navigate('/acceptable-use')} className="text-[10px] text-muted/40 hover:text-primary px-2 h-6">Acceptable Use</Button>
           </div>
         </motion.div>
       </main>
