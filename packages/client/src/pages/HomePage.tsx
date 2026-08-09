@@ -35,8 +35,7 @@ export default function HomePage() {
   const [error, setError] = useState('');
   const [creating, setCreating] = useState(false);
   const [joining, setJoining] = useState(false);
-
-
+  const [transfers, setTransfers] = useState(() => parseInt(localStorage.getItem('martin_totalTransfers') || '1432', 10));
 
   const handleCodeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = e.target.value.toUpperCase().replace(/[^A-HJ-NP-Z2-9]/gi, '').slice(0, 6);
@@ -51,8 +50,9 @@ export default function HomePage() {
       const res = await fetch(`${API_BASE}/api/rooms`, { method: 'POST' });
       if (!res.ok) throw new Error('Failed to create room');
       const data = await res.json() as { code: string };
-      
-
+      const nextTransfers = transfers + 1;
+      setTransfers(nextTransfers);
+      localStorage.setItem('martin_totalTransfers', nextTransfers.toString());
 
       navigate(`/room/${data.code}`);
     } catch {
@@ -71,6 +71,10 @@ export default function HomePage() {
       const res = await fetch(`${API_BASE}/api/rooms/${trimmed}`);
       const data = await res.json() as { exists?: boolean };
       if (!data.exists) { setError('Room not found'); setJoining(false); return; }
+      const nextTransfers = transfers + 1;
+      setTransfers(nextTransfers);
+      localStorage.setItem('martin_totalTransfers', nextTransfers.toString());
+
       navigate(`/room/${trimmed}`);
     } catch {
       navigate(`/room/${trimmed}`);
@@ -98,8 +102,10 @@ export default function HomePage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
           className="text-center mb-16"
-        >
-
+        >          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-6">
+            <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse shadow-[0_0_8px_rgba(59,130,246,0.6)]" />
+            <span className="text-xs font-medium text-secondary">Transfers did since the launch: {transfers.toLocaleString()}</span>
+          </div>
           <h1 className="text-4xl sm:text-5xl font-bold text-primary tracking-tight mb-4">
             Share files instantly.
           </h1>
