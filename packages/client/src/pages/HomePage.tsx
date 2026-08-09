@@ -36,23 +36,7 @@ export default function HomePage() {
   const [creating, setCreating] = useState(false);
   const [joining, setJoining] = useState(false);
 
-  const [baseRooms, setBaseRooms] = useState(() => Math.floor(Math.random() * 5) + 38);
-  const [localRooms, setLocalRooms] = useState(() => parseInt(localStorage.getItem('martin_localRooms') || '0', 10));
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setBaseRooms(prev => {
-        const drift = Math.floor(Math.random() * 3) - 1;
-        let next = prev + drift;
-        if (next < 35) next = 35;
-        if (next > 45) next = 45;
-        return next;
-      });
-    }, 4500);
-    return () => clearInterval(interval);
-  }, []);
-
-  const totalRooms = baseRooms + localRooms;
 
   const handleCodeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = e.target.value.toUpperCase().replace(/[^A-HJ-NP-Z2-9]/gi, '').slice(0, 6);
@@ -68,9 +52,7 @@ export default function HomePage() {
       if (!res.ok) throw new Error('Failed to create room');
       const data = await res.json() as { code: string };
       
-      const nextLocal = localRooms + 1;
-      setLocalRooms(nextLocal);
-      localStorage.setItem('martin_localRooms', nextLocal.toString());
+
 
       navigate(`/room/${data.code}`);
     } catch {
@@ -117,10 +99,7 @@ export default function HomePage() {
           transition={{ duration: 0.4 }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-6">
-            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.6)]" />
-            <span className="text-xs font-medium text-secondary">{totalRooms} active rooms</span>
-          </div>
+
           <h1 className="text-4xl sm:text-5xl font-bold text-primary tracking-tight mb-4">
             Share files instantly.
           </h1>
