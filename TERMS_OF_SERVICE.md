@@ -143,7 +143,7 @@ Martinari is operated by:
 
 **Operator:** [LEGAL NAME / PERSON OR COMPANY]
 
-**Contact:** mertbx2009@gmail.com
+**Contact:** ichi@mail.ee
 
 **Address:** [LEGAL ADDRESS, IF APPLICABLE]
 

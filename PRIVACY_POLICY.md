@@ -12,7 +12,7 @@ Under the Turkish Personal Data Protection Law No. 6698 ("KVKK"), the data contr
 
 **Data Controller:** [LEGAL NAME / PERSON OR COMPANY]
 
-**Contact:** mertbx2009@gmail.com
+**Contact:** ichi@mail.ee
 
 **Address:** [LEGAL ADDRESS, IF APPLICABLE]
 
@@ -138,7 +138,7 @@ Subject to the conditions and limitations established by applicable law, you may
 
 For requests concerning your personal data, contact:
 
-**mertbx2009@gmail.com**
+**ichi@mail.ee**
 
 Requests will be handled according to the procedures and time limits required by applicable law.
 
@@ -168,6 +168,6 @@ The latest version will be published on Martinari with an updated "Last updated"
 
 **Data Controller:** [LEGAL NAME / PERSON OR COMPANY]
 
-**Privacy Contact:** mertbx2009@gmail.com
+**Privacy Contact:** ichi@mail.ee
 
 **Address:** [LEGAL ADDRESS, IF APPLICABLE]

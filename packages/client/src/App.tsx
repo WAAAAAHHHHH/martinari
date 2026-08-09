@@ -4,6 +4,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 const HomePage = lazy(() => import('./pages/HomePage.js'));
 const RoomPage = lazy(() => import('./pages/RoomPage.js'));
 const ErrorPage = lazy(() => import('./pages/ErrorPage.js'));
+const TermsPage = lazy(() => import('./pages/TermsPage.js'));
+const PrivacyPage = lazy(() => import('./pages/PrivacyPage.js'));
+const AcceptableUsePage = lazy(() => import('./pages/AcceptableUsePage.js'));
 
 function Loading() {
   return (
@@ -26,6 +29,9 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/room/:code" element={<RoomPage />} />
+          <Route path="/terms" element={<TermsPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/acceptable-use" element={<AcceptableUsePage />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </Suspense>

@@ -89,13 +89,13 @@ This does not make prohibited activity permissible.
 
 If you discover a security vulnerability in Martinari, please report it privately rather than attempting to exploit it against other users or the service.
 
-**Security contact:** mertbx2009@gmail.com
+**Security contact:** ichi@mail.ee
 
 ## 4. Copyright Reports
 
 Copyright owners or authorized representatives who believe that Martinari is being used in connection with infringement may contact:
 
-**Copyright contact:** mertbx2009@gmail.com
+**Copyright contact:** ichi@mail.ee
 
 Reports should contain enough information for us to understand the allegation and identify the relevant room, link, or technical information where available.
 
@@ -124,12 +124,12 @@ The latest version will be published on Martinari.
 
 For abuse or legal reports:
 
-**mertbx2009@gmail.com**
+**ichi@mail.ee**
 
 For security vulnerabilities:
 
-**mertbx2009@gmail.com**
+**ichi@mail.ee**
 
 For general questions:
 
-**mertbx2009@gmail.com**
+**ichi@mail.ee**
