@@ -1,0 +1,8 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.martinari.www.twa",
+    "sha256_cert_fingerprints": ["9C:DC:F4:4B:B9:73:34:9A:0E:9D:39:59:BE:A5:04:60:66:F9:0B:23:35:87:35:4E:12:B1:DD:CD:76:0C:67:3F"]
+  }
+}]
