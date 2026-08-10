@@ -144,7 +144,7 @@ export default function HomePage() {
           className="text-center mb-16"
         >          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-6">
             <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse shadow-[0_0_8px_rgba(59,130,246,0.6)]" />
-            <span className="text-xs font-medium text-secondary">Transfers did since the launch: {transfers.toLocaleString()}</span>
+            <span className="text-xs font-medium text-secondary">Transfers did since the launch: {transfers.toLocaleString()} <span className="text-[10px] text-muted ml-1 font-normal">(it only updates every update)</span></span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-bold text-primary tracking-tight mb-4">
             Share files instantly.
