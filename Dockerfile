@@ -14,6 +14,8 @@ RUN npm install
 COPY . .
 
 # Build both client and server workspaces
+ARG VITE_AADS_UNIT_ID
+ENV VITE_AADS_UNIT_ID=$VITE_AADS_UNIT_ID
 RUN npm run build
 
 # --- Production Image ---
