@@ -7,6 +7,8 @@ import { DropZone } from '../components/DropZone.js';
 import { PeerList } from '../components/PeerList.js';
 import { TransferList } from '../components/TransferList.js';
 import { FileStagingModal } from '../components/FileStagingModal.js';
+import { IncomingTransferModal } from '../components/IncomingTransferModal.js';
+import { CompletedTransferModal } from '../components/CompletedTransferModal.js';
 import { isValidRoomCode } from '../utils/validateCode.js';
 import { Button } from '../components/ui/Button.js';
 import { Input } from '../components/ui/Input.js';
@@ -18,11 +20,40 @@ const API_BASE = import.meta.env.VITE_API_URL ?? '';
 function RoomPageInner({ code, password, creatorToken }: { code: string, password?: string, creatorToken?: string }) {
   const navigate = useNavigate();
   const { t } = useLocale();
-  const { state, joinRoom, leaveRoom, sendFiles, cancelTransfer, pauseTransfer, resumeTransfer, clearTransfers } =
+  const { state, joinRoom, leaveRoom, sendFiles, cancelTransfer, pauseTransfer, resumeTransfer, clearTransfers, acceptTransfer } =
     useRoomContext();
 
   // ─── Staging state ───────────────────────────────────────────────────────
   const [stagedFiles, setStagedFiles] = useState<File[] | null>(null);
+
+  // ─── Completed Prompts state ─────────────────────────────────────────────
+  const [completedPrompts, setCompletedPrompts] = useState<string[]>([]);
+  const [completedTransferToPrompt, setCompletedTransferToPrompt] = useState<any | null>(null);
+
+  // Find incoming pending transfer
+  const pendingIncoming = state.transfers.find(
+    (t) => t.direction === 'receive' && t.status === 'pending'
+  );
+
+  // Trigger modal when a transfer completes
+  useEffect(() => {
+    const completedReceive = state.transfers.find(
+      (t) => t.direction === 'receive' && t.status === 'completed' && t.objectUrl && !completedPrompts.includes(t.id)
+    );
+    if (completedReceive) {
+      setCompletedTransferToPrompt(completedReceive);
+      setCompletedPrompts((prev) => [...prev, completedReceive.id]);
+    }
+  }, [state.transfers, completedPrompts]);
+
+  const handleDownload = (transfer: any) => {
+    if (transfer.objectUrl) {
+      const a = document.createElement('a');
+      a.href = transfer.objectUrl;
+      a.download = transfer.fileName;
+      a.click();
+    }
+  };
 
   const hasRemotePeer = state.peers.some((p) => !p.isLocal);
   const isBroadcast = state.type === 'broadcast';
@@ -72,7 +103,27 @@ function RoomPageInner({ code, password, creatorToken }: { code: string, passwor
           files={stagedFiles}
           onSend={handleConfirmSend}
           onClose={() => setStagedFiles(null)}
-          onAddMore={handleUpdateStaged}
+        />
+      )}
+
+      {/* Incoming file prompt modal */}
+      {pendingIncoming && (
+        <IncomingTransferModal
+          transfer={pendingIncoming}
+          onAccept={() => acceptTransfer(pendingIncoming.id)}
+          onDecline={() => cancelTransfer(pendingIncoming.id)}
+        />
+      )}
+
+      {/* Completed file prompt modal */}
+      {completedTransferToPrompt && (
+        <CompletedTransferModal
+          transfer={completedTransferToPrompt}
+          onSave={() => {
+            handleDownload(completedTransferToPrompt);
+            setCompletedTransferToPrompt(null);
+          }}
+          onClose={() => setCompletedTransferToPrompt(null)}
         />
       )}
 
@@ -134,6 +185,7 @@ function RoomPageInner({ code, password, creatorToken }: { code: string, passwor
               onPause={pauseTransfer}
               onResume={resumeTransfer}
               onClear={clearTransfers}
+              onAccept={acceptTransfer}
             />
           </motion.div>
         </div>

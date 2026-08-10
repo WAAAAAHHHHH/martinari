@@ -175,7 +175,7 @@ export interface TransferChunk {
 export interface TransferControl {
   kind: 'control';
   fileId: string;
-  action: 'cancel' | 'pause' | 'resume' | 'ack';
+  action: 'cancel' | 'pause' | 'resume' | 'ack' | 'accept' | 'reject';
 }
 
 export type TransferProtocolMessage = TransferMetadata | TransferChunk | TransferControl;

@@ -3,10 +3,12 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Home, ArrowLeft } from 'lucide-react';
 import { Button } from '../components/ui/Button.js';
+import { useLocale } from '../i18n/useLocale.js';
 
 export default function ErrorPage() {
   const [params] = useSearchParams();
   const isNotFound = params.get('error') === 'not_found';
+  const { t } = useLocale();
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-6 text-center">
@@ -21,18 +23,18 @@ export default function ErrorPage() {
         </div>
         <div>
           <h1 className="text-xl font-semibold text-primary mb-2">
-            {isNotFound ? 'Room not found' : 'Page not found'}
+            {isNotFound ? t('error_room_not_found') : t('error_page_not_found')}
           </h1>
           <p className="text-secondary text-sm leading-relaxed">
             {isNotFound
-              ? 'This room may have expired or the code is incorrect. Rooms close 30 seconds after the last person leaves.'
-              : "This page doesn't exist."}
+              ? t('error_room_expired')
+              : t('error_page_not_exist')}
           </p>
         </div>
         <div className="flex flex-col gap-2.5 w-full">
           <Link to="/" replace id="link-go-home">
             <Button variant="primary" size="lg" fullWidth icon={<Home className="w-4 h-4" />}>
-              Go home
+              {t('error_go_home')}
             </Button>
           </Link>
           <button
@@ -40,7 +42,7 @@ export default function ErrorPage() {
             className="text-sm text-secondary hover:text-primary transition-colors inline-flex items-center justify-center gap-1.5"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
-            Go back
+            {t('error_go_back')}
           </button>
         </div>
       </motion.div>

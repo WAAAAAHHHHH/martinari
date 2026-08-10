@@ -14,9 +14,10 @@ interface TransferListProps {
   onPause: (id: string) => void;
   onResume: (id: string) => void;
   onClear: () => void;
+  onAccept?: (id: string) => void;
 }
 
-export function TransferList({ transfers, onCancel, onPause, onResume, onClear }: TransferListProps) {
+export function TransferList({ transfers, onCancel, onPause, onResume, onClear, onAccept }: TransferListProps) {
   const [tab, setTab] = useState<FilterTab>('all');
   const { t } = useLocale();
 
@@ -96,10 +97,11 @@ export function TransferList({ transfers, onCancel, onPause, onResume, onClear }
               <TransferCard
                 key={t.id}
                 transfer={t}
-                onCancel={t.status === 'transferring' || t.status === 'paused' ? onCancel : undefined}
+                onCancel={t.status === 'transferring' || t.status === 'paused' || t.status === 'pending' ? onCancel : undefined}
                 onPause={t.status === 'transferring' && t.direction === 'send' ? onPause : undefined}
                 onResume={t.status === 'paused' && t.direction === 'send' ? onResume : undefined}
                 onDownload={handleDownload}
+                onAccept={t.status === 'pending' && t.direction === 'receive' ? onAccept : undefined}
               />
             ))}
           </AnimatePresence>

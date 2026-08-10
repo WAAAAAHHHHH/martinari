@@ -4,6 +4,7 @@ import { X, Pause, Play, CheckCircle2, XCircle, AlertCircle, ArrowUp, ArrowDown 
 import { ProgressBar } from './ui/ProgressBar.js';
 import { Button } from './ui/Button.js';
 import type { FileTransfer } from '../types/index.js';
+import { useLocale } from '../i18n/useLocale.js';
 
 interface TransferCardProps {
   transfer: FileTransfer;
@@ -11,6 +12,7 @@ interface TransferCardProps {
   onPause?: (id: string) => void;
   onResume?: (id: string) => void;
   onDownload?: (id: string) => void;
+  onAccept?: (id: string) => void;
 }
 
 function formatBytes(bytes: number): string {
@@ -21,7 +23,7 @@ function formatBytes(bytes: number): string {
   return `${parseFloat((bytes / k ** i).toFixed(1))} ${sizes[i]}`;
 }
 function formatSpeed(bps: number): string { return `${formatBytes(bps)}/s`; }
-function formatEta(s: number): string {
+function formatEta(s: number, t: (key: any) => string): string {
   if (s < 0) return '—';
   if (s < 60) return `${s}s`;
   if (s < 3600) return `${Math.ceil(s / 60)}m`;
@@ -40,13 +42,15 @@ function getFileEmoji(type: string, name: string): string {
   return '📁';
 }
 
-export function TransferCard({ transfer, onCancel, onPause, onResume, onDownload }: TransferCardProps) {
+export function TransferCard({ transfer, onCancel, onPause, onResume, onDownload, onAccept }: TransferCardProps) {
+  const { t } = useLocale();
   const progress = transfer.fileSize === 0 ? 100 : Math.round((transfer.bytesTransferred / transfer.fileSize) * 100);
   const isActive = transfer.status === 'transferring';
   const isPaused = transfer.status === 'paused';
   const isCompleted = transfer.status === 'completed';
   const isCancelled = transfer.status === 'cancelled';
   const isFailed = transfer.status === 'failed';
+  const isPending = transfer.status === 'pending';
   const isFinished = isCompleted || isCancelled || isFailed;
 
   const pbVariant = isFailed ? 'danger' : isCompleted ? 'success' : 'accent';
@@ -81,7 +85,7 @@ export function TransferCard({ transfer, onCancel, onPause, onResume, onDownload
             </p>
           </div>
           <p className="text-muted text-xs">
-            {transfer.direction === 'send' ? 'To' : 'From'} {transfer.peerLabel} · {formatBytes(transfer.fileSize)}
+            {transfer.direction === 'send' ? t('transfer_to') : t('transfer_from')} {transfer.peerLabel} · {formatBytes(transfer.fileSize)}
           </p>
         </div>
 
@@ -90,6 +94,13 @@ export function TransferCard({ transfer, onCancel, onPause, onResume, onDownload
           {isCompleted && <CheckCircle2 className="w-4 h-4 text-success" />}
           {isFailed && <AlertCircle className="w-4 h-4 text-danger" />}
           {isCancelled && <XCircle className="w-4 h-4 text-secondary" />}
+
+          {isPending && transfer.direction === 'receive' && onAccept && (
+            <Button variant="primary" size="sm" onClick={() => onAccept(transfer.id)}
+              id={`btn-accept-${transfer.id}`} className="!h-7 text-xs px-2.5">
+              {t('incoming_accept')}
+            </Button>
+          )}
 
           {isActive && onPause && (
             <Button variant="ghost" size="sm" onClick={() => onPause(transfer.id)}
@@ -114,31 +125,36 @@ export function TransferCard({ transfer, onCancel, onPause, onResume, onDownload
           )}
           {isCompleted && transfer.direction === 'receive' && transfer.objectUrl && onDownload && (
             <Button variant="ghost" size="sm" onClick={() => onDownload(transfer.id)}
-              id={`btn-dl-${transfer.id}`} className="!h-7 text-accent">
-              Save
+              id={`btn-dl-${transfer.id}`} className="!h-7 text-accent font-semibold px-2">
+              {t('transfer_save')}
             </Button>
           )}
         </div>
       </div>
 
       {/* Progress */}
-      {!isCancelled && !isFailed && (
+      {!isCancelled && !isFailed && !isPending && (
         <div className="flex flex-col gap-1.5">
           <ProgressBar value={progress} variant={pbVariant} height="xs" />
           <div className="flex items-center justify-between text-xs text-muted">
             <span>{formatBytes(transfer.bytesTransferred)} / {formatBytes(transfer.fileSize)}</span>
             <div className="flex gap-3">
               {isActive && transfer.speed > 0 && (
-                <><span>{formatSpeed(transfer.speed)}</span><span>{formatEta(transfer.eta)} left</span></>
+                <><span>{formatSpeed(transfer.speed)}</span><span>{formatEta(transfer.eta, t)} {t('transfer_left')}</span></>
               )}
-              {isPaused && <span className="text-gold">Paused</span>}
-              {isCompleted && <span className="text-success">Done</span>}
+              {isPaused && <span className="text-gold">{t('transfer_paused')}</span>}
+              {isCompleted && <span className="text-success">{t('transfer_done')}</span>}
             </div>
           </div>
         </div>
       )}
+      {isPending && (
+        <div className="flex items-center justify-between text-xs text-muted bg-white/5 rounded-lg px-2.5 py-1.5 border border-white/5">
+          <span>{transfer.direction === 'send' ? t('transfer_waiting_accept') : t('incoming_title')}</span>
+        </div>
+      )}
       {isFailed && transfer.error && <p className="text-xs text-danger">{transfer.error}</p>}
-      {isCancelled && <p className="text-xs text-muted">Cancelled</p>}
+      {isCancelled && <p className="text-xs text-muted">{t('transfer_cancelled')}</p>}
     </motion.div>
   );
 }

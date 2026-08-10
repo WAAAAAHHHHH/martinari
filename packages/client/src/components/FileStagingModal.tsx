@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Send, Plus, File, Image, Video, Music, Archive } from 'lucide-react';
 import { Button } from './ui/Button.js';
@@ -25,7 +25,7 @@ function FileTypeIcon({ type }: { type: string }) {
 // ─── Thumbnail preview ────────────────────────────────────────────────────────
 
 function FileThumbnail({ file }: { file: File }) {
-  const [url, setUrl] = React.useState<string | null>(null);
+  const [url, setUrl] = useState<string | null>(null);
 
   React.useEffect(() => {
     if (!file.type.startsWith('image/')) return;
@@ -55,11 +55,11 @@ interface FileStagingModalProps {
   files: File[];
   onSend: (files: File[]) => void;
   onClose: () => void;
-  onAddMore: (files: File[]) => void;
 }
 
-export function FileStagingModal({ files, onSend, onClose, onAddMore }: FileStagingModalProps) {
+export function FileStagingModal({ files: initialFiles, onSend, onClose }: FileStagingModalProps) {
   const { t } = useLocale();
+  const [files, setFiles] = useState<File[]>(initialFiles);
   const addMoreRef = useRef<HTMLInputElement>(null);
 
   const handleRemove = (index: number) => {
@@ -67,14 +67,14 @@ export function FileStagingModal({ files, onSend, onClose, onAddMore }: FileStag
     if (next.length === 0) {
       onClose();
     } else {
-      onSend(next); // signal parent to update the staged list
+      setFiles(next);
     }
   };
 
   const handleAddMore = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newFiles = Array.from(e.target.files ?? []);
     if (newFiles.length > 0) {
-      onAddMore([...files, ...newFiles]);
+      setFiles((prev) => [...prev, ...newFiles]);
     }
     e.target.value = '';
   };
@@ -90,7 +90,7 @@ export function FileStagingModal({ files, onSend, onClose, onAddMore }: FileStag
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         onClick={onClose}
-        className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm"
+        className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm pointer-events-auto"
       />
 
       {/* Modal */}

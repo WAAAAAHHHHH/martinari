@@ -75,7 +75,7 @@ export class TransferService {
       direction: 'send',
       peerId,
       peerLabel,
-      status: 'connecting',
+      status: 'pending', // start as pending, waiting for receiver confirmation
       bytesTransferred: 0,
       speed: 0,
       eta: -1,
@@ -111,10 +111,7 @@ export class TransferService {
     };
 
     this.peerService.sendToPeer(peerId, metadata);
-    this.updateTransfer(transfer.id, { status: 'transferring' });
-
-    // Start chunked send
-    await this.sendChunks(fileId);
+    // Don't call sendChunks yet! We wait for 'accept' control action from receiver.
   }
 
   private async sendChunks(fileId: string): Promise<void> {
@@ -233,7 +230,7 @@ export class TransferService {
       direction: 'receive',
       peerId,
       peerLabel,
-      status: 'transferring',
+      status: 'pending', // receiver starts in pending status, prompting the user
       bytesTransferred: 0,
       speed: 0,
       eta: -1,
@@ -287,13 +284,25 @@ export class TransferService {
     }
   }
 
-  private handleControl(_peerId: string, control: TransferControl): void {
+  private handleControl(peerId: string, control: TransferControl): void {
     if (control.action === 'cancel') {
       const state = this.receiveStates.get(control.fileId);
       if (state) {
         state.cancelled = true;
         this.updateTransfer(state.transfer.id, { status: 'cancelled' });
         this.receiveStates.delete(control.fileId);
+      }
+      const sendState = this.sendStates.get(control.fileId);
+      if (sendState) {
+        sendState.cancelled = true;
+        this.updateTransfer(sendState.transfer.id, { status: 'cancelled' });
+        this.sendStates.delete(control.fileId);
+      }
+    } else if (control.action === 'accept') {
+      const state = this.sendStates.get(control.fileId);
+      if (state) {
+        this.updateTransfer(state.transfer.id, { status: 'transferring' });
+        this.sendChunks(control.fileId);
       }
     }
   }
@@ -350,10 +359,31 @@ export class TransferService {
       if (state) {
         state.cancelled = true;
         this.receiveStates.delete(transfer.fileId);
+        // Notify sender
+        const control: TransferControl = {
+          kind: 'control',
+          fileId: transfer.fileId,
+          action: 'cancel',
+        };
+        this.peerService.sendToPeer(transfer.peerId, control);
       }
     }
 
     this.updateTransfer(transferId, { status: 'cancelled' });
+  }
+
+  acceptTransfer(transferId: string): void {
+    const transfer = this.transfers.get(transferId);
+    if (!transfer || transfer.direction !== 'receive') return;
+
+    this.updateTransfer(transferId, { status: 'transferring' });
+
+    const control: TransferControl = {
+      kind: 'control',
+      fileId: transfer.fileId,
+      action: 'accept',
+    };
+    this.peerService.sendToPeer(transfer.peerId, control);
   }
 
   pauseTransfer(transferId: string): void {

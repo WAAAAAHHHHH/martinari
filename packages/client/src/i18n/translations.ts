@@ -65,11 +65,40 @@ export const translations = {
     peer_connecting: 'Connecting...',
     peer_failed: 'Failed',
     peer_you: 'You',
+    peer_participants: 'Participants',
+    peer_this_device: 'This device',
+    peer_invite_hint: 'Share the room code to invite someone',
     // AdBanner
     ad_title: 'Advertise Here',
     ad_subtitle: 'DM @martinari.ad on Instagram',
     // Language toggle
     lang_toggle: 'Türkçe',
+    // ErrorPage
+    error_room_not_found: 'Room not found',
+    error_page_not_found: 'Page not found',
+    error_room_expired: 'This room may have expired or the code is incorrect. Rooms close 30 seconds after the last person leaves.',
+    error_page_not_exist: "This page doesn't exist.",
+    error_go_home: 'Go home',
+    error_go_back: 'Go back',
+    // Transfer Card additional
+    transfer_to: 'To',
+    transfer_from: 'From',
+    transfer_save: 'Save',
+    transfer_left: 'left',
+    transfer_paused: 'Paused',
+    transfer_done: 'Done',
+    transfer_cancelled: 'Cancelled',
+    transfer_waiting_accept: 'Waiting for acceptance...',
+    // Incoming Transfer Modal
+    incoming_title: 'Incoming File',
+    incoming_subtitle: 'Do you want to accept this file?',
+    incoming_accept: 'Accept',
+    incoming_decline: 'Decline',
+    // Completed Transfer Modal
+    completed_title: 'File Received',
+    completed_subtitle: 'The transfer has completed successfully.',
+    completed_save: 'Save File',
+    completed_close: 'Close',
   },
   tr: {
     // Nav
@@ -133,11 +162,40 @@ export const translations = {
     peer_connecting: 'Bağlanıyor...',
     peer_failed: 'Başarısız',
     peer_you: 'Sen',
+    peer_participants: 'Katılımcılar',
+    peer_this_device: 'Bu cihaz',
+    peer_invite_hint: 'Birini davet etmek için oda kodunu paylaşın',
     // AdBanner
     ad_title: 'Buraya Reklam Ver',
     ad_subtitle: 'Instagram\'dan @martinari.ad\'a DM at',
     // Language toggle
     lang_toggle: 'English',
+    // ErrorPage
+    error_room_not_found: 'Oda bulunamadı',
+    error_page_not_found: 'Sayfa bulunamadı',
+    error_room_expired: 'Bu odanın süresi dolmuş veya kod yanlış olabilir. Odalar son kişi ayrıldıktan 30 saniye sonra kapanır.',
+    error_page_not_exist: 'Bu sayfa mevcut değil.',
+    error_go_home: 'Ana sayfaya git',
+    error_go_back: 'Geri git',
+    // Transfer Card additional
+    transfer_to: 'Kime:',
+    transfer_from: 'Kimden:',
+    transfer_save: 'Kaydet',
+    transfer_left: 'kaldı',
+    transfer_paused: 'Duraklatıldı',
+    transfer_done: 'Tamamlandı',
+    transfer_cancelled: 'İptal edildi',
+    transfer_waiting_accept: 'Onay bekleniyor...',
+    // Incoming Transfer Modal
+    incoming_title: 'Gelen Dosya',
+    incoming_subtitle: 'Bu dosyayı kabul etmek istiyor musunuz?',
+    incoming_accept: 'Kabul Et',
+    incoming_decline: 'Reddet',
+    // Completed Transfer Modal
+    completed_title: 'Dosya Alındı',
+    completed_subtitle: 'Transfer başarıyla tamamlandı.',
+    completed_save: 'Dosyayı Kaydet',
+    completed_close: 'Kapat',
   },
 } as const;
 

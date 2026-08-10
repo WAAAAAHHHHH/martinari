@@ -102,6 +102,7 @@ interface RoomContextValue {
   pauseTransfer: (id: string) => void;
   resumeTransfer: (id: string) => void;
   clearTransfers: () => void;
+  acceptTransfer: (id: string) => void;
 }
 
 const RoomContext = createContext<RoomContextValue | null>(null);
@@ -137,13 +138,9 @@ export function RoomProvider({ children }: { children: React.ReactNode }) {
 
   const handleTransferComplete = useCallback(
     (transferId: string, objectUrl: string, fileName: string) => {
-      // Trigger auto-download
-      const a = document.createElement('a');
-      a.href = objectUrl;
-      a.download = fileName;
-      a.click();
-      // Clean up URL after short delay
-      setTimeout(() => URL.revokeObjectURL(objectUrl), 60_000);
+      // Trigger auto-download is disabled. The UI will show a confirmation modal for the receiver to save the file.
+      // Clean up URL after 10 minutes
+      setTimeout(() => URL.revokeObjectURL(objectUrl), 600_000);
 
       dispatch({
         type: 'UPSERT_TRANSFER',
@@ -346,7 +343,10 @@ export function RoomProvider({ children }: { children: React.ReactNode }) {
     dispatch({ type: 'CLEAR_TRANSFERS' });
   }, []);
 
-  // ── Cleanup on unmount ────────────────────────────────────────────────────
+  const acceptTransfer = useCallback((id: string) => {
+    transferServiceRef.current?.acceptTransfer(id);
+  }, []);
+
   useEffect(() => {
     return () => {
       signalingRef.current?.disconnect();
@@ -365,6 +365,7 @@ export function RoomProvider({ children }: { children: React.ReactNode }) {
         pauseTransfer,
         resumeTransfer,
         clearTransfers,
+        acceptTransfer,
       }}
     >
       {children}
