@@ -1,44 +1,79 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { Redis } from 'ioredis';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const STATS_FILE = path.join(__dirname, '../../data/stats.json');
 
-// Ensure data dir exists
-if (!fs.existsSync(path.dirname(STATS_FILE))) {
-  fs.mkdirSync(path.dirname(STATS_FILE), { recursive: true });
+let redis: Redis | null = null;
+if (process.env.REDIS_URL) {
+  redis = new Redis(process.env.REDIS_URL);
+  redis.on('error', (err) => console.error('Redis Error:', err));
+} else {
+  // Ensure data dir exists for local file fallback
+  if (!fs.existsSync(path.dirname(STATS_FILE))) {
+    fs.mkdirSync(path.dirname(STATS_FILE), { recursive: true });
+  }
 }
 
-let totalTransfers = 1437;
+let localTotalTransfers = 1437;
+let localInitialized = false;
 
-// Load initial
-try {
-  if (fs.existsSync(STATS_FILE)) {
-    const data = fs.readFileSync(STATS_FILE, 'utf-8');
-    const parsed = JSON.parse(data);
-    if (typeof parsed.totalTransfers === 'number') {
-      totalTransfers = parsed.totalTransfers;
+function initLocalFallback() {
+  if (localInitialized) return;
+  localInitialized = true;
+  try {
+    if (fs.existsSync(STATS_FILE)) {
+      const data = fs.readFileSync(STATS_FILE, 'utf-8');
+      const parsed = JSON.parse(data);
+      if (typeof parsed.totalTransfers === 'number') {
+        localTotalTransfers = parsed.totalTransfers;
+      }
+    } else {
+      fs.writeFileSync(STATS_FILE, JSON.stringify({ totalTransfers: localTotalTransfers }));
+    }
+  } catch (err) {
+    console.error('Failed to load local stats', err);
+  }
+}
+
+export async function getTotalTransfers(): Promise<number> {
+  if (redis) {
+    try {
+      const val = await redis.get('totalTransfers');
+      if (val) return parseInt(val, 10);
+      // Initialize if empty
+      await redis.set('totalTransfers', 1437);
+      return 1437;
+    } catch (err) {
+      console.error('Redis get error', err);
+      return 1437;
     }
   } else {
-    // Initial save
-    fs.writeFileSync(STATS_FILE, JSON.stringify({ totalTransfers }));
+    initLocalFallback();
+    return localTotalTransfers;
   }
-} catch (err) {
-  console.error('Failed to load stats', err);
 }
 
-export function getTotalTransfers(): number {
-  return totalTransfers;
-}
-
-export function incrementTotalTransfers(): number {
-  totalTransfers++;
-  try {
-    fs.writeFileSync(STATS_FILE, JSON.stringify({ totalTransfers }));
-  } catch (err) {
-    console.error('Failed to save stats', err);
+export async function incrementTotalTransfers(): Promise<number> {
+  if (redis) {
+    try {
+      const val = await redis.incr('totalTransfers');
+      return val;
+    } catch (err) {
+      console.error('Redis incr error', err);
+      return 1437;
+    }
+  } else {
+    initLocalFallback();
+    localTotalTransfers++;
+    try {
+      fs.writeFileSync(STATS_FILE, JSON.stringify({ totalTransfers: localTotalTransfers }));
+    } catch (err) {
+      console.error('Failed to save local stats', err);
+    }
+    return localTotalTransfers;
   }
-  return totalTransfers;
 }
