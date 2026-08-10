@@ -9,6 +9,7 @@ import { TransferList } from '../components/TransferList.js';
 import { isValidRoomCode } from '../utils/validateCode.js';
 import { Button } from '../components/ui/Button.js';
 import { Input } from '../components/ui/Input.js';
+import { AdBanner } from '../components/AdBanner.js';
 
 const API_BASE = import.meta.env.VITE_API_URL ?? '';
 
@@ -80,6 +81,10 @@ function RoomPageInner({ code, password, creatorToken }: { code: string, passwor
                 </p>
               </motion.div>
             )}
+            
+            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25 }}>
+              <AdBanner />
+            </motion.div>
           </div>
 
           {/* Right — transfers */}

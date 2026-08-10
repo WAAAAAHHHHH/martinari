@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Plus, Hash, Instagram } from 'lucide-react';
 import { Button } from '../components/ui/Button.js';
 import { Input } from '../components/ui/Input.js';
+import { AdBanner } from '../components/AdBanner.js';
 
 const API_BASE = import.meta.env.VITE_API_URL ?? '';
 
@@ -76,7 +77,12 @@ export default function HomePage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
       });
-      if (!res.ok) throw new Error('Failed to create room');
+      if (!res.ok) {
+        if (res.status === 429) {
+          throw new Error('Rate limit exceeded. Please wait a minute.');
+        }
+        throw new Error('Failed to create room');
+      }
       const data = await res.json() as { code: string; creatorToken?: string };
       
       if (data.creatorToken) {
@@ -86,8 +92,12 @@ export default function HomePage() {
       incrementStats();
 
       navigate(`/room/${data.code}`);
-    } catch {
-      setError('Failed to create room');
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError('Failed to create room');
+      }
       setCreating(false);
     }
   };
@@ -222,8 +232,17 @@ export default function HomePage() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
+          transition={{ delay: 0.25 }}
+          className="mt-8"
+        >
+          <AdBanner />
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
-          className="mt-auto pt-20 pb-6 flex flex-col items-center gap-4 text-center"
+          className="mt-auto pt-12 pb-6 flex flex-col items-center gap-4 text-center"
         >
           <div className="flex flex-wrap items-center justify-center gap-1.5 text-[10px] text-muted/40 hover:text-muted transition-colors">
             <span>made by</span>
