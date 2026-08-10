@@ -16,7 +16,7 @@ export function AdBanner() {
     <div className="flex justify-center w-full my-4 min-h-[100px]">
       <iframe 
         data-aa={adUnitId}
-        src={`https://ad.a-ads.com/${adUnitId}?size=320x100`}
+        src={`//ad.a-ads.com/${adUnitId}?size=320x100`}
         style={{ width: '320px', height: '100px', border: '0px', padding: 0, overflow: 'hidden', backgroundColor: 'transparent' }}
         title="A-Ads Banner"
         sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox allow-top-navigation"
