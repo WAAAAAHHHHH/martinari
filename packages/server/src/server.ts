@@ -6,6 +6,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { roomRoutes } from './routes/rooms.js';
 import { signalingRoutes } from './routes/signaling.js';
+import { statsRoutes } from './routes/stats.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -44,6 +45,7 @@ async function buildApp() {
   // ── Routes ────────────────────────────────────────────────────────────────
   await fastify.register(roomRoutes);
   await fastify.register(signalingRoutes);
+  await fastify.register(statsRoutes);
 
   // Serve static files from the client's dist folder
   const clientDist = path.join(__dirname, '../../client/dist');

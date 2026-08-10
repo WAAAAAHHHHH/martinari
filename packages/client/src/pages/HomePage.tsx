@@ -35,7 +35,24 @@ export default function HomePage() {
   const [error, setError] = useState('');
   const [creating, setCreating] = useState(false);
   const [joining, setJoining] = useState(false);
-  const [transfers, setTransfers] = useState(() => parseInt(localStorage.getItem('martin_totalTransfers') || '1432', 10));
+  const [transfers, setTransfers] = useState<number>(1437);
+
+  useEffect(() => {
+    fetch(`${API_BASE}/api/stats`)
+      .then(res => res.json())
+      .then(data => {
+        if (data && typeof data.totalTransfers === 'number') {
+          setTransfers(data.totalTransfers);
+        }
+      })
+      .catch(err => console.error('Failed to fetch stats', err));
+  }, []);
+
+  const incrementStats = () => {
+    // Optimistically update
+    setTransfers(prev => prev + 1);
+    fetch(`${API_BASE}/api/stats/increment`, { method: 'POST' }).catch(err => console.error('Failed to increment stats', err));
+  };
 
   const handleCodeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = e.target.value.toUpperCase().replace(/[^A-HJ-NP-Z2-9]/gi, '').slice(0, 6);
@@ -50,9 +67,8 @@ export default function HomePage() {
       const res = await fetch(`${API_BASE}/api/rooms`, { method: 'POST' });
       if (!res.ok) throw new Error('Failed to create room');
       const data = await res.json() as { code: string };
-      const nextTransfers = transfers + 1;
-      setTransfers(nextTransfers);
-      localStorage.setItem('martin_totalTransfers', nextTransfers.toString());
+      
+      incrementStats();
 
       navigate(`/room/${data.code}`);
     } catch {
@@ -71,9 +87,8 @@ export default function HomePage() {
       const res = await fetch(`${API_BASE}/api/rooms/${trimmed}`);
       const data = await res.json() as { exists?: boolean };
       if (!data.exists) { setError('Room not found'); setJoining(false); return; }
-      const nextTransfers = transfers + 1;
-      setTransfers(nextTransfers);
-      localStorage.setItem('martin_totalTransfers', nextTransfers.toString());
+      
+      incrementStats();
 
       navigate(`/room/${trimmed}`);
     } catch {
