@@ -20,6 +20,7 @@ export const translations = {
     home_room_code_placeholder: 'Room code',
     home_join_room: 'Join room',
     home_made_by: 'made by',
+    home_download_apk: 'Download Android App (.apk)',
     // RoomPage
     room_share_hint: 'Share the room code above — your peer can join from any browser.',
     room_error_title: 'Connection error',
@@ -125,6 +126,7 @@ export const translations = {
     home_room_code_placeholder: 'Oda kodu',
     home_join_room: 'Odaya katıl',
     home_made_by: 'yapan',
+    home_download_apk: 'Android Uygulamasını İndir (.apk)',
     // RoomPage
     room_share_hint: 'Oda kodunu paylaş — karşı taraf herhangi bir tarayıcıdan katılabilir.',
     room_error_title: 'Bağlantı hatası',

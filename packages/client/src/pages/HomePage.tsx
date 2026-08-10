@@ -240,6 +240,14 @@ export default function HomePage() {
               {t('home_join_room')}
             </Button>
           </div>
+
+          <div className="mt-6 pt-4 border-t border-border flex flex-col items-center justify-center">
+            <a href="/Martinari.apk" download className="w-full">
+              <Button variant="ghost" size="sm" fullWidth className="text-xs text-accent font-medium">
+                {t('home_download_apk')}
+              </Button>
+            </a>
+          </div>
         </motion.div>
 
         <div className="mt-8">
