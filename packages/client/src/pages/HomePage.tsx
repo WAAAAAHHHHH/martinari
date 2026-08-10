@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Plus, Hash, Instagram } from 'lucide-react';
+import { ArrowRight, Plus, Hash, Globe } from 'lucide-react';
 import { Button } from '../components/ui/Button.js';
 import { Input } from '../components/ui/Input.js';
 import { AdBanner } from '../components/AdBanner.js';
+import { useLocale } from '../i18n/useLocale.js';
 
 const API_BASE = import.meta.env.VITE_API_URL ?? '';
 
@@ -32,6 +33,7 @@ function Logo({ size = 32 }: { size?: number }) {
 
 export default function HomePage() {
   const navigate = useNavigate();
+  const { t, toggleLocale } = useLocale();
   const [code, setCode] = useState('');
   const [error, setError] = useState('');
   const [creating, setCreating] = useState(false);
@@ -129,10 +131,21 @@ export default function HomePage() {
             <Logo size={24} />
             <span className="font-semibold text-primary text-sm">Martinari</span>
           </div>
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer"
-            className="text-xs text-secondary hover:text-primary transition-colors">
-            GitHub
-          </a>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={toggleLocale}
+              id="btn-lang-toggle"
+              className="flex items-center gap-1.5 text-xs text-secondary hover:text-primary transition-colors px-2 py-1 rounded-md hover:bg-white/5"
+              title="Change language"
+            >
+              <Globe className="w-3.5 h-3.5" />
+              {t('lang_toggle')}
+            </button>
+            <a href="https://github.com/WAAAAAHHHHH/martinari" target="_blank" rel="noopener noreferrer"
+              className="text-xs text-secondary hover:text-primary transition-colors">
+              {t('nav_github')}
+            </a>
+          </div>
         </div>
       </nav>
 
@@ -144,13 +157,13 @@ export default function HomePage() {
           className="text-center mb-16"
         >          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-6">
             <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse shadow-[0_0_8px_rgba(59,130,246,0.6)]" />
-            <span className="text-xs font-medium text-secondary">Transfers did since the launch: {transfers.toLocaleString()} <span className="text-[10px] text-muted ml-1 font-normal">(it only updates every update)</span></span>
+            <span className="text-xs font-medium text-secondary">{t('home_badge')}: {transfers.toLocaleString()} <span className="text-[10px] text-muted ml-1 font-normal">{t('home_badge_note')}</span></span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-bold text-primary tracking-tight mb-4">
-            Share files instantly.
+            {t('home_h1')}
           </h1>
           <p className="text-secondary text-base max-w-lg mx-auto">
-            Direct browser-to-browser transfer using WebRTC. No servers, no accounts, no limits.
+            {t('home_subtitle')}
           </p>
         </motion.div>
 
@@ -169,19 +182,19 @@ export default function HomePage() {
             icon={<Plus className="w-4 h-4" />}
             onClick={handleCreate}
           >
-            Create new room
+            {t('home_create_room')}
           </Button>
 
           <div className="mt-3 flex justify-center">
             <Button variant="ghost" size="sm" className="text-xs" onClick={() => setShowAdvanced(!showAdvanced)}>
-              {showAdvanced ? 'Hide Options' : 'Advanced Options'}
+              {showAdvanced ? t('home_hide_options') : t('home_advanced_options')}
             </Button>
           </div>
           
           {showAdvanced && (
             <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} className="flex flex-col gap-3 mt-3 overflow-hidden">
               <Input
-                placeholder="Optional password"
+                placeholder={t('home_optional_password')}
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -193,20 +206,20 @@ export default function HomePage() {
                   onChange={(e) => setIsBroadcast(e.target.checked)}
                   className="rounded border-border bg-transparent text-primary focus:ring-1 focus:ring-primary/50"
                 />
-                Broadcast Mode (Only you can send files)
+                {t('home_broadcast_mode')}
               </label>
             </motion.div>
           )}
 
           <div className="my-6 flex items-center gap-4">
             <div className="flex-1 h-px bg-border" />
-            <span className="text-xs text-muted font-medium uppercase tracking-wider">Or join</span>
+            <span className="text-xs text-muted font-medium uppercase tracking-wider">{t('home_or_join')}</span>
             <div className="flex-1 h-px bg-border" />
           </div>
 
           <div className="flex flex-col gap-3">
             <Input
-              placeholder="Room code"
+              placeholder={t('home_room_code_placeholder')}
               value={code}
               onChange={handleCodeChange}
               onKeyDown={(e) => e.key === 'Enter' && handleJoin()}
@@ -224,7 +237,7 @@ export default function HomePage() {
               iconRight={<ArrowRight className="w-4 h-4" />}
               onClick={handleJoin}
             >
-              Join room
+              {t('home_join_room')}
             </Button>
           </div>
         </motion.div>
@@ -240,7 +253,7 @@ export default function HomePage() {
           className="mt-auto pt-12 pb-6 flex flex-col items-center gap-4 text-center"
         >
           <div className="flex flex-wrap items-center justify-center gap-1.5 text-[10px] text-muted/40 hover:text-muted transition-colors">
-            <span>made by</span>
+            <span>{t('home_made_by')}</span>
             {TEAM.map((member, i) => (
               <React.Fragment key={member.handle}>
                 <a href={member.url} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">

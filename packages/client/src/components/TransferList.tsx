@@ -4,6 +4,7 @@ import { Trash2, ArrowUp, ArrowDown } from 'lucide-react';
 import { TransferCard } from './TransferCard.js';
 import { Button } from './ui/Button.js';
 import type { FileTransfer } from '../types/index.js';
+import { useLocale } from '../i18n/useLocale.js';
 
 type FilterTab = 'all' | 'send' | 'receive';
 
@@ -17,6 +18,7 @@ interface TransferListProps {
 
 export function TransferList({ transfers, onCancel, onPause, onResume, onClear }: TransferListProps) {
   const [tab, setTab] = useState<FilterTab>('all');
+  const { t } = useLocale();
 
   const filtered = tab === 'all' ? transfers : transfers.filter((t) => t.direction === tab);
   const hasFinished = transfers.some((t) =>
@@ -34,9 +36,9 @@ export function TransferList({ transfers, onCancel, onPause, onResume, onClear }
   };
 
   const tabItems: { key: FilterTab; label: string; icon?: React.ReactNode; count?: number }[] = [
-    { key: 'all', label: 'All' },
-    { key: 'send', label: 'Sent', icon: <ArrowUp className="w-3 h-3" />, count: transfers.filter((t) => t.direction === 'send').length },
-    { key: 'receive', label: 'Received', icon: <ArrowDown className="w-3 h-3" />, count: transfers.filter((t) => t.direction === 'receive').length },
+    { key: 'all', label: t('transfer_all') },
+    { key: 'send', label: t('transfer_sent'), icon: <ArrowUp className="w-3 h-3" />, count: transfers.filter((t) => t.direction === 'send').length },
+    { key: 'receive', label: t('transfer_received'), icon: <ArrowDown className="w-3 h-3" />, count: transfers.filter((t) => t.direction === 'receive').length },
   ];
 
   return (
@@ -68,7 +70,7 @@ export function TransferList({ transfers, onCancel, onPause, onResume, onClear }
         </div>
         {hasFinished && (
           <Button variant="ghost" size="sm" icon={<Trash2 className="w-3.5 h-3.5" />} onClick={onClear} id="btn-clear">
-            Clear
+            {t('transfer_clear')}
           </Button>
         )}
       </div>
@@ -85,7 +87,7 @@ export function TransferList({ transfers, onCancel, onPause, onResume, onClear }
               {tab === 'send' ? '↑' : tab === 'receive' ? '↓' : '⇅'}
             </div>
             <p className="text-secondary text-sm">
-              {tab === 'all' ? 'No transfers yet' : tab === 'send' ? 'Nothing sent yet' : 'Nothing received yet'}
+              {tab === 'all' ? t('transfer_none') : tab === 'send' ? t('transfer_none_sent') : t('transfer_none_received')}
             </p>
           </motion.div>
         ) : (

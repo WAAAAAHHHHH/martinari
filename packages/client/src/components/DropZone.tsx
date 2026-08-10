@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Upload, FolderOpen } from 'lucide-react';
 import { useDropZone } from '../hooks/useDropZone.js';
 import { Button } from './ui/Button.js';
+import { useLocale } from '../i18n/useLocale.js';
 
 interface DropZoneProps {
   onFiles: (files: File[]) => void;
@@ -14,6 +15,7 @@ interface DropZoneProps {
 export function DropZone({ onFiles, disabled = false, hasRecipient = false, disabledMessage }: DropZoneProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const folderInputRef = useRef<HTMLInputElement>(null);
+  const { t } = useLocale();
 
   const { isDragging, onDragEnter, onDragOver, onDragLeave, onDrop } = useDropZone({ onFiles });
 
@@ -62,7 +64,7 @@ export function DropZone({ onFiles, disabled = false, hasRecipient = false, disa
               <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center">
                 <Upload className="w-7 h-7 text-white" strokeWidth={1.5} />
               </div>
-              <p className="text-primary font-semibold">Drop to send</p>
+              <p className="text-primary font-semibold">{t('dropzone_drop_to_send')}</p>
             </motion.div>
           ) : (
             <motion.div key="idle" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
@@ -72,19 +74,19 @@ export function DropZone({ onFiles, disabled = false, hasRecipient = false, disa
               </div>
               <div>
                 <p className="text-primary/80 font-medium text-sm mb-0.5">
-                  {disabled ? (disabledMessage || 'Waiting for someone to join...') : 'Drag & drop files here'}
+                  {disabled ? (disabledMessage || t('dropzone_waiting')) : t('dropzone_drag')}
                 </p>
-                {!disabled && <p className="text-muted text-xs">Images, videos, archives — any file type</p>}
+                {!disabled && <p className="text-muted text-xs">{t('dropzone_any_type')}</p>}
               </div>
               {!disabled && (
                 <div className="flex gap-2">
                   <Button variant="secondary" size="sm" icon={<Upload className="w-3.5 h-3.5" />}
                     onClick={() => fileInputRef.current?.click()} id="btn-browse-files">
-                    Browse files
+                    {t('dropzone_browse_files')}
                   </Button>
                   <Button variant="ghost" size="sm" icon={<FolderOpen className="w-3.5 h-3.5" />}
                     onClick={() => folderInputRef.current?.click()} id="btn-browse-folder">
-                    Folder
+                    {t('dropzone_folder')}
                   </Button>
                 </div>
               )}

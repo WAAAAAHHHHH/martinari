@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { RoomProvider, useRoomContext } from '../context/RoomContext.js';
@@ -6,22 +6,28 @@ import { RoomHeader } from '../components/RoomHeader.js';
 import { DropZone } from '../components/DropZone.js';
 import { PeerList } from '../components/PeerList.js';
 import { TransferList } from '../components/TransferList.js';
+import { FileStagingModal } from '../components/FileStagingModal.js';
 import { isValidRoomCode } from '../utils/validateCode.js';
 import { Button } from '../components/ui/Button.js';
 import { Input } from '../components/ui/Input.js';
 import { AdBanner } from '../components/AdBanner.js';
+import { useLocale } from '../i18n/useLocale.js';
 
 const API_BASE = import.meta.env.VITE_API_URL ?? '';
 
 function RoomPageInner({ code, password, creatorToken }: { code: string, password?: string, creatorToken?: string }) {
   const navigate = useNavigate();
+  const { t } = useLocale();
   const { state, joinRoom, leaveRoom, sendFiles, cancelTransfer, pauseTransfer, resumeTransfer, clearTransfers } =
     useRoomContext();
+
+  // ─── Staging state ───────────────────────────────────────────────────────
+  const [stagedFiles, setStagedFiles] = useState<File[] | null>(null);
 
   const hasRemotePeer = state.peers.some((p) => !p.isLocal);
   const isBroadcast = state.type === 'broadcast';
   const isDropDisabled = (!hasRemotePeer) || (isBroadcast && !state.isCreator);
-  const disabledMessage = isBroadcast && !state.isCreator ? 'Only the creator can send files in this broadcast room.' : undefined;
+  const disabledMessage = isBroadcast && !state.isCreator ? t('dropzone_broadcast_only') : undefined;
 
   useEffect(() => {
     let active = true;
@@ -37,11 +43,38 @@ function RoomPageInner({ code, password, creatorToken }: { code: string, passwor
   }, [code]);
 
   const handleLeave = () => { leaveRoom(); navigate('/'); };
-  const handleFiles = (files: File[]) => { if (hasRemotePeer) sendFiles(files); };
+
+  // When DropZone selects files, open staging modal instead of sending directly
+  const handleFilesStaged = (files: File[]) => {
+    if (hasRemotePeer && files.length > 0) {
+      setStagedFiles(files);
+    }
+  };
+
+  // User confirmed send from modal
+  const handleConfirmSend = async (files: File[]) => {
+    setStagedFiles(null);
+    await sendFiles(files);
+  };
+
+  // User updated the list from inside the modal (add/remove)
+  const handleUpdateStaged = (files: File[]) => {
+    setStagedFiles(files.length > 0 ? files : null);
+  };
 
   return (
     <div className="flex flex-col min-h-screen">
       <RoomHeader roomCode={state.code || code} connectionStatus={state.connectionStatus} onLeave={handleLeave} />
+
+      {/* File staging modal */}
+      {stagedFiles && (
+        <FileStagingModal
+          files={stagedFiles}
+          onSend={handleConfirmSend}
+          onClose={() => setStagedFiles(null)}
+          onAddMore={handleUpdateStaged}
+        />
+      )}
 
       <main className="flex-1 max-w-6xl mx-auto w-full px-4 sm:px-6 py-6">
         {/* Error banner */}
@@ -60,7 +93,7 @@ function RoomPageInner({ code, password, creatorToken }: { code: string, passwor
           <div className="flex flex-col gap-4">
             <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05 }}>
               <DropZone 
-                onFiles={handleFiles} 
+                onFiles={handleFilesStaged} 
                 disabled={isDropDisabled} 
                 hasRecipient={hasRemotePeer} 
                 disabledMessage={disabledMessage} 
@@ -77,7 +110,7 @@ function RoomPageInner({ code, password, creatorToken }: { code: string, passwor
                 className="card p-4 text-center"
               >
                 <p className="text-xs text-muted leading-relaxed">
-                  Share the room code above — your peer can join from any browser.
+                  {t('room_share_hint')}
                 </p>
               </motion.div>
             )}
@@ -112,6 +145,7 @@ function RoomPageInner({ code, password, creatorToken }: { code: string, passwor
 export default function RoomPage() {
   const { code } = useParams<{ code: string }>();
   const navigate = useNavigate();
+  const { t } = useLocale();
   const [isValidating, setIsValidating] = React.useState(true);
   const [isProtected, setIsProtected] = React.useState(false);
   const [passwordEntered, setPasswordEntered] = React.useState(false);
@@ -140,16 +174,16 @@ export default function RoomPage() {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen p-4">
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="card p-6 w-full max-w-sm flex flex-col gap-4">
-          <h2 className="text-xl font-semibold text-primary">Room Password</h2>
-          <p className="text-sm text-secondary">This room is protected by a password.</p>
+          <h2 className="text-xl font-semibold text-primary">{t('room_password_title')}</h2>
+          <p className="text-sm text-secondary">{t('room_password_subtitle')}</p>
           <Input
             type="password"
-            placeholder="Enter password"
+            placeholder={t('room_password_placeholder')}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && setPasswordEntered(true)}
           />
-          <Button variant="primary" onClick={() => setPasswordEntered(true)}>Join Room</Button>
+          <Button variant="primary" onClick={() => setPasswordEntered(true)}>{t('room_join_btn')}</Button>
         </motion.div>
       </div>
     );

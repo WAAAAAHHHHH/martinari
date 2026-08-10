@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Copy, Check, LogOut, Loader2 } from 'lucide-react';
+import { Copy, Check, LogOut, Loader2, Globe } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from './ui/Button.js';
 import { Badge } from './ui/Badge.js';
 import type { RoomConnectionStatus } from '../types/index.js';
+import { useLocale } from '../i18n/useLocale.js';
 
 interface RoomHeaderProps {
   roomCode: string;
@@ -14,6 +15,7 @@ interface RoomHeaderProps {
 
 export function RoomHeader({ roomCode, connectionStatus, onLeave }: RoomHeaderProps) {
   const [copied, setCopied] = useState(false);
+  const { t, toggleLocale } = useLocale();
 
   const copyCode = async () => {
     try {
@@ -25,10 +27,10 @@ export function RoomHeader({ roomCode, connectionStatus, onLeave }: RoomHeaderPr
 
   const statusBadge = () => {
     switch (connectionStatus) {
-      case 'connected': return <Badge variant="success" dot pulse>Connected</Badge>;
-      case 'connecting': return <Badge variant="gold" dot>Connecting</Badge>;
-      case 'reconnecting': return <Badge variant="gold" dot pulse>Reconnecting</Badge>;
-      case 'disconnected': case 'error': return <Badge variant="danger" dot>Disconnected</Badge>;
+      case 'connected': return <Badge variant="success" dot pulse>{t('header_status_connected')}</Badge>;
+      case 'connecting': return <Badge variant="gold" dot>{t('header_status_connecting')}</Badge>;
+      case 'reconnecting': return <Badge variant="gold" dot pulse>{t('header_status_reconnecting')}</Badge>;
+      case 'disconnected': case 'error': return <Badge variant="danger" dot>{t('header_status_error')}</Badge>;
       default: return null;
     }
   };
@@ -71,9 +73,18 @@ export function RoomHeader({ roomCode, connectionStatus, onLeave }: RoomHeaderPr
             : <span className="w-2 h-2 rounded-full bg-danger inline-block" />}
         </div>
 
+        <button
+          onClick={toggleLocale}
+          id="btn-lang-toggle-room"
+          className="flex items-center gap-1 text-xs text-secondary hover:text-primary transition-colors px-1.5 py-1 rounded-md hover:bg-white/5"
+          title="Change language"
+        >
+          <Globe className="w-3.5 h-3.5" />
+          <span className="hidden sm:inline">{t('lang_toggle')}</span>
+        </button>
         <Button variant="ghost" size="sm" icon={<LogOut className="w-3.5 h-3.5" />} onClick={onLeave}
           id="btn-leave-room" className="hidden sm:inline-flex">
-          Leave
+          {t('header_leave')}
         </Button>
         <Button variant="ghost" size="sm" onClick={onLeave} id="btn-leave-mobile" className="sm:hidden !px-2">
           <LogOut className="w-4 h-4" />

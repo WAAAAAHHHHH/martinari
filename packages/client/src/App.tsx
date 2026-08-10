@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { LocaleProvider } from './i18n/useLocale.js';
 
 const HomePage = lazy(() => import('./pages/HomePage.js'));
 const RoomPage = lazy(() => import('./pages/RoomPage.js'));
@@ -24,17 +25,19 @@ function Loading() {
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <Suspense fallback={<Loading />}>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/room/:code" element={<RoomPage />} />
-          <Route path="/terms" element={<TermsPage />} />
-          <Route path="/privacy" element={<PrivacyPage />} />
-          <Route path="/acceptable-use" element={<AcceptableUsePage />} />
-          <Route path="*" element={<ErrorPage />} />
-        </Routes>
-      </Suspense>
-    </BrowserRouter>
+    <LocaleProvider>
+      <BrowserRouter>
+        <Suspense fallback={<Loading />}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/room/:code" element={<RoomPage />} />
+            <Route path="/terms" element={<TermsPage />} />
+            <Route path="/privacy" element={<PrivacyPage />} />
+            <Route path="/acceptable-use" element={<AcceptableUsePage />} />
+            <Route path="*" element={<ErrorPage />} />
+          </Routes>
+        </Suspense>
+      </BrowserRouter>
+    </LocaleProvider>
   );
 }
