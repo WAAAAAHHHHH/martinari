@@ -7,21 +7,26 @@ import { DropZone } from '../components/DropZone.js';
 import { PeerList } from '../components/PeerList.js';
 import { TransferList } from '../components/TransferList.js';
 import { isValidRoomCode } from '../utils/validateCode.js';
+import { Button } from '../components/ui/Button.js';
+import { Input } from '../components/ui/Input.js';
 
 const API_BASE = import.meta.env.VITE_API_URL ?? '';
 
-function RoomPageInner({ code }: { code: string }) {
+function RoomPageInner({ code, password, creatorToken }: { code: string, password?: string, creatorToken?: string }) {
   const navigate = useNavigate();
   const { state, joinRoom, leaveRoom, sendFiles, cancelTransfer, pauseTransfer, resumeTransfer, clearTransfers } =
     useRoomContext();
 
   const hasRemotePeer = state.peers.some((p) => !p.isLocal);
+  const isBroadcast = state.type === 'broadcast';
+  const isDropDisabled = (!hasRemotePeer) || (isBroadcast && !state.isCreator);
+  const disabledMessage = isBroadcast && !state.isCreator ? 'Only the creator can send files in this broadcast room.' : undefined;
 
   useEffect(() => {
     let active = true;
     // StrictMode calls effect twice — only join if still mounted
     const t = setTimeout(() => {
-      if (active) joinRoom(code);
+      if (active) joinRoom(code, password, creatorToken);
     }, 0);
     return () => {
       active = false;
@@ -53,7 +58,12 @@ function RoomPageInner({ code }: { code: string }) {
           {/* Left */}
           <div className="flex flex-col gap-4">
             <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05 }}>
-              <DropZone onFiles={handleFiles} disabled={!hasRemotePeer} hasRecipient={hasRemotePeer} />
+              <DropZone 
+                onFiles={handleFiles} 
+                disabled={isDropDisabled} 
+                hasRecipient={hasRemotePeer} 
+                disabledMessage={disabledMessage} 
+              />
             </motion.div>
             <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
               <PeerList peers={state.peers} />
@@ -97,21 +107,54 @@ function RoomPageInner({ code }: { code: string }) {
 export default function RoomPage() {
   const { code } = useParams<{ code: string }>();
   const navigate = useNavigate();
+  const [isValidating, setIsValidating] = React.useState(true);
+  const [isProtected, setIsProtected] = React.useState(false);
+  const [passwordEntered, setPasswordEntered] = React.useState(false);
+  const [password, setPassword] = React.useState('');
 
   useEffect(() => {
     if (!code || !isValidRoomCode(code)) { navigate('/', { replace: true }); return; }
     const upper = code.toUpperCase();
     fetch(`${API_BASE}/api/rooms/${upper}`)
       .then((r) => r.json())
-      .then((d: { exists?: boolean }) => { if (!d.exists) navigate('/?error=not_found', { replace: true }); })
-      .catch(() => { /* proceed */ });
+      .then((d: { exists?: boolean; isPasswordProtected?: boolean }) => { 
+        if (!d.exists) { navigate('/?error=not_found', { replace: true }); return; }
+        if (d.isPasswordProtected) {
+          setIsProtected(true);
+        } else {
+          setPasswordEntered(true);
+        }
+        setIsValidating(false);
+      })
+      .catch(() => { setIsValidating(false); setPasswordEntered(true); });
   }, [code, navigate]);
 
-  if (!code || !isValidRoomCode(code)) return null;
+  if (!code || !isValidRoomCode(code) || isValidating) return null;
+
+  if (isProtected && !passwordEntered) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-screen p-4">
+        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="card p-6 w-full max-w-sm flex flex-col gap-4">
+          <h2 className="text-xl font-semibold text-primary">Room Password</h2>
+          <p className="text-sm text-secondary">This room is protected by a password.</p>
+          <Input
+            type="password"
+            placeholder="Enter password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            onKeyDown={(e) => e.key === 'Enter' && setPasswordEntered(true)}
+          />
+          <Button variant="primary" onClick={() => setPasswordEntered(true)}>Join Room</Button>
+        </motion.div>
+      </div>
+    );
+  }
+
+  const creatorToken = sessionStorage.getItem(`creatorToken_${code.toUpperCase()}`) || undefined;
 
   return (
     <RoomProvider>
-      <RoomPageInner code={code.toUpperCase()} />
+      <RoomPageInner code={code.toUpperCase()} password={password} creatorToken={creatorToken} />
     </RoomProvider>
   );
 }

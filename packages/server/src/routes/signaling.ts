@@ -17,6 +17,8 @@ const JoinSchema = z.object({
   type: z.literal('join'),
   roomCode: z.string(),
   peerId: z.string().min(1).max(64),
+  password: z.string().optional(),
+  creatorToken: z.string().optional(),
 });
 
 const OfferSchema = z.object({
@@ -97,7 +99,7 @@ export async function signalingRoutes(fastify: FastifyInstance): Promise<void> {
           return;
         }
 
-        const { roomCode, peerId } = result.data;
+        const { roomCode, peerId, password, creatorToken } = result.data;
         const upperCode = roomCode.toUpperCase();
 
         if (!isValidRoomCode(upperCode)) {
@@ -110,7 +112,7 @@ export async function signalingRoutes(fastify: FastifyInstance): Promise<void> {
           return;
         }
 
-        const joinResult = joinRoom(upperCode, peerId, socket, ip);
+        const joinResult = joinRoom(upperCode, peerId, socket, ip, password, creatorToken);
         if (!joinResult.success) {
           sendError(joinResult.error ?? 'JOIN_FAILED', 'Failed to join room.');
           return;
@@ -124,6 +126,9 @@ export async function signalingRoutes(fastify: FastifyInstance): Promise<void> {
           type: 'room-state',
           roomCode: upperCode,
           peers: joinResult.existingPeers,
+          type_: joinResult.room!.type,
+          creatorPeerId: joinResult.room!.creatorPeerId,
+          isPasswordProtected: !!joinResult.room!.password,
         });
 
         // Tell all other peers that this peer joined

@@ -16,6 +16,8 @@ export interface JoinMessage {
   type: 'join';
   roomCode: string;
   peerId: string;
+  password?: string;
+  creatorToken?: string;
 }
 
 export interface OfferMessage {
@@ -55,6 +57,9 @@ export interface RoomStateMessage {
   type: 'room-state';
   roomCode: string;
   peers: string[];
+  type_: 'normal' | 'broadcast';
+  creatorPeerId?: string;
+  isPasswordProtected: boolean;
 }
 
 export interface ErrorMessage {
@@ -142,6 +147,10 @@ export interface RoomState {
   transfers: FileTransfer[];
   localPeerId: string;
   errorMessage?: string;
+  type: 'normal' | 'broadcast';
+  creatorPeerId?: string;
+  isCreator: boolean;
+  isPasswordProtected: boolean;
 }
 
 // ─── Transfer Protocol (sent over DataChannel) ────────────────────────────────

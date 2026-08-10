@@ -36,6 +36,9 @@ export default function HomePage() {
   const [creating, setCreating] = useState(false);
   const [joining, setJoining] = useState(false);
   const [transfers, setTransfers] = useState<number>(1437);
+  const [password, setPassword] = useState('');
+  const [isBroadcast, setIsBroadcast] = useState(false);
+  const [showAdvanced, setShowAdvanced] = useState(false);
 
   useEffect(() => {
     fetch(`${API_BASE}/api/stats`)
@@ -64,9 +67,21 @@ export default function HomePage() {
     setCreating(true);
     setError('');
     try {
-      const res = await fetch(`${API_BASE}/api/rooms`, { method: 'POST' });
+      const body = {
+        password: password.trim() || undefined,
+        type: isBroadcast ? 'broadcast' : 'normal',
+      };
+      const res = await fetch(`${API_BASE}/api/rooms`, { 
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      });
       if (!res.ok) throw new Error('Failed to create room');
-      const data = await res.json() as { code: string };
+      const data = await res.json() as { code: string; creatorToken?: string };
+      
+      if (data.creatorToken) {
+        sessionStorage.setItem(`creatorToken_${data.code}`, data.creatorToken);
+      }
       
       incrementStats();
 
@@ -146,6 +161,32 @@ export default function HomePage() {
           >
             Create new room
           </Button>
+
+          <div className="mt-3 flex justify-center">
+            <Button variant="ghost" size="sm" className="text-xs" onClick={() => setShowAdvanced(!showAdvanced)}>
+              {showAdvanced ? 'Hide Options' : 'Advanced Options'}
+            </Button>
+          </div>
+          
+          {showAdvanced && (
+            <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} className="flex flex-col gap-3 mt-3 overflow-hidden">
+              <Input
+                placeholder="Optional password"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <label className="flex items-center gap-2 text-sm text-secondary cursor-pointer select-none">
+                <input
+                  type="checkbox"
+                  checked={isBroadcast}
+                  onChange={(e) => setIsBroadcast(e.target.checked)}
+                  className="rounded border-border bg-transparent text-primary focus:ring-1 focus:ring-primary/50"
+                />
+                Broadcast Mode (Only you can send files)
+              </label>
+            </motion.div>
+          )}
 
           <div className="my-6 flex items-center gap-4">
             <div className="flex-1 h-px bg-border" />

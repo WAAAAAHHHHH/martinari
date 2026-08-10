@@ -37,7 +37,9 @@ export function checkRateLimit(ip: string): boolean {
 
 // ─── Room CRUD ───────────────────────────────────────────────────────────────
 
-export function createRoom(): { code: string; room: Room } {
+import crypto from 'node:crypto';
+
+export function createRoom(password?: string, type: 'normal' | 'broadcast' = 'normal'): { code: string; room: Room } {
   // Ensure uniqueness
   let code = generateRoomCode();
   let attempts = 0;
@@ -46,10 +48,15 @@ export function createRoom(): { code: string; room: Room } {
     attempts++;
   }
 
+  const creatorToken = crypto.randomUUID();
+
   const room: Room = {
     code,
     peers: new Map(),
     createdAt: Date.now(),
+    password,
+    type,
+    creatorToken,
   };
 
   rooms.set(code, room);
@@ -74,7 +81,9 @@ export function joinRoom(
   code: string,
   peerId: string,
   socket: WebSocket,
-  ip: string
+  ip: string,
+  password?: string,
+  creatorToken?: string
 ): { success: boolean; room?: Room; existingPeers?: string[]; error?: string } {
   const normalizedCode = code.toUpperCase();
   const room = rooms.get(normalizedCode);
@@ -83,12 +92,20 @@ export function joinRoom(
     return { success: false, error: 'ROOM_NOT_FOUND' };
   }
 
+  if (room.password && room.password !== password) {
+    return { success: false, error: 'INVALID_PASSWORD' };
+  }
+
   if (room.peers.size >= MAX_PEERS_PER_ROOM) {
     return { success: false, error: 'ROOM_FULL' };
   }
 
   if (room.peers.has(peerId)) {
     return { success: false, error: 'PEER_ALREADY_IN_ROOM' };
+  }
+
+  if (creatorToken && creatorToken === room.creatorToken) {
+    room.creatorPeerId = peerId;
   }
 
   // Cancel any pending cleanup for this room

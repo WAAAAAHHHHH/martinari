@@ -20,6 +20,8 @@ export interface JoinMessage extends BaseMessage {
   type: 'join';
   roomCode: string;
   peerId: string;
+  password?: string;
+  creatorToken?: string;
 }
 
 // Plain SDP/ICE object types (avoid browser-only RTCSessionDescriptionInit etc.)
@@ -71,6 +73,9 @@ export interface RoomStateMessage extends BaseMessage {
   type: 'room-state';
   roomCode: string;
   peers: string[]; // list of peer IDs already in room
+  type_: 'normal' | 'broadcast'; // Using type_ to avoid collision with 'type' field from BaseMessage
+  creatorPeerId?: string;
+  isPasswordProtected: boolean;
 }
 
 export interface ErrorMessage extends BaseMessage {
@@ -111,6 +116,10 @@ export interface Room {
   code: string;
   peers: Map<string, Peer>;
   createdAt: number;
+  password?: string;
+  type: 'normal' | 'broadcast';
+  creatorToken?: string;
+  creatorPeerId?: string;
 }
 
 export interface RateLimitEntry {

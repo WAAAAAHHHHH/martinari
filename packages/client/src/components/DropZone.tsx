@@ -8,9 +8,10 @@ interface DropZoneProps {
   onFiles: (files: File[]) => void;
   disabled?: boolean;
   hasRecipient?: boolean;
+  disabledMessage?: string;
 }
 
-export function DropZone({ onFiles, disabled = false, hasRecipient = false }: DropZoneProps) {
+export function DropZone({ onFiles, disabled = false, hasRecipient = false, disabledMessage }: DropZoneProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const folderInputRef = useRef<HTMLInputElement>(null);
 
@@ -71,7 +72,7 @@ export function DropZone({ onFiles, disabled = false, hasRecipient = false }: Dr
               </div>
               <div>
                 <p className="text-primary/80 font-medium text-sm mb-0.5">
-                  {disabled ? 'Waiting for someone to join...' : 'Drag & drop files here'}
+                  {disabled ? (disabledMessage || 'Waiting for someone to join...') : 'Drag & drop files here'}
                 </p>
                 {!disabled && <p className="text-muted text-xs">Images, videos, archives — any file type</p>}
               </div>
