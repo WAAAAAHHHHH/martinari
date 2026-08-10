@@ -158,11 +158,59 @@ function RoomPageInner({ code, password, creatorToken }: { code: string, passwor
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2 }}
-                className="card p-4 text-center"
+                className="card p-4 text-center flex flex-col gap-3"
               >
                 <p className="text-xs text-muted leading-relaxed">
                   {t('room_share_hint')}
                 </p>
+                <div className="flex flex-col gap-2 mt-1">
+                  {/* WhatsApp button */}
+                  <a
+                    href={`https://wa.me/?text=${encodeURIComponent(t('room_share_message') + `${window.location.origin}/room/${code}`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl text-xs font-semibold bg-[#25D366]/10 text-[#25D366] hover:bg-[#25D366]/20 transition-all border border-[#25D366]/20"
+                  >
+                    <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-11.507c-.124-.208-.464-.33-.978-.588-.514-.258-3.04-1.502-3.515-1.673-.475-.171-.822-.258-1.169.258-.347.515-1.345 1.672-1.649 2.018-.303.344-.607.387-1.12.129-.514-.258-2.172-.8-4.137-2.555-1.53-1.366-2.563-3.053-2.863-3.568-.3-.515-.032-.793.226-1.05.232-.23.514-.599.771-.899.258-.3.343-.515.514-.859.172-.343.086-.644-.043-.901-.129-.258-1.169-2.813-1.602-3.854-.423-1.017-.852-.876-1.169-.893-.303-.016-.65-.017-1-.017-.347 0-.912.13-1.389.654-.477.524-1.822 1.782-1.822 4.347 0 2.565 1.864 5.044 2.123 5.387.259.343 3.669 5.602 8.89 7.857 1.242.536 2.212.856 2.969 1.096 1.248.396 2.384.341 3.282.206.997-.15 3.04-1.242 3.47-2.443.43-1.202.43-2.233.3-2.447z" />
+                    </svg>
+                    {t('room_share_whatsapp')}
+                  </a>
+                  
+                  {/* Share / Copy Link button */}
+                  <button
+                    onClick={async () => {
+                      const shareUrl = `${window.location.origin}/room/${code}`;
+                      const shareText = t('room_share_message');
+                      if (navigator.share) {
+                        try {
+                          await navigator.share({
+                            title: 'Martinari P2P Room',
+                            text: shareText,
+                            url: shareUrl,
+                          });
+                        } catch (err) { /* ignore cancel */ }
+                      } else {
+                        try {
+                          await navigator.clipboard.writeText(`${shareText}${shareUrl}`);
+                          alert(t('room_share_copied'));
+                        } catch (err) {
+                          console.error(err);
+                        }
+                      }
+                    }}
+                    className="flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl text-xs font-semibold bg-white/5 text-primary hover:bg-white/10 transition-all border border-border"
+                  >
+                    <svg className="w-3.5 h-3.5 fill-none stroke-current" viewBox="0 0 24 24" strokeWidth="2">
+                      <circle cx="18" cy="5" r="3"/>
+                      <circle cx="6" cy="12" r="3"/>
+                      <circle cx="18" cy="19" r="3"/>
+                      <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+                      <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+                    </svg>
+                    {t('room_share_native')}
+                  </button>
+                </div>
               </motion.div>
             )}
             

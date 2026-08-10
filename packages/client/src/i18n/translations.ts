@@ -99,6 +99,11 @@ export const translations = {
     completed_subtitle: 'The transfer has completed successfully.',
     completed_save: 'Save File',
     completed_close: 'Close',
+    // Sharing
+    room_share_whatsapp: 'Share via WhatsApp',
+    room_share_native: 'Share Room Link',
+    room_share_message: 'Join my secure P2P file sharing room on Martinari: ',
+    room_share_copied: 'Room link copied to clipboard!',
   },
   tr: {
     // Nav
@@ -196,6 +201,11 @@ export const translations = {
     completed_subtitle: 'Transfer başarıyla tamamlandı.',
     completed_save: 'Dosyayı Kaydet',
     completed_close: 'Kapat',
+    // Sharing
+    room_share_whatsapp: 'WhatsApp ile Paylaş',
+    room_share_native: 'Oda Linkini Paylaş',
+    room_share_message: 'Martinari\'deki güvenli P2P dosya paylaşım odama katıl: ',
+    room_share_copied: 'Oda linki panoya kopyalandı!',
   },
 } as const;
 
