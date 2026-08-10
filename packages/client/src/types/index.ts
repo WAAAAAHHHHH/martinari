@@ -104,6 +104,7 @@ export interface FileTransfer {
   startedAt: number;
   completedAt?: number;
   error?: string;
+  thumbnail?: string; // base64 preview image
   // For receiving: accumulate chunks here
   objectUrl?: string; // download URL once complete
 }
@@ -152,6 +153,7 @@ export interface TransferMetadata {
   fileSize: number;
   fileType: string;
   totalChunks: number;
+  thumbnail?: string;
 }
 
 export interface TransferChunk {

@@ -62,8 +62,12 @@ export function TransferCard({ transfer, onCancel, onPause, onResume, onDownload
     >
       <div className="flex items-start gap-3">
         {/* File icon */}
-        <div className="flex-shrink-0 w-9 h-9 rounded-xl bg-bg-elevated border border-border flex items-center justify-center text-base leading-none select-none">
-          {getFileEmoji(transfer.fileType, transfer.fileName)}
+        <div className="flex-shrink-0 w-9 h-9 rounded-xl bg-bg-elevated border border-border flex items-center justify-center text-base leading-none select-none overflow-hidden">
+          {transfer.thumbnail ? (
+            <img src={transfer.thumbnail} alt="" className="w-full h-full object-cover" />
+          ) : (
+            getFileEmoji(transfer.fileType, transfer.fileName)
+          )}
         </div>
 
         {/* Info */}

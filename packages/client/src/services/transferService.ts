@@ -1,4 +1,5 @@
 import { nanoid } from 'nanoid';
+import { generateThumbnail } from '../utils/thumbnail.js';
 import type { PeerService } from './peerService.js';
 import type {
   FileTransfer,
@@ -63,6 +64,7 @@ export class TransferService {
   private async sendFile(file: File, peerId: string, peerLabel: string): Promise<void> {
     const fileId = nanoid();
     const totalChunks = Math.ceil(file.size / CHUNK_SIZE);
+    const thumbnail = await generateThumbnail(file);
 
     const transfer: FileTransfer = {
       id: nanoid(),
@@ -78,6 +80,7 @@ export class TransferService {
       speed: 0,
       eta: -1,
       startedAt: Date.now(),
+      thumbnail,
     };
 
     this.transfers.set(transfer.id, transfer);
@@ -104,6 +107,7 @@ export class TransferService {
       fileSize: file.size,
       fileType: file.type || 'application/octet-stream',
       totalChunks,
+      thumbnail,
     };
 
     this.peerService.sendToPeer(peerId, metadata);
@@ -234,6 +238,7 @@ export class TransferService {
       speed: 0,
       eta: -1,
       startedAt: Date.now(),
+      thumbnail: meta.thumbnail,
     };
 
     this.transfers.set(transfer.id, transfer);
