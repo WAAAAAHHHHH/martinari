@@ -161,52 +161,57 @@ export function RoomProvider({ children }: { children: React.ReactNode }) {
       const ps = peerServiceRef.current;
       if (!ps) return;
 
-      if (msg.type === 'room-state') {
-        dispatch({ 
-          type: 'SET_ROOM_STATE', 
-          roomType: msg.type_, 
-          creatorPeerId: msg.creatorPeerId, 
-          isPasswordProtected: msg.isPasswordProtected 
-        });
-        // Connect to each existing peer
-        for (const peerId of msg.peers) {
-          if (peerId === localPeerIdRef.current) continue;
+      try {
+        if (msg.type === 'room-state') {
+          dispatch({ 
+            type: 'SET_ROOM_STATE', 
+            roomType: msg.type_, 
+            creatorPeerId: msg.creatorPeerId, 
+            isPasswordProtected: msg.isPasswordProtected 
+          });
+          // Connect to each existing peer
+          for (const peerId of msg.peers) {
+            if (peerId === localPeerIdRef.current) continue;
+            const label = getPeerLabel(false);
+            dispatch({
+              type: 'ADD_PEER',
+              peer: {
+                id: peerId,
+                label,
+                isLocal: false,
+                connectionStatus: 'connecting',
+                joinedAt: Date.now(),
+              },
+            });
+            await ps.initiateConnection(peerId);
+          }
+        } else if (msg.type === 'user-joined') {
           const label = getPeerLabel(false);
           dispatch({
             type: 'ADD_PEER',
             peer: {
-              id: peerId,
+              id: msg.peerId,
               label,
               isLocal: false,
               connectionStatus: 'connecting',
               joinedAt: Date.now(),
             },
           });
-          await ps.initiateConnection(peerId);
+        } else if (msg.type === 'user-left') {
+          ps.closePeer(msg.peerId);
+          dispatch({ type: 'REMOVE_PEER', peerId: msg.peerId });
+        } else if (msg.type === 'offer') {
+          await ps.handleOffer(msg.from, msg.sdp);
+        } else if (msg.type === 'answer') {
+          await ps.handleAnswer(msg.from, msg.sdp);
+        } else if (msg.type === 'ice-candidate') {
+          await ps.handleIceCandidate(msg.from, msg.candidate);
+        } else if (msg.type === 'error') {
+          dispatch({ type: 'SET_ERROR', message: msg.message });
         }
-      } else if (msg.type === 'user-joined') {
-        const label = getPeerLabel(false);
-        dispatch({
-          type: 'ADD_PEER',
-          peer: {
-            id: msg.peerId,
-            label,
-            isLocal: false,
-            connectionStatus: 'connecting',
-            joinedAt: Date.now(),
-          },
-        });
-      } else if (msg.type === 'user-left') {
-        ps.closePeer(msg.peerId);
-        dispatch({ type: 'REMOVE_PEER', peerId: msg.peerId });
-      } else if (msg.type === 'offer') {
-        await ps.handleOffer(msg.from, msg.sdp);
-      } else if (msg.type === 'answer') {
-        await ps.handleAnswer(msg.from, msg.sdp);
-      } else if (msg.type === 'ice-candidate') {
-        await ps.handleIceCandidate(msg.from, msg.candidate);
-      } else if (msg.type === 'error') {
-        dispatch({ type: 'SET_ERROR', message: msg.message });
+      } catch (err: any) {
+        console.error('Error handling signaling message:', err);
+        dispatch({ type: 'SET_ERROR', message: err.message || 'P2P Connection failed' });
       }
     },
     []
@@ -221,6 +226,11 @@ export function RoomProvider({ children }: { children: React.ReactNode }) {
       localPeerIdRef.current = localPeerId;
       roomCodeRef.current = upperCode;
       peerCounter = 0; // reset peer numbering per room
+
+      if (typeof window === 'undefined' || !window.RTCPeerConnection) {
+        dispatch({ type: 'SET_ERROR', message: 'WebRTC is not supported on this browser/device. Please try another browser.' });
+        return;
+      }
 
       dispatch({ type: 'SET_ROOM', code: upperCode, localPeerId });
       dispatch({ type: 'SET_STATUS', status: 'connecting' });

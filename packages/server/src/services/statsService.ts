@@ -18,7 +18,7 @@ if (process.env.REDIS_URL) {
   }
 }
 
-let localTotalTransfers = 1711;
+let localTotalTransfers = 2402;
 let localInitialized = false;
 
 function initLocalFallback() {
@@ -44,12 +44,11 @@ export async function getTotalTransfers(): Promise<number> {
     try {
       const val = await redis.get('totalTransfers');
       if (val) return parseInt(val, 10);
-      // Initialize if empty
-      await redis.set('totalTransfers', 1711);
-      return 1711;
+      await redis.set('totalTransfers', 2402);
+      return 2402;
     } catch (err) {
       console.error('Redis get error', err);
-      return 1711;
+      return 2402;
     }
   } else {
     initLocalFallback();
@@ -64,7 +63,7 @@ export async function incrementTotalTransfers(): Promise<number> {
       return val;
     } catch (err) {
       console.error('Redis incr error', err);
-      return 1711;
+      return 2402;
     }
   } else {
     initLocalFallback();

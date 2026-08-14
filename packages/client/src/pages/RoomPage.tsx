@@ -281,6 +281,20 @@ function RoomPageInner({ code, password, creatorToken }: { code: string, passwor
   );
 }
 
+function Loading({ text }: { text: string }) {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-[#0F1115]">
+      <div className="flex flex-col items-center gap-3 text-secondary animate-pulse-slow">
+        <svg className="w-8 h-8 animate-spin text-white/70" fill="none" viewBox="0 0 24 24">
+          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+        </svg>
+        <span className="text-sm font-medium">{text}</span>
+      </div>
+    </div>
+  );
+}
+
 export default function RoomPage() {
   const { code } = useParams<{ code: string }>();
   const navigate = useNavigate();
@@ -307,7 +321,9 @@ export default function RoomPage() {
       .catch(() => { setIsValidating(false); setPasswordEntered(true); });
   }, [code, navigate]);
 
-  if (!code || !isValidRoomCode(code) || isValidating) return null;
+  if (!code || !isValidRoomCode(code) || isValidating) {
+    return <Loading text={t('header_status_connecting')} />;
+  }
 
   if (isProtected && !passwordEntered) {
     return (

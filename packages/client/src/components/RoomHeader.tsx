@@ -36,7 +36,7 @@ export function RoomHeader({ roomCode, connectionStatus, onLeave }: RoomHeaderPr
   };
 
   return (
-    <header className="bg-bg-elevated/80 backdrop-blur-md border-b border-border sticky top-0 z-10">
+    <header className="bg-bg-elevated border-b border-border sticky top-0 z-10">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 h-14 flex items-center gap-4">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2.5 hover:opacity-80 transition-opacity flex-shrink-0" id="header-logo">

@@ -38,7 +38,7 @@ export default function HomePage() {
   const [error, setError] = useState('');
   const [creating, setCreating] = useState(false);
   const [joining, setJoining] = useState(false);
-  const [transfers, setTransfers] = useState<number>(1711);
+  const [transfers, setTransfers] = useState<number>(2402);
   const [password, setPassword] = useState('');
   const [isBroadcast, setIsBroadcast] = useState(false);
   const [showAdvanced, setShowAdvanced] = useState(false);
