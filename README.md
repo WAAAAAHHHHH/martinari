@@ -43,7 +43,8 @@ npm run build
 Browser A ──WebSocket──► Server (signaling only)
 Browser A ◄──WebSocket── Server
 Browser A ◄──────────────────────────── WebRTC DataChannel ──► Browser B
-                              (files travel here, never via server)
+                              (files travel here, 
+                              never via server)
 ```
 
 - **Server**: Fastify + WebSocket — creates rooms, routes SDP/ICE, never stores files
