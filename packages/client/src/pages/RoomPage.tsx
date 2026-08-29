@@ -14,6 +14,8 @@ import { Button } from '../components/ui/Button.js';
 import { Input } from '../components/ui/Input.js';
 import { AdBanner } from '../components/AdBanner.js';
 import { useLocale } from '../i18n/useLocale.js';
+import { QRCodeSVG } from 'qrcode.react';
+import { playSuccessSound } from '../utils/audio.js';
 
 const API_BASE = import.meta.env.VITE_API_URL ?? '';
 
@@ -41,6 +43,7 @@ function RoomPageInner({ code, password, creatorToken }: { code: string, passwor
       (t) => t.direction === 'receive' && t.status === 'completed' && t.objectUrl && !completedPrompts.includes(t.id)
     );
     if (completedReceive) {
+      playSuccessSound();
       setCompletedTransferToPrompt(completedReceive);
       setCompletedPrompts((prev) => [...prev, completedReceive.id]);
     }
@@ -252,6 +255,26 @@ function RoomPageInner({ code, password, creatorToken }: { code: string, passwor
                 </div>
               </motion.div>
             )}
+
+            {/* QR Code for Quick Join */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mt-4 p-4 rounded-xl border border-dashed border-border bg-bg-elevated/50 flex flex-col items-center justify-center gap-3"
+            >
+              <p className="text-sm font-semibold text-secondary text-center">
+                Scan to join
+              </p>
+              <div className="bg-white p-2 rounded-lg">
+                <QRCodeSVG 
+                  value={`${window.location.origin}/room/${code}`} 
+                  size={120} 
+                  bgColor={"#ffffff"} 
+                  fgColor={"#000000"} 
+                  level={"L"} 
+                />
+              </div>
+            </motion.div>
             
             <div className="mt-2">
               <AdBanner />
