@@ -5,7 +5,7 @@ export function AdBanner() {
   return (
     <div className="flex flex-col items-center justify-center p-4 border border-dashed border-border rounded-xl bg-bg-elevated/50 text-center w-full max-w-[320px] mx-auto my-4 min-h-[100px]">
       <p className="text-sm font-semibold text-secondary mb-3">
-        Support our creators!
+        Support these creators!
       </p>
       <div className="flex gap-4 w-full">
         <a 
