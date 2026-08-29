@@ -151,6 +151,7 @@ export interface RoomState {
   creatorPeerId?: string;
   isCreator: boolean;
   isPasswordProtected: boolean;
+  instaDownload?: boolean;
 }
 
 // ─── Transfer Protocol (sent over DataChannel) ────────────────────────────────

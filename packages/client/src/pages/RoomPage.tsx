@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { RoomProvider, useRoomContext } from '../context/RoomContext.js';
 import { RoomHeader } from '../components/RoomHeader.js';
@@ -19,7 +19,7 @@ import { playSuccessSound } from '../utils/audio.js';
 
 const API_BASE = import.meta.env.VITE_API_URL ?? '';
 
-function RoomPageInner({ code, password, creatorToken }: { code: string, password?: string, creatorToken?: string }) {
+function RoomPageInner({ code, password, creatorToken, privateKey }: { code: string, password?: string, creatorToken?: string, privateKey?: string }) {
   const navigate = useNavigate();
   const { t } = useLocale();
   const { state, joinRoom, leaveRoom, sendFiles, cancelTransfer, pauseTransfer, resumeTransfer, clearTransfers, acceptTransfer } =
@@ -37,6 +37,13 @@ function RoomPageInner({ code, password, creatorToken }: { code: string, passwor
     (t) => t.direction === 'receive' && t.status === 'pending'
   );
 
+  // Auto-accept incoming transfers if instaDownload is enabled in a broadcast room
+  useEffect(() => {
+    if (pendingIncoming && state.type === 'broadcast' && state.instaDownload) {
+      acceptTransfer(pendingIncoming.id);
+    }
+  }, [pendingIncoming, state.type, state.instaDownload, acceptTransfer]);
+
   // Trigger modal when a transfer completes
   useEffect(() => {
     const completedReceive = state.transfers.find(
@@ -44,8 +51,8 @@ function RoomPageInner({ code, password, creatorToken }: { code: string, passwor
     );
     if (completedReceive) {
       playSuccessSound();
-      setCompletedTransferToPrompt(completedReceive);
       setCompletedPrompts((prev) => [...prev, completedReceive.id]);
+      setCompletedTransferToPrompt(completedReceive);
     }
   }, [state.transfers, completedPrompts]);
 
@@ -67,7 +74,7 @@ function RoomPageInner({ code, password, creatorToken }: { code: string, passwor
     let active = true;
     // StrictMode calls effect twice — only join if still mounted
     const t = setTimeout(() => {
-      if (active) joinRoom(code, password, creatorToken);
+      if (active) joinRoom(code, password, creatorToken, privateKey);
     }, 0);
     return () => {
       active = false;
@@ -320,6 +327,8 @@ function Loading({ text }: { text: string }) {
 
 export default function RoomPage() {
   const { code } = useParams<{ code: string }>();
+  const [searchParams] = useSearchParams();
+  const privateKey = searchParams.get('key') || undefined;
   const navigate = useNavigate();
   const { t } = useLocale();
   const [isValidating, setIsValidating] = React.useState(true);
@@ -330,8 +339,14 @@ export default function RoomPage() {
   useEffect(() => {
     if (!code || !isValidRoomCode(code)) { navigate('/', { replace: true }); return; }
     const upper = code.toUpperCase();
-    fetch(`${API_BASE}/api/rooms/${upper}`)
-      .then((r) => r.json())
+    
+    const url = privateKey ? `${API_BASE}/api/rooms/${upper}?key=${privateKey}` : `${API_BASE}/api/rooms/${upper}`;
+    
+    fetch(url)
+      .then((r) => {
+        if (r.status === 403) throw new Error('Forbidden');
+        return r.json();
+      })
       .then((d: { exists?: boolean; isPasswordProtected?: boolean }) => { 
         if (!d.exists) { navigate('/?error=not_found', { replace: true }); return; }
         if (d.isPasswordProtected) {
@@ -341,8 +356,8 @@ export default function RoomPage() {
         }
         setIsValidating(false);
       })
-      .catch(() => { setIsValidating(false); setPasswordEntered(true); });
-  }, [code, navigate]);
+      .catch(() => { navigate('/?error=forbidden', { replace: true }); });
+  }, [code, navigate, privateKey]);
 
   if (!code || !isValidRoomCode(code) || isValidating) {
     return <Loading text={t('header_status_connecting')} />;
@@ -371,7 +386,7 @@ export default function RoomPage() {
 
   return (
     <RoomProvider>
-      <RoomPageInner code={code.toUpperCase()} password={password} creatorToken={creatorToken} />
+      <RoomPageInner code={code.toUpperCase()} password={password} creatorToken={creatorToken} privateKey={privateKey} />
     </RoomProvider>
   );
 }

@@ -39,7 +39,12 @@ export function checkRateLimit(ip: string): boolean {
 
 import crypto from 'node:crypto';
 
-export function createRoom(password?: string, type: 'normal' | 'broadcast' = 'normal'): { code: string; room: Room } {
+export function createRoom(
+  password?: string, 
+  type: 'normal' | 'broadcast' = 'normal',
+  isPrivate: boolean = false,
+  instaDownload: boolean = false
+): { code: string; room: Room } {
   // Ensure uniqueness
   let code = generateRoomCode();
   let attempts = 0;
@@ -49,6 +54,7 @@ export function createRoom(password?: string, type: 'normal' | 'broadcast' = 'no
   }
 
   const creatorToken = crypto.randomUUID();
+  const privateKey = isPrivate ? crypto.randomBytes(16).toString('hex') : undefined;
 
   const room: Room = {
     code,
@@ -57,6 +63,9 @@ export function createRoom(password?: string, type: 'normal' | 'broadcast' = 'no
     password,
     type,
     creatorToken,
+    isPrivate,
+    privateKey,
+    instaDownload,
   };
 
   rooms.set(code, room);
@@ -83,7 +92,8 @@ export function joinRoom(
   socket: WebSocket,
   ip: string,
   password?: string,
-  creatorToken?: string
+  creatorToken?: string,
+  privateKey?: string
 ): { success: boolean; room?: Room; existingPeers?: string[]; error?: string } {
   const normalizedCode = code.toUpperCase();
   const room = rooms.get(normalizedCode);
@@ -94,6 +104,10 @@ export function joinRoom(
 
   if (room.password && room.password !== password) {
     return { success: false, error: 'INVALID_PASSWORD' };
+  }
+
+  if (room.isPrivate && room.privateKey !== privateKey) {
+    return { success: false, error: 'FORBIDDEN_PRIVATE_ROOM' };
   }
 
   if (room.peers.size >= MAX_PEERS_PER_ROOM) {

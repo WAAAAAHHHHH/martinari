@@ -22,6 +22,7 @@ export interface JoinMessage extends BaseMessage {
   peerId: string;
   password?: string;
   creatorToken?: string;
+  privateKey?: string;
 }
 
 // Plain SDP/ICE object types (avoid browser-only RTCSessionDescriptionInit etc.)
@@ -76,6 +77,7 @@ export interface RoomStateMessage extends BaseMessage {
   type_: 'normal' | 'broadcast'; // Using type_ to avoid collision with 'type' field from BaseMessage
   creatorPeerId?: string;
   isPasswordProtected: boolean;
+  instaDownload?: boolean;
 }
 
 export interface ErrorMessage extends BaseMessage {
@@ -120,6 +122,9 @@ export interface Room {
   type: 'normal' | 'broadcast';
   creatorToken?: string;
   creatorPeerId?: string;
+  isPrivate?: boolean;
+  privateKey?: string;
+  instaDownload?: boolean;
 }
 
 export interface RateLimitEntry {

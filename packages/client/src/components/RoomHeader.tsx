@@ -44,6 +44,9 @@ export function RoomHeader({ roomCode, connectionStatus, onLeave }: RoomHeaderPr
           <span className="font-semibold text-primary text-sm tracking-tight hidden sm:block">Martinari</span>
         </Link>
 
+        {/* Broadcast Badge Placeholder (if passed down, or just check state somehow, wait we need to know if it's broadcast mode) */}
+        {/* We can just add a generic visual indicator if it's broadcast for now */}
+
         <div className="w-px h-4 bg-border" />
 
         {/* Room code */}

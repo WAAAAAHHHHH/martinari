@@ -41,6 +41,8 @@ export default function HomePage() {
   const [transfers, setTransfers] = useState<number>(2402);
   const [password, setPassword] = useState('');
   const [isBroadcast, setIsBroadcast] = useState(false);
+  const [isPrivate, setIsPrivate] = useState(false);
+  const [instaDownload, setInstaDownload] = useState(false);
   const [showAdvanced, setShowAdvanced] = useState(false);
 
   useEffect(() => {
@@ -73,6 +75,8 @@ export default function HomePage() {
       const body = {
         password: password.trim() || undefined,
         type: isBroadcast ? 'broadcast' : 'normal',
+        isPrivate,
+        instaDownload: isBroadcast ? instaDownload : false,
       };
       const res = await fetch(`${API_BASE}/api/rooms`, { 
         method: 'POST',
@@ -85,7 +89,7 @@ export default function HomePage() {
         }
         throw new Error('Failed to create room');
       }
-      const data = await res.json() as { code: string; creatorToken?: string };
+      const data = await res.json() as { code: string; creatorToken?: string; privateKey?: string };
       
       if (data.creatorToken) {
         sessionStorage.setItem(`creatorToken_${data.code}`, data.creatorToken);
@@ -93,7 +97,11 @@ export default function HomePage() {
       
       incrementStats();
 
-      navigate(`/room/${data.code}`);
+      if (data.privateKey) {
+        navigate(`/room/${data.code}?key=${data.privateKey}`);
+      } else {
+        navigate(`/room/${data.code}`);
+      }
     } catch (err: unknown) {
       if (err instanceof Error) {
         setError(err.message);
@@ -207,6 +215,28 @@ export default function HomePage() {
                   className="rounded border-border bg-transparent text-primary focus:ring-1 focus:ring-primary/50"
                 />
                 {t('home_broadcast_mode')}
+              </label>
+
+              {isBroadcast && (
+                <label className="flex items-center gap-2 text-sm text-secondary cursor-pointer select-none ml-6">
+                  <input
+                    type="checkbox"
+                    checked={instaDownload}
+                    onChange={(e) => setInstaDownload(e.target.checked)}
+                    className="rounded border-border bg-transparent text-primary focus:ring-1 focus:ring-primary/50"
+                  />
+                  Auto-Download for Viewers
+                </label>
+              )}
+
+              <label className="flex items-center gap-2 text-sm text-secondary cursor-pointer select-none">
+                <input
+                  type="checkbox"
+                  checked={isPrivate}
+                  onChange={(e) => setIsPrivate(e.target.checked)}
+                  className="rounded border-border bg-transparent text-primary focus:ring-1 focus:ring-primary/50"
+                />
+                Private Room (Link Only)
               </label>
             </motion.div>
           )}

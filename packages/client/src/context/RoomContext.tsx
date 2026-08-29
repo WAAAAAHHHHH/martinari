@@ -34,7 +34,7 @@ const initialState: RoomState = {
 type Action =
   | { type: 'SET_STATUS'; status: RoomConnectionStatus }
   | { type: 'SET_ROOM'; code: string; localPeerId: string }
-  | { type: 'SET_ROOM_STATE'; roomType: 'normal' | 'broadcast'; creatorPeerId?: string; isPasswordProtected: boolean }
+  | { type: 'SET_ROOM_STATE'; roomType: 'normal' | 'broadcast'; creatorPeerId?: string; isPasswordProtected: boolean; instaDownload?: boolean }
   | { type: 'ADD_PEER'; peer: Peer }
   | { type: 'REMOVE_PEER'; peerId: string }
   | { type: 'UPDATE_PEER'; peerId: string; updates: Partial<Peer> }
@@ -54,7 +54,8 @@ function reducer(state: RoomState, action: Action): RoomState {
         type: action.roomType, 
         creatorPeerId: action.creatorPeerId, 
         isCreator: action.creatorPeerId === state.localPeerId,
-        isPasswordProtected: action.isPasswordProtected 
+        isPasswordProtected: action.isPasswordProtected,
+        instaDownload: action.instaDownload
       };
     case 'ADD_PEER':
       if (state.peers.find((p) => p.id === action.peer.id)) return state;
@@ -95,7 +96,7 @@ function reducer(state: RoomState, action: Action): RoomState {
 
 interface RoomContextValue {
   state: RoomState;
-  joinRoom: (code: string, password?: string, creatorToken?: string) => void;
+  joinRoom: (code: string, password?: string, creatorToken?: string, privateKey?: string) => void;
   leaveRoom: () => void;
   sendFiles: (files: File[], targetPeerId?: string) => Promise<void>;
   cancelTransfer: (id: string) => void;
@@ -167,7 +168,8 @@ export function RoomProvider({ children }: { children: React.ReactNode }) {
             type: 'SET_ROOM_STATE', 
             roomType: msg.type_, 
             creatorPeerId: msg.creatorPeerId, 
-            isPasswordProtected: msg.isPasswordProtected 
+            isPasswordProtected: msg.isPasswordProtected,
+            instaDownload: msg.instaDownload
           });
           // Connect to each existing peer
           for (const peerId of msg.peers) {
@@ -220,7 +222,7 @@ export function RoomProvider({ children }: { children: React.ReactNode }) {
   // ── Join room ─────────────────────────────────────────────────────────────
 
   const joinRoom = useCallback(
-    (code: string, password?: string, creatorToken?: string) => {
+    (code: string, password?: string, creatorToken?: string, privateKey?: string) => {
       const upperCode = code.toUpperCase();
       const localPeerId = nanoid(12);
       localPeerIdRef.current = localPeerId;
@@ -254,7 +256,7 @@ export function RoomProvider({ children }: { children: React.ReactNode }) {
       signaling.onStatus((status) => {
         if (status === 'connected') {
           // Join room via signaling
-          signaling.send({ type: 'join', roomCode: upperCode, peerId: localPeerId, password, creatorToken });
+          signaling.send({ type: 'join', roomCode: upperCode, peerId: localPeerId, password, creatorToken, privateKey });
           dispatch({ type: 'SET_STATUS', status: 'connected' });
         } else if (status === 'disconnected') {
           dispatch({ type: 'SET_STATUS', status: 'reconnecting' });
