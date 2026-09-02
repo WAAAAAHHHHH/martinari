@@ -24,13 +24,13 @@ export function AdBanner() {
         </a>
 
         <a 
-          href="https://www.twitch.tv/abolishegirls" 
+          href="https://www.twitch.tv/hun1ress" 
           target="_blank" 
           rel="noopener noreferrer"
           className="flex-1 flex flex-col items-center justify-center p-3 rounded-lg bg-bg-hover hover:bg-white/10 transition-colors group cursor-pointer"
         >
           <p className="text-xs font-medium text-secondary group-hover:text-primary transition-colors truncate w-full px-1">
-            abolishegirls
+            hun1ress
           </p>
           <p className="text-[10px] text-muted mt-1 flex items-center gap-1 group-hover:text-secondary transition-colors">
             <Twitch className="w-3 h-3" />
