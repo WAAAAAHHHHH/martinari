@@ -1,10 +1,13 @@
 # Martinari
 
-**Browser-based P2P file transfer. No accounts. No cloud. Just share.**
+**Browser-based, secrity focused, "P2P file transfer. No accounts. No cloud. Just share.".**
 
 Open → Create room → Share code → Transfer files directly between browsers via WebRTC.
 
 ---
+### Quick Personal Info
+-Dm @martinari.info on Instragram for support/help/talking.
+-Check contributions.md for a free ad of your personal website/account, images arent accepted(link,text,small logo's accepted only).
 
 ## Quick Start
 
