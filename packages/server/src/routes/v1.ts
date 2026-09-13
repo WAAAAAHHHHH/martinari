@@ -29,7 +29,8 @@ export async function v1Routes(fastify: FastifyInstance): Promise<void> {
     return reply.status(201).send({ 
       code, 
       creatorToken: room.creatorToken,
-      url: \https://martinari.com/room/\\`n    });
+      url: `https://martinari.com/room/${code}`
+    });
   });
 
   fastify.get('/rooms/:code', async (request: FastifyRequest<{ Params: { code: string } }>, reply: FastifyReply) => {

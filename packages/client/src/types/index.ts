@@ -18,6 +18,7 @@ export interface JoinMessage {
   peerId: string;
   password?: string;
   creatorToken?: string;
+  privateKey?: string;
 }
 
 export interface OfferMessage {
@@ -60,6 +61,7 @@ export interface RoomStateMessage {
   type_: 'normal' | 'broadcast';
   creatorPeerId?: string;
   isPasswordProtected: boolean;
+  instaDownload?: boolean;
 }
 
 export interface ErrorMessage {
