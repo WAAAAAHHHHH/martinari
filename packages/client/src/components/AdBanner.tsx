@@ -24,7 +24,7 @@ export function AdBanner() {
         </a>
 
         <a 
-          href="https://www.twitch.tv/hun1ress" 
+          href="https://www.twitch.tv/ochidotv" 
           target="_blank" 
           rel="noopener noreferrer"
           className="flex-1 flex flex-col items-center justify-center p-3 rounded-lg bg-bg-hover hover:bg-white/10 transition-colors group cursor-pointer"
