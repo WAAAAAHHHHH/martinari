@@ -4,12 +4,14 @@
   "private": true,
   "workspaces": [
     "packages/server",
-    "packages/client"
+    "packages/client",
+    "packages/cli"
   ],
   "scripts": {
     "dev": "npm run dev --workspaces --if-present",
     "build": "npm run build --workspaces --if-present",
-    "start": "npm run start --workspace=packages/server"
+    "start": "npm run start --workspace=packages/server",
+    "cli": "node packages/cli/index.js"
   },
   "engines": {
     "node": ">=18.0.0"

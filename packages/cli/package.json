@@ -1,17 +1,31 @@
 {
-  "name": "cli",
+  "name": "@martinari/cli",
   "version": "1.0.0",
-  "description": "",
+  "description": "Headless CLI for Martinari P2P file transfers",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "bin": {
+    "martina": "./index.js",
+    "mjoin": "./index.js",
+    "mcreate": "./index.js"
   },
-  "keywords": [],
+  "scripts": {
+    "start": "node index.js",
+    "bundle": "node build.mjs",
+    "build": "npm run bundle"
+  },
+  "keywords": [
+    "martinari",
+    "p2p",
+    "webrtc",
+    "cli",
+    "file-transfer"
+  ],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "type": "commonjs",
   "dependencies": {
     "commander": "^15.0.0",
+    "werift": "^0.24.4",
     "ws": "^8.21.3"
   }
 }

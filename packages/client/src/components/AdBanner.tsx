@@ -30,7 +30,7 @@ export function AdBanner() {
           className="flex-1 flex flex-col items-center justify-center p-3 rounded-lg bg-bg-hover hover:bg-white/10 transition-colors group cursor-pointer"
         >
           <p className="text-xs font-medium text-secondary group-hover:text-primary transition-colors truncate w-full px-1">
-            hun1ress
+            winton_ow2
           </p>
           <p className="text-[10px] text-muted mt-1 flex items-center gap-1 group-hover:text-secondary transition-colors">
             <Twitch className="w-3 h-3" />

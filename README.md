@@ -41,6 +41,41 @@ npm run build
 
 ---
 
+## Terminal CLI (Headless P2P Transfer)
+
+Transfer files directly from your command line without ever opening a browser!
+
+### Option A: Zero-Install Standalone File
+Simply download `martina.js` and run it with Node.js:
+```bash
+# Join an existing room:
+node martina.js join <ROOM_CODE>
+# or shorthand:
+node martina.js mjoin <ROOM_CODE>
+
+# Create a new room from terminal:
+node martina.js create
+
+# Quick one-line send:
+node martina.js send <ROOM_CODE> ./path/to/file.png
+```
+
+### Option B: Global CLI / Package
+```bash
+# Link the CLI globally:
+cd packages/cli
+npm link
+
+# Now run anywhere:
+mjoin <ROOM_CODE>
+# or
+martina create
+```
+
+Inside any active CLI room, you can type `/send <file>` anytime, drag-and-drop files into the terminal, or view peers with `/peers`. Incoming files are automatically downloaded with live speed and progress bars!
+
+---
+
 ## Architecture
 
 ```
