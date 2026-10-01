@@ -42,10 +42,10 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 ));
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
-// packages/cli/node_modules/commander/lib/error.js
+// node_modules/commander/lib/error.js
 var CommanderError, InvalidArgumentError;
 var init_error = __esm({
-  "packages/cli/node_modules/commander/lib/error.js"() {
+  "node_modules/commander/lib/error.js"() {
     CommanderError = class extends Error {
       /**
        * Constructs the CommanderError class
@@ -76,14 +76,14 @@ var init_error = __esm({
   }
 });
 
-// packages/cli/node_modules/commander/lib/argument.js
+// node_modules/commander/lib/argument.js
 function humanReadableArgName(arg) {
   const nameOutput = arg.name() + (arg.variadic === true ? "..." : "");
   return arg.required ? "<" + nameOutput + ">" : "[" + nameOutput + "]";
 }
 var Argument;
 var init_argument = __esm({
-  "packages/cli/node_modules/commander/lib/argument.js"() {
+  "node_modules/commander/lib/argument.js"() {
     init_error();
     Argument = class {
       /**
@@ -203,10 +203,10 @@ var init_argument = __esm({
   }
 });
 
-// packages/cli/node_modules/commander/lib/help.js
+// node_modules/commander/lib/help.js
 var import_node_util, Help;
 var init_help = __esm({
-  "packages/cli/node_modules/commander/lib/help.js"() {
+  "node_modules/commander/lib/help.js"() {
     init_argument();
     import_node_util = require("node:util");
     Help = class {
@@ -801,7 +801,7 @@ ${itemIndentStr}`);
   }
 });
 
-// packages/cli/node_modules/commander/lib/option.js
+// node_modules/commander/lib/option.js
 function camelcase(str) {
   return str.split("-").reduce((str2, word) => {
     return str2 + word[0].toUpperCase() + word.slice(1);
@@ -848,7 +848,7 @@ function splitOptionFlags(flags) {
 }
 var Option, DualOptions;
 var init_option = __esm({
-  "packages/cli/node_modules/commander/lib/option.js"() {
+  "node_modules/commander/lib/option.js"() {
     init_error();
     Option = class {
       /**
@@ -1113,7 +1113,7 @@ var init_option = __esm({
   }
 });
 
-// packages/cli/node_modules/commander/lib/suggestSimilar.js
+// node_modules/commander/lib/suggestSimilar.js
 function editDistance(a, b) {
   if (Math.abs(a.length - b.length) > maxDistance)
     return Math.max(a.length, b.length);
@@ -1188,12 +1188,12 @@ function suggestSimilar(word, candidates) {
 }
 var maxDistance;
 var init_suggestSimilar = __esm({
-  "packages/cli/node_modules/commander/lib/suggestSimilar.js"() {
+  "node_modules/commander/lib/suggestSimilar.js"() {
     maxDistance = 3;
   }
 });
 
-// packages/cli/node_modules/commander/lib/command.js
+// node_modules/commander/lib/command.js
 function incrementNodeInspectorPort(args) {
   return args.map((arg) => {
     if (!arg.startsWith("--inspect")) {
@@ -1232,7 +1232,7 @@ function useColor() {
 }
 var import_node_events, import_node_child_process, import_node_path, import_node_fs, import_node_process, import_node_util2, Command;
 var init_command = __esm({
-  "packages/cli/node_modules/commander/lib/command.js"() {
+  "node_modules/commander/lib/command.js"() {
     import_node_events = require("node:events");
     import_node_child_process = __toESM(require("node:child_process"), 1);
     import_node_path = __toESM(require("node:path"), 1);
@@ -3443,7 +3443,7 @@ Expecting one of '${allowedValues.join("', '")}'`);
   }
 });
 
-// packages/cli/node_modules/commander/index.js
+// node_modules/commander/index.js
 var commander_exports = {};
 __export(commander_exports, {
   Argument: () => Argument,
@@ -3460,7 +3460,7 @@ __export(commander_exports, {
 });
 var program, createCommand, createOption, createArgument;
 var init_commander = __esm({
-  "packages/cli/node_modules/commander/index.js"() {
+  "node_modules/commander/index.js"() {
     init_argument();
     init_command();
     init_error();
@@ -3473,9 +3473,9 @@ var init_commander = __esm({
   }
 });
 
-// packages/cli/node_modules/ws/lib/constants.js
+// node_modules/ws/lib/constants.js
 var require_constants = __commonJS({
-  "packages/cli/node_modules/ws/lib/constants.js"(exports2, module2) {
+  "node_modules/ws/lib/constants.js"(exports2, module2) {
     "use strict";
     var BINARY_TYPES = ["nodebuffer", "arraybuffer", "fragments"];
     var hasBlob = typeof Blob !== "undefined";
@@ -3496,9 +3496,9 @@ var require_constants = __commonJS({
   }
 });
 
-// packages/cli/node_modules/ws/lib/buffer-util.js
+// node_modules/ws/lib/buffer-util.js
 var require_buffer_util = __commonJS({
-  "packages/cli/node_modules/ws/lib/buffer-util.js"(exports2, module2) {
+  "node_modules/ws/lib/buffer-util.js"(exports2, module2) {
     "use strict";
     var { EMPTY_BUFFER } = require_constants();
     var FastBuffer = Buffer[Symbol.species];
@@ -3571,9 +3571,9 @@ var require_buffer_util = __commonJS({
   }
 });
 
-// packages/cli/node_modules/ws/lib/limiter.js
+// node_modules/ws/lib/limiter.js
 var require_limiter = __commonJS({
-  "packages/cli/node_modules/ws/lib/limiter.js"(exports2, module2) {
+  "node_modules/ws/lib/limiter.js"(exports2, module2) {
     "use strict";
     var kDone = /* @__PURE__ */ Symbol("kDone");
     var kRun = /* @__PURE__ */ Symbol("kRun");
@@ -3621,9 +3621,9 @@ var require_limiter = __commonJS({
   }
 });
 
-// packages/cli/node_modules/ws/lib/permessage-deflate.js
+// node_modules/ws/lib/permessage-deflate.js
 var require_permessage_deflate = __commonJS({
-  "packages/cli/node_modules/ws/lib/permessage-deflate.js"(exports2, module2) {
+  "node_modules/ws/lib/permessage-deflate.js"(exports2, module2) {
     "use strict";
     var zlib = require("zlib");
     var bufferUtil = require_buffer_util();
@@ -4004,9 +4004,9 @@ var require_permessage_deflate = __commonJS({
   }
 });
 
-// packages/cli/node_modules/ws/lib/validation.js
+// node_modules/ws/lib/validation.js
 var require_validation = __commonJS({
-  "packages/cli/node_modules/ws/lib/validation.js"(exports2, module2) {
+  "node_modules/ws/lib/validation.js"(exports2, module2) {
     "use strict";
     var { isUtf8 } = require("buffer");
     var { hasBlob } = require_constants();
@@ -4205,9 +4205,9 @@ var require_validation = __commonJS({
   }
 });
 
-// packages/cli/node_modules/ws/lib/receiver.js
+// node_modules/ws/lib/receiver.js
 var require_receiver = __commonJS({
-  "packages/cli/node_modules/ws/lib/receiver.js"(exports2, module2) {
+  "node_modules/ws/lib/receiver.js"(exports2, module2) {
     "use strict";
     var { Writable } = require("stream");
     var PerMessageDeflate = require_permessage_deflate();
@@ -4828,9 +4828,9 @@ var require_receiver = __commonJS({
   }
 });
 
-// packages/cli/node_modules/ws/lib/sender.js
+// node_modules/ws/lib/sender.js
 var require_sender = __commonJS({
-  "packages/cli/node_modules/ws/lib/sender.js"(exports2, module2) {
+  "node_modules/ws/lib/sender.js"(exports2, module2) {
     "use strict";
     var { Duplex } = require("stream");
     var { randomFillSync } = require("crypto");
@@ -5321,9 +5321,9 @@ var require_sender = __commonJS({
   }
 });
 
-// packages/cli/node_modules/ws/lib/event-target.js
+// node_modules/ws/lib/event-target.js
 var require_event_target = __commonJS({
-  "packages/cli/node_modules/ws/lib/event-target.js"(exports2, module2) {
+  "node_modules/ws/lib/event-target.js"(exports2, module2) {
     "use strict";
     var { kForOnEventAttribute, kListener } = require_constants();
     var kCode = /* @__PURE__ */ Symbol("kCode");
@@ -5550,9 +5550,9 @@ var require_event_target = __commonJS({
   }
 });
 
-// packages/cli/node_modules/ws/lib/extension.js
+// node_modules/ws/lib/extension.js
 var require_extension = __commonJS({
-  "packages/cli/node_modules/ws/lib/extension.js"(exports2, module2) {
+  "node_modules/ws/lib/extension.js"(exports2, module2) {
     "use strict";
     var { tokenChars } = require_validation();
     function push(dest, name, elem) {
@@ -5703,9 +5703,9 @@ var require_extension = __commonJS({
   }
 });
 
-// packages/cli/node_modules/ws/lib/websocket.js
+// node_modules/ws/lib/websocket.js
 var require_websocket = __commonJS({
-  "packages/cli/node_modules/ws/lib/websocket.js"(exports2, module2) {
+  "node_modules/ws/lib/websocket.js"(exports2, module2) {
     "use strict";
     var EventEmitter2 = require("events");
     var https2 = require("https");
@@ -6599,9 +6599,9 @@ var require_websocket = __commonJS({
   }
 });
 
-// packages/cli/node_modules/ws/lib/stream.js
+// node_modules/ws/lib/stream.js
 var require_stream = __commonJS({
-  "packages/cli/node_modules/ws/lib/stream.js"(exports2, module2) {
+  "node_modules/ws/lib/stream.js"(exports2, module2) {
     "use strict";
     var WebSocket = require_websocket();
     var { Duplex } = require("stream");
@@ -6697,9 +6697,9 @@ var require_stream = __commonJS({
   }
 });
 
-// packages/cli/node_modules/ws/lib/subprotocol.js
+// node_modules/ws/lib/subprotocol.js
 var require_subprotocol = __commonJS({
-  "packages/cli/node_modules/ws/lib/subprotocol.js"(exports2, module2) {
+  "node_modules/ws/lib/subprotocol.js"(exports2, module2) {
     "use strict";
     var { tokenChars } = require_validation();
     function parse(header) {
@@ -6742,9 +6742,9 @@ var require_subprotocol = __commonJS({
   }
 });
 
-// packages/cli/node_modules/ws/lib/websocket-server.js
+// node_modules/ws/lib/websocket-server.js
 var require_websocket_server = __commonJS({
-  "packages/cli/node_modules/ws/lib/websocket-server.js"(exports2, module2) {
+  "node_modules/ws/lib/websocket-server.js"(exports2, module2) {
     "use strict";
     var EventEmitter2 = require("events");
     var http2 = require("http");
@@ -7143,9 +7143,9 @@ var require_websocket_server = __commonJS({
   }
 });
 
-// packages/cli/node_modules/ws/index.js
+// node_modules/ws/index.js
 var require_ws = __commonJS({
-  "packages/cli/node_modules/ws/index.js"(exports2, module2) {
+  "node_modules/ws/index.js"(exports2, module2) {
     "use strict";
     var createWebSocketStream = require_stream();
     var extension = require_extension();
@@ -7168,9 +7168,9 @@ var require_ws = __commonJS({
   }
 });
 
-// packages/cli/src/signaling.js
+// src/signaling.js
 var require_signaling = __commonJS({
-  "packages/cli/src/signaling.js"(exports2, module2) {
+  "src/signaling.js"(exports2, module2) {
     var WebSocket = require_ws();
     var EventEmitter2 = require("events");
     var SignalingClient2 = class extends EventEmitter2 {
@@ -7290,9 +7290,9 @@ var require_signaling = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/common/src/binary.js
+// node_modules/werift/lib/common/src/binary.js
 var require_binary = __commonJS({
-  "packages/cli/node_modules/werift/lib/common/src/binary.js"(exports2) {
+  "node_modules/werift/lib/common/src/binary.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.BitStream = exports2.dumpBuffer = exports2.BufferChain = exports2.BitWriter2 = exports2.BitWriter = void 0;
@@ -7589,9 +7589,9 @@ var require_binary = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/common/src/crc.js
+// node_modules/werift/lib/common/src/crc.js
 var require_crc = __commonJS({
-  "packages/cli/node_modules/werift/lib/common/src/crc.js"(exports2) {
+  "node_modules/werift/lib/common/src/crc.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.crc32 = crc32;
@@ -7697,9 +7697,9 @@ var require_crc = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/common/src/number.js
+// node_modules/werift/lib/common/src/number.js
 var require_number = __commonJS({
-  "packages/cli/node_modules/werift/lib/common/src/number.js"(exports2) {
+  "node_modules/werift/lib/common/src/number.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.int = void 0;
@@ -7742,9 +7742,9 @@ var require_number = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/common/src/promise.js
+// node_modules/werift/lib/common/src/promise.js
 var require_promise = __commonJS({
-  "packages/cli/node_modules/werift/lib/common/src/promise.js"(exports2) {
+  "node_modules/werift/lib/common/src/promise.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.PromiseQueue = void 0;
@@ -7797,9 +7797,9 @@ var require_promise = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/common/src/network.js
+// node_modules/werift/lib/common/src/network.js
 var require_network = __commonJS({
-  "packages/cli/node_modules/werift/lib/common/src/network.js"(exports2) {
+  "node_modules/werift/lib/common/src/network.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.interfaceAddress = void 0;
@@ -7863,17 +7863,17 @@ var require_network = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/common/src/type.js
+// node_modules/werift/lib/common/src/type.js
 var require_type = __commonJS({
-  "packages/cli/node_modules/werift/lib/common/src/type.js"(exports2) {
+  "node_modules/werift/lib/common/src/type.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
   }
 });
 
-// packages/cli/node_modules/ms/index.js
+// node_modules/ms/index.js
 var require_ms = __commonJS({
-  "packages/cli/node_modules/ms/index.js"(exports2, module2) {
+  "node_modules/ms/index.js"(exports2, module2) {
     var s = 1e3;
     var m = s * 60;
     var h = m * 60;
@@ -7987,9 +7987,9 @@ var require_ms = __commonJS({
   }
 });
 
-// packages/cli/node_modules/debug/src/common.js
+// node_modules/debug/src/common.js
 var require_common = __commonJS({
-  "packages/cli/node_modules/debug/src/common.js"(exports2, module2) {
+  "node_modules/debug/src/common.js"(exports2, module2) {
     function setup(env) {
       createDebug.debug = createDebug;
       createDebug.default = createDebug;
@@ -8164,9 +8164,9 @@ var require_common = __commonJS({
   }
 });
 
-// packages/cli/node_modules/debug/src/browser.js
+// node_modules/debug/src/browser.js
 var require_browser = __commonJS({
-  "packages/cli/node_modules/debug/src/browser.js"(exports2, module2) {
+  "node_modules/debug/src/browser.js"(exports2, module2) {
     exports2.formatArgs = formatArgs;
     exports2.save = save;
     exports2.load = load;
@@ -8334,9 +8334,9 @@ var require_browser = __commonJS({
   }
 });
 
-// packages/cli/node_modules/debug/src/node.js
+// node_modules/debug/src/node.js
 var require_node = __commonJS({
-  "packages/cli/node_modules/debug/src/node.js"(exports2, module2) {
+  "node_modules/debug/src/node.js"(exports2, module2) {
     var tty = require("tty");
     var util = require("util");
     exports2.init = init;
@@ -8508,9 +8508,9 @@ var require_node = __commonJS({
   }
 });
 
-// packages/cli/node_modules/debug/src/index.js
+// node_modules/debug/src/index.js
 var require_src = __commonJS({
-  "packages/cli/node_modules/debug/src/index.js"(exports2, module2) {
+  "node_modules/debug/src/index.js"(exports2, module2) {
     if (typeof process === "undefined" || process.type === "renderer" || process.browser === true || process.__nwjs) {
       module2.exports = require_browser();
     } else {
@@ -8519,9 +8519,9 @@ var require_src = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/common/src/log.js
+// node_modules/werift/lib/common/src/log.js
 var require_log = __commonJS({
-  "packages/cli/node_modules/werift/lib/common/src/log.js"(exports2) {
+  "node_modules/werift/lib/common/src/log.js"(exports2) {
     "use strict";
     var __importDefault3 = exports2 && exports2.__importDefault || function(mod) {
       return mod && mod.__esModule ? mod : { "default": mod };
@@ -8564,9 +8564,9 @@ var require_log = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/common/src/event.js
+// node_modules/werift/lib/common/src/event.js
 var require_event = __commonJS({
-  "packages/cli/node_modules/werift/lib/common/src/event.js"(exports2) {
+  "node_modules/werift/lib/common/src/event.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.EventDisposer = exports2.Event = void 0;
@@ -8802,9 +8802,9 @@ var require_event = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/common/src/transport.js
+// node_modules/werift/lib/common/src/transport.js
 var require_transport = __commonJS({
-  "packages/cli/node_modules/werift/lib/common/src/transport.js"(exports2) {
+  "node_modules/werift/lib/common/src/transport.js"(exports2) {
     "use strict";
     var __createBinding3 = exports2 && exports2.__createBinding || (Object.create ? (function(o, m, k, k2) {
       if (k2 === void 0) k2 = k;
@@ -9206,9 +9206,9 @@ var require_transport = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/common/src/index.js
+// node_modules/werift/lib/common/src/index.js
 var require_src2 = __commonJS({
-  "packages/cli/node_modules/werift/lib/common/src/index.js"(exports2) {
+  "node_modules/werift/lib/common/src/index.js"(exports2) {
     "use strict";
     var __createBinding3 = exports2 && exports2.__createBinding || (Object.create ? (function(o, m, k, k2) {
       if (k2 === void 0) k2 = k;
@@ -9239,9 +9239,9 @@ var require_src2 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/webrtc/src/imports/common.js
+// node_modules/werift/lib/webrtc/src/imports/common.js
 var require_common2 = __commonJS({
-  "packages/cli/node_modules/werift/lib/webrtc/src/imports/common.js"(exports2) {
+  "node_modules/werift/lib/webrtc/src/imports/common.js"(exports2) {
     "use strict";
     var __createBinding3 = exports2 && exports2.__createBinding || (Object.create ? (function(o, m, k, k2) {
       if (k2 === void 0) k2 = k;
@@ -9264,9 +9264,9 @@ var require_common2 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@fidm/x509/build/common.js
+// node_modules/@fidm/x509/build/common.js
 var require_common3 = __commonJS({
-  "packages/cli/node_modules/@fidm/x509/build/common.js"(exports2) {
+  "node_modules/@fidm/x509/build/common.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     var net_1 = require("net");
@@ -9470,9 +9470,9 @@ var require_common3 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/tweetnacl/nacl-fast.js
+// node_modules/tweetnacl/nacl-fast.js
 var require_nacl_fast = __commonJS({
-  "packages/cli/node_modules/tweetnacl/nacl-fast.js"(exports2, module2) {
+  "node_modules/tweetnacl/nacl-fast.js"(exports2, module2) {
     (function(nacl) {
       "use strict";
       var gf = function(init) {
@@ -11694,9 +11694,9 @@ var require_nacl_fast = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@fidm/asn1/build/common.js
+// node_modules/@fidm/asn1/build/common.js
 var require_common4 = __commonJS({
-  "packages/cli/node_modules/@fidm/asn1/build/common.js"(exports2) {
+  "node_modules/@fidm/asn1/build/common.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     var BufferVisitor = class {
@@ -11766,9 +11766,9 @@ var require_common4 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@fidm/asn1/build/pem.js
+// node_modules/@fidm/asn1/build/pem.js
 var require_pem = __commonJS({
-  "packages/cli/node_modules/@fidm/asn1/build/pem.js"(exports2) {
+  "node_modules/@fidm/asn1/build/pem.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     var util_1 = require("util");
@@ -11920,9 +11920,9 @@ var require_pem = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@fidm/asn1/build/asn1.js
+// node_modules/@fidm/asn1/build/asn1.js
 var require_asn1 = __commonJS({
-  "packages/cli/node_modules/@fidm/asn1/build/asn1.js"(exports2) {
+  "node_modules/@fidm/asn1/build/asn1.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     var util_1 = require("util");
@@ -12826,9 +12826,9 @@ var require_asn1 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@fidm/asn1/build/index.js
+// node_modules/@fidm/asn1/build/index.js
 var require_build = __commonJS({
-  "packages/cli/node_modules/@fidm/asn1/build/index.js"(exports2) {
+  "node_modules/@fidm/asn1/build/index.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     var common_1 = require_common4();
@@ -12843,9 +12843,9 @@ var require_build = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@fidm/x509/build/pki.js
+// node_modules/@fidm/x509/build/pki.js
 var require_pki = __commonJS({
-  "packages/cli/node_modules/@fidm/x509/build/pki.js"(exports2) {
+  "node_modules/@fidm/x509/build/pki.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     var util_1 = require("util");
@@ -13445,9 +13445,9 @@ var require_pki = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@fidm/x509/build/x509.js
+// node_modules/@fidm/x509/build/x509.js
 var require_x509 = __commonJS({
-  "packages/cli/node_modules/@fidm/x509/build/x509.js"(exports2) {
+  "node_modules/@fidm/x509/build/x509.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     var util_1 = require("util");
@@ -14191,9 +14191,9 @@ var require_x509 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@fidm/x509/build/index.js
+// node_modules/@fidm/x509/build/index.js
 var require_build2 = __commonJS({
-  "packages/cli/node_modules/@fidm/x509/build/index.js"(exports2) {
+  "node_modules/@fidm/x509/build/index.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     var common_1 = require_common3();
@@ -14212,9 +14212,9 @@ var require_build2 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/reflect-metadata/Reflect.js
+// node_modules/reflect-metadata/Reflect.js
 var require_Reflect = __commonJS({
-  "packages/cli/node_modules/reflect-metadata/Reflect.js"() {
+  "node_modules/reflect-metadata/Reflect.js"() {
     var Reflect2;
     (function(Reflect3) {
       (function(factory) {
@@ -15297,7 +15297,7 @@ var require_Reflect = __commonJS({
   }
 });
 
-// packages/cli/node_modules/tslib/tslib.es6.mjs
+// node_modules/tslib/tslib.es6.mjs
 var tslib_es6_exports = {};
 __export(tslib_es6_exports, {
   __addDisposableResource: () => __addDisposableResource,
@@ -15736,7 +15736,7 @@ function __rewriteRelativeImportExtension(path3, preserveJsx) {
 }
 var extendStatics, __assign, __createBinding, __setModuleDefault, ownKeys, _SuppressedError, tslib_es6_default;
 var init_tslib_es6 = __esm({
-  "packages/cli/node_modules/tslib/tslib.es6.mjs"() {
+  "node_modules/tslib/tslib.es6.mjs"() {
     extendStatics = function(d, b) {
       extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function(d2, b2) {
         d2.__proto__ = b2;
@@ -15822,9 +15822,9 @@ var init_tslib_es6 = __esm({
   }
 });
 
-// packages/cli/node_modules/pvtsutils/build/index.js
+// node_modules/pvtsutils/build/index.js
 var require_build3 = __commonJS({
-  "packages/cli/node_modules/pvtsutils/build/index.js"(exports2) {
+  "node_modules/pvtsutils/build/index.js"(exports2) {
     "use strict";
     var ARRAY_BUFFER_NAME = "[object ArrayBuffer]";
     var BufferSourceConverter = class _BufferSourceConverter {
@@ -16186,9 +16186,9 @@ var require_build3 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/pvutils/build/utils.js
+// node_modules/pvutils/build/utils.js
 var require_utils = __commonJS({
-  "packages/cli/node_modules/pvutils/build/utils.js"(exports2) {
+  "node_modules/pvutils/build/utils.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     function getUTCDate(date) {
@@ -16539,9 +16539,9 @@ var require_utils = __commonJS({
   }
 });
 
-// packages/cli/node_modules/asn1js/build/index.js
+// node_modules/asn1js/build/index.js
 var require_build4 = __commonJS({
-  "packages/cli/node_modules/asn1js/build/index.js"(exports2) {
+  "node_modules/asn1js/build/index.js"(exports2) {
     "use strict";
     var pvtsutils = require_build3();
     var pvutils = require_utils();
@@ -19654,9 +19654,9 @@ ${values.join("\n")}` : `${blockName} :`;
   }
 });
 
-// packages/cli/node_modules/@peculiar/utils/build/cjs/bytes/buffer-source.js
+// node_modules/@peculiar/utils/build/cjs/bytes/buffer-source.js
 var require_buffer_source = __commonJS({
-  "packages/cli/node_modules/@peculiar/utils/build/cjs/bytes/buffer-source.js"(exports2) {
+  "node_modules/@peculiar/utils/build/cjs/bytes/buffer-source.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.isArrayBuffer = isArrayBuffer;
@@ -19773,9 +19773,9 @@ var require_buffer_source = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/utils/build/cjs/bytes/concat.js
+// node_modules/@peculiar/utils/build/cjs/bytes/concat.js
 var require_concat = __commonJS({
-  "packages/cli/node_modules/@peculiar/utils/build/cjs/bytes/concat.js"(exports2) {
+  "node_modules/@peculiar/utils/build/cjs/bytes/concat.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.concatToUint8Array = concatToUint8Array;
@@ -19818,9 +19818,9 @@ var require_concat = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/utils/build/cjs/bytes/equal.js
+// node_modules/@peculiar/utils/build/cjs/bytes/equal.js
 var require_equal = __commonJS({
-  "packages/cli/node_modules/@peculiar/utils/build/cjs/bytes/equal.js"(exports2) {
+  "node_modules/@peculiar/utils/build/cjs/bytes/equal.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.equal = equal;
@@ -19841,9 +19841,9 @@ var require_equal = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/utils/build/cjs/bytes/sequence.js
+// node_modules/@peculiar/utils/build/cjs/bytes/sequence.js
 var require_sequence = __commonJS({
-  "packages/cli/node_modules/@peculiar/utils/build/cjs/bytes/sequence.js"(exports2) {
+  "node_modules/@peculiar/utils/build/cjs/bytes/sequence.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.indexOf = indexOf;
@@ -20008,9 +20008,9 @@ var require_sequence = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/utils/build/cjs/bytes/index.js
+// node_modules/@peculiar/utils/build/cjs/bytes/index.js
 var require_bytes = __commonJS({
-  "packages/cli/node_modules/@peculiar/utils/build/cjs/bytes/index.js"(exports2) {
+  "node_modules/@peculiar/utils/build/cjs/bytes/index.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.tail = exports2.startsWith = exports2.slice = exports2.lastIndexOf = exports2.indexOf = exports2.includes = exports2.endsWith = exports2.copy = exports2.compare = exports2.equal = exports2.concatToUint8Array = exports2.concat = exports2.toViewCopy = exports2.toView = exports2.toUint8ArrayCopy = exports2.toUint8Array = exports2.toArrayBufferLike = exports2.toArrayBuffer = exports2.isSharedArrayBuffer = exports2.isBufferSource = exports2.isArrayBufferView = exports2.isArrayBufferLike = exports2.isArrayBuffer = exports2.assertBufferSource = void 0;
@@ -20093,9 +20093,9 @@ var require_bytes = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/utils/build/cjs/encoding/binary.js
+// node_modules/@peculiar/utils/build/cjs/encoding/binary.js
 var require_binary2 = __commonJS({
-  "packages/cli/node_modules/@peculiar/utils/build/cjs/encoding/binary.js"(exports2) {
+  "node_modules/@peculiar/utils/build/cjs/encoding/binary.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.binary = void 0;
@@ -20125,9 +20125,9 @@ var require_binary2 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/utils/build/cjs/encoding/hex.js
+// node_modules/@peculiar/utils/build/cjs/encoding/hex.js
 var require_hex = __commonJS({
-  "packages/cli/node_modules/@peculiar/utils/build/cjs/encoding/hex.js"(exports2) {
+  "node_modules/@peculiar/utils/build/cjs/encoding/hex.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.hex = exports2.formats = void 0;
@@ -20358,9 +20358,9 @@ var require_hex = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/utils/build/cjs/encoding/utf8.js
+// node_modules/@peculiar/utils/build/cjs/encoding/utf8.js
 var require_utf8 = __commonJS({
-  "packages/cli/node_modules/@peculiar/utils/build/cjs/encoding/utf8.js"(exports2) {
+  "node_modules/@peculiar/utils/build/cjs/encoding/utf8.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.utf8 = void 0;
@@ -20377,9 +20377,9 @@ var require_utf8 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/utils/build/cjs/encoding/utf16.js
+// node_modules/@peculiar/utils/build/cjs/encoding/utf16.js
 var require_utf16 = __commonJS({
-  "packages/cli/node_modules/@peculiar/utils/build/cjs/encoding/utf16.js"(exports2) {
+  "node_modules/@peculiar/utils/build/cjs/encoding/utf16.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.utf16 = void 0;
@@ -20407,9 +20407,9 @@ var require_utf16 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/utils/build/cjs/encoding/base64.js
+// node_modules/@peculiar/utils/build/cjs/encoding/base64.js
 var require_base64 = __commonJS({
-  "packages/cli/node_modules/@peculiar/utils/build/cjs/encoding/base64.js"(exports2) {
+  "node_modules/@peculiar/utils/build/cjs/encoding/base64.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.base64 = void 0;
@@ -20461,9 +20461,9 @@ var require_base64 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/utils/build/cjs/encoding/base64url.js
+// node_modules/@peculiar/utils/build/cjs/encoding/base64url.js
 var require_base64url = __commonJS({
-  "packages/cli/node_modules/@peculiar/utils/build/cjs/encoding/base64url.js"(exports2) {
+  "node_modules/@peculiar/utils/build/cjs/encoding/base64url.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.base64url = void 0;
@@ -20493,9 +20493,9 @@ var require_base64url = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/utils/build/cjs/encoding/index.js
+// node_modules/@peculiar/utils/build/cjs/encoding/index.js
 var require_encoding = __commonJS({
-  "packages/cli/node_modules/@peculiar/utils/build/cjs/encoding/index.js"(exports2) {
+  "node_modules/@peculiar/utils/build/cjs/encoding/index.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.base64url = exports2.base64 = exports2.utf16 = exports2.utf8 = exports2.hex = exports2.binary = void 0;
@@ -20509,9 +20509,9 @@ var require_encoding = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/utils/build/cjs/pem/pem.js
+// node_modules/@peculiar/utils/build/cjs/pem/pem.js
 var require_pem2 = __commonJS({
-  "packages/cli/node_modules/@peculiar/utils/build/cjs/pem/pem.js"(exports2) {
+  "node_modules/@peculiar/utils/build/cjs/pem/pem.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.pemConverter = exports2.pem = void 0;
@@ -20653,9 +20653,9 @@ var require_pem2 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/utils/build/cjs/pem/index.js
+// node_modules/@peculiar/utils/build/cjs/pem/index.js
 var require_pem3 = __commonJS({
-  "packages/cli/node_modules/@peculiar/utils/build/cjs/pem/index.js"(exports2) {
+  "node_modules/@peculiar/utils/build/cjs/pem/index.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.pemConverter = exports2.pem = exports2.parse = exports2.format = exports2.findAll = exports2.find = exports2.encodeMany = exports2.encode = exports2.decodeFirst = exports2.decode = void 0;
@@ -20693,9 +20693,9 @@ var require_pem3 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/utils/build/cjs/converters/registry.js
+// node_modules/@peculiar/utils/build/cjs/converters/registry.js
 var require_registry = __commonJS({
-  "packages/cli/node_modules/@peculiar/utils/build/cjs/converters/registry.js"(exports2) {
+  "node_modules/@peculiar/utils/build/cjs/converters/registry.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.createConverterRegistry = createConverterRegistry;
@@ -20881,9 +20881,9 @@ var require_registry = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/utils/build/cjs/converters/defaults.js
+// node_modules/@peculiar/utils/build/cjs/converters/defaults.js
 var require_defaults = __commonJS({
-  "packages/cli/node_modules/@peculiar/utils/build/cjs/converters/defaults.js"(exports2) {
+  "node_modules/@peculiar/utils/build/cjs/converters/defaults.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.defaultConverterRegistry = exports2.defaultConverters = exports2.utf16leConverter = exports2.utf16beConverter = exports2.utf8Converter = exports2.base64urlConverter = exports2.base64Converter = exports2.hexConverter = exports2.binaryConverter = exports2.pemConverter = void 0;
@@ -20961,9 +20961,9 @@ var require_defaults = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/utils/build/cjs/converters/convert.js
+// node_modules/@peculiar/utils/build/cjs/converters/convert.js
 var require_convert = __commonJS({
-  "packages/cli/node_modules/@peculiar/utils/build/cjs/converters/convert.js"(exports2) {
+  "node_modules/@peculiar/utils/build/cjs/converters/convert.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.convert = void 0;
@@ -21041,9 +21041,9 @@ var require_convert = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/utils/build/cjs/converters/index.js
+// node_modules/@peculiar/utils/build/cjs/converters/index.js
 var require_converters = __commonJS({
-  "packages/cli/node_modules/@peculiar/utils/build/cjs/converters/index.js"(exports2) {
+  "node_modules/@peculiar/utils/build/cjs/converters/index.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.convert = exports2.utf8Converter = exports2.utf16leConverter = exports2.utf16beConverter = exports2.pemConverter = exports2.hexConverter = exports2.defaultConverters = exports2.defaultConverterRegistry = exports2.binaryConverter = exports2.base64urlConverter = exports2.base64Converter = exports2.createConverterRegistry = void 0;
@@ -21089,9 +21089,9 @@ var require_converters = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/utils/build/cjs/legacy/buffer-source-converter.js
+// node_modules/@peculiar/utils/build/cjs/legacy/buffer-source-converter.js
 var require_buffer_source_converter = __commonJS({
-  "packages/cli/node_modules/@peculiar/utils/build/cjs/legacy/buffer-source-converter.js"(exports2) {
+  "node_modules/@peculiar/utils/build/cjs/legacy/buffer-source-converter.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.BufferSourceConverter = void 0;
@@ -21130,9 +21130,9 @@ var require_buffer_source_converter = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/utils/build/cjs/legacy/convert.js
+// node_modules/@peculiar/utils/build/cjs/legacy/convert.js
 var require_convert2 = __commonJS({
-  "packages/cli/node_modules/@peculiar/utils/build/cjs/legacy/convert.js"(exports2) {
+  "node_modules/@peculiar/utils/build/cjs/legacy/convert.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.Convert = void 0;
@@ -21208,9 +21208,9 @@ var require_convert2 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/utils/build/cjs/legacy/functions.js
+// node_modules/@peculiar/utils/build/cjs/legacy/functions.js
 var require_functions = __commonJS({
-  "packages/cli/node_modules/@peculiar/utils/build/cjs/legacy/functions.js"(exports2) {
+  "node_modules/@peculiar/utils/build/cjs/legacy/functions.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.assign = assign;
@@ -21237,9 +21237,9 @@ var require_functions = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/utils/build/cjs/legacy/index.js
+// node_modules/@peculiar/utils/build/cjs/legacy/index.js
 var require_legacy = __commonJS({
-  "packages/cli/node_modules/@peculiar/utils/build/cjs/legacy/index.js"(exports2) {
+  "node_modules/@peculiar/utils/build/cjs/legacy/index.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.isEqual = exports2.combine = exports2.assign = exports2.Convert = exports2.BufferSourceConverter = void 0;
@@ -21264,9 +21264,9 @@ var require_legacy = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/utils/build/cjs/index.js
+// node_modules/@peculiar/utils/build/cjs/index.js
 var require_cjs = __commonJS({
-  "packages/cli/node_modules/@peculiar/utils/build/cjs/index.js"(exports2) {
+  "node_modules/@peculiar/utils/build/cjs/index.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.bytes = void 0;
@@ -21280,9 +21280,9 @@ var require_cjs = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-schema/build/cjs/enums.js
+// node_modules/@peculiar/asn1-schema/build/cjs/enums.js
 var require_enums = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-schema/build/cjs/enums.js"(exports2) {
+  "node_modules/@peculiar/asn1-schema/build/cjs/enums.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.AsnPropTypes = exports2.AsnTypeTypes = void 0;
@@ -21326,9 +21326,9 @@ var require_enums = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-schema/build/cjs/types/bit_string.js
+// node_modules/@peculiar/asn1-schema/build/cjs/types/bit_string.js
 var require_bit_string = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-schema/build/cjs/types/bit_string.js"(exports2) {
+  "node_modules/@peculiar/asn1-schema/build/cjs/types/bit_string.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.BitString = void 0;
@@ -21397,9 +21397,9 @@ var require_bit_string = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-schema/build/cjs/types/octet_string.js
+// node_modules/@peculiar/asn1-schema/build/cjs/types/octet_string.js
 var require_octet_string = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-schema/build/cjs/types/octet_string.js"(exports2) {
+  "node_modules/@peculiar/asn1-schema/build/cjs/types/octet_string.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.OctetString = void 0;
@@ -21445,9 +21445,9 @@ var require_octet_string = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-schema/build/cjs/types/index.js
+// node_modules/@peculiar/asn1-schema/build/cjs/types/index.js
 var require_types = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-schema/build/cjs/types/index.js"(exports2) {
+  "node_modules/@peculiar/asn1-schema/build/cjs/types/index.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     var tslib_1 = (init_tslib_es6(), __toCommonJS(tslib_es6_exports));
@@ -21456,9 +21456,9 @@ var require_types = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-schema/build/cjs/converters.js
+// node_modules/@peculiar/asn1-schema/build/cjs/converters.js
 var require_converters2 = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-schema/build/cjs/converters.js"(exports2) {
+  "node_modules/@peculiar/asn1-schema/build/cjs/converters.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.AsnNullConverter = exports2.AsnGeneralizedTimeConverter = exports2.AsnUTCTimeConverter = exports2.AsnCharacterStringConverter = exports2.AsnGeneralStringConverter = exports2.AsnVisibleStringConverter = exports2.AsnGraphicStringConverter = exports2.AsnIA5StringConverter = exports2.AsnVideotexStringConverter = exports2.AsnTeletexStringConverter = exports2.AsnPrintableStringConverter = exports2.AsnNumericStringConverter = exports2.AsnUniversalStringConverter = exports2.AsnBmpStringConverter = exports2.AsnUtf8StringConverter = exports2.AsnConstructedOctetStringConverter = exports2.AsnOctetStringConverter = exports2.AsnBooleanConverter = exports2.AsnRelativeObjectIdentifierConverter = exports2.AsnObjectIdentifierConverter = exports2.AsnBitStringConverter = exports2.AsnIntegerBigIntConverter = exports2.AsnIntegerArrayBufferConverter = exports2.AsnEnumeratedConverter = exports2.AsnIntegerConverter = exports2.AsnAnyConverter = void 0;
@@ -21608,9 +21608,9 @@ var require_converters2 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-schema/build/cjs/helper.js
+// node_modules/@peculiar/asn1-schema/build/cjs/helper.js
 var require_helper = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-schema/build/cjs/helper.js"(exports2) {
+  "node_modules/@peculiar/asn1-schema/build/cjs/helper.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.isConvertible = isConvertible;
@@ -21656,9 +21656,9 @@ var require_helper = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-schema/build/cjs/schema.js
+// node_modules/@peculiar/asn1-schema/build/cjs/schema.js
 var require_schema = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-schema/build/cjs/schema.js"(exports2) {
+  "node_modules/@peculiar/asn1-schema/build/cjs/schema.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.AsnSchemaStorage = void 0;
@@ -21820,9 +21820,9 @@ var require_schema = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-schema/build/cjs/storage.js
+// node_modules/@peculiar/asn1-schema/build/cjs/storage.js
 var require_storage = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-schema/build/cjs/storage.js"(exports2) {
+  "node_modules/@peculiar/asn1-schema/build/cjs/storage.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.schemaStorage = void 0;
@@ -21831,9 +21831,9 @@ var require_storage = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-schema/build/cjs/decorators.js
+// node_modules/@peculiar/asn1-schema/build/cjs/decorators.js
 var require_decorators = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-schema/build/cjs/decorators.js"(exports2) {
+  "node_modules/@peculiar/asn1-schema/build/cjs/decorators.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.AsnProp = exports2.AsnSequenceType = exports2.AsnSetType = exports2.AsnChoiceType = exports2.AsnType = void 0;
@@ -21887,9 +21887,9 @@ var require_decorators = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-schema/build/cjs/errors/schema_validation.js
+// node_modules/@peculiar/asn1-schema/build/cjs/errors/schema_validation.js
 var require_schema_validation = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-schema/build/cjs/errors/schema_validation.js"(exports2) {
+  "node_modules/@peculiar/asn1-schema/build/cjs/errors/schema_validation.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.AsnSchemaValidationError = void 0;
@@ -21900,9 +21900,9 @@ var require_schema_validation = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-schema/build/cjs/errors/index.js
+// node_modules/@peculiar/asn1-schema/build/cjs/errors/index.js
 var require_errors = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-schema/build/cjs/errors/index.js"(exports2) {
+  "node_modules/@peculiar/asn1-schema/build/cjs/errors/index.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     var tslib_1 = (init_tslib_es6(), __toCommonJS(tslib_es6_exports));
@@ -21910,9 +21910,9 @@ var require_errors = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-schema/build/cjs/parser.js
+// node_modules/@peculiar/asn1-schema/build/cjs/parser.js
 var require_parser = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-schema/build/cjs/parser.js"(exports2) {
+  "node_modules/@peculiar/asn1-schema/build/cjs/parser.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.AsnParser = void 0;
@@ -22203,9 +22203,9 @@ var require_parser = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-schema/build/cjs/serializer.js
+// node_modules/@peculiar/asn1-schema/build/cjs/serializer.js
 var require_serializer = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-schema/build/cjs/serializer.js"(exports2) {
+  "node_modules/@peculiar/asn1-schema/build/cjs/serializer.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.AsnSerializer = void 0;
@@ -22348,9 +22348,9 @@ var require_serializer = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-schema/build/cjs/objects.js
+// node_modules/@peculiar/asn1-schema/build/cjs/objects.js
 var require_objects = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-schema/build/cjs/objects.js"(exports2) {
+  "node_modules/@peculiar/asn1-schema/build/cjs/objects.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.AsnArray = void 0;
@@ -22370,9 +22370,9 @@ var require_objects = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-schema/build/cjs/convert.js
+// node_modules/@peculiar/asn1-schema/build/cjs/convert.js
 var require_convert3 = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-schema/build/cjs/convert.js"(exports2) {
+  "node_modules/@peculiar/asn1-schema/build/cjs/convert.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.AsnConvert = void 0;
@@ -22401,9 +22401,9 @@ var require_convert3 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-schema/build/cjs/index.js
+// node_modules/@peculiar/asn1-schema/build/cjs/index.js
 var require_cjs2 = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-schema/build/cjs/index.js"(exports2) {
+  "node_modules/@peculiar/asn1-schema/build/cjs/index.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.AsnSerializer = exports2.AsnParser = exports2.AsnPropTypes = exports2.AsnTypeTypes = exports2.AsnSetType = exports2.AsnSequenceType = exports2.AsnChoiceType = exports2.AsnType = exports2.AsnProp = void 0;
@@ -22447,9 +22447,9 @@ var require_cjs2 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/ip_converter.js
+// node_modules/@peculiar/asn1-x509/build/cjs/ip_converter.js
 var require_ip_converter = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/ip_converter.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509/build/cjs/ip_converter.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.IpConverter = void 0;
@@ -22623,9 +22623,9 @@ var require_ip_converter = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/name.js
+// node_modules/@peculiar/asn1-x509/build/cjs/name.js
 var require_name = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/name.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509/build/cjs/name.js"(exports2) {
     "use strict";
     var RelativeDistinguishedName_1;
     var RDNSequence_1;
@@ -22741,9 +22741,9 @@ var require_name = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/general_name.js
+// node_modules/@peculiar/asn1-x509/build/cjs/general_name.js
 var require_general_name = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/general_name.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509/build/cjs/general_name.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.GeneralName = exports2.EDIPartyName = exports2.OtherName = exports2.AsnIpConverter = void 0;
@@ -22879,9 +22879,9 @@ var require_general_name = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/object_identifiers.js
+// node_modules/@peculiar/asn1-x509/build/cjs/object_identifiers.js
 var require_object_identifiers = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/object_identifiers.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509/build/cjs/object_identifiers.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.id_alg_unsigned = exports2.id_ce = exports2.id_ad_caRepository = exports2.id_ad_timeStamping = exports2.id_ad_caIssuers = exports2.id_ad_ocsp = exports2.id_qt_unotice = exports2.id_qt_csp = exports2.id_ad = exports2.id_kp = exports2.id_qt = exports2.id_pe = exports2.id_pkix = void 0;
@@ -22901,9 +22901,9 @@ var require_object_identifiers = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/authority_information_access.js
+// node_modules/@peculiar/asn1-x509/build/cjs/extensions/authority_information_access.js
 var require_authority_information_access = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/authority_information_access.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509/build/cjs/extensions/authority_information_access.js"(exports2) {
     "use strict";
     var AuthorityInfoAccessSyntax_1;
     Object.defineProperty(exports2, "__esModule", { value: true });
@@ -22943,9 +22943,9 @@ var require_authority_information_access = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/authority_key_identifier.js
+// node_modules/@peculiar/asn1-x509/build/cjs/extensions/authority_key_identifier.js
 var require_authority_key_identifier = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/authority_key_identifier.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509/build/cjs/extensions/authority_key_identifier.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.AuthorityKeyIdentifier = exports2.KeyIdentifier = exports2.id_ce_authorityKeyIdentifier = void 0;
@@ -22997,9 +22997,9 @@ var require_authority_key_identifier = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/basic_constraints.js
+// node_modules/@peculiar/asn1-x509/build/cjs/extensions/basic_constraints.js
 var require_basic_constraints = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/basic_constraints.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509/build/cjs/extensions/basic_constraints.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.BasicConstraints = exports2.id_ce_basicConstraints = void 0;
@@ -23030,9 +23030,9 @@ var require_basic_constraints = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/general_names.js
+// node_modules/@peculiar/asn1-x509/build/cjs/general_names.js
 var require_general_names = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/general_names.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509/build/cjs/general_names.js"(exports2) {
     "use strict";
     var GeneralNames_1;
     Object.defineProperty(exports2, "__esModule", { value: true });
@@ -23056,9 +23056,9 @@ var require_general_names = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/certificate_issuer.js
+// node_modules/@peculiar/asn1-x509/build/cjs/extensions/certificate_issuer.js
 var require_certificate_issuer = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/certificate_issuer.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509/build/cjs/extensions/certificate_issuer.js"(exports2) {
     "use strict";
     var CertificateIssuer_1;
     Object.defineProperty(exports2, "__esModule", { value: true });
@@ -23081,9 +23081,9 @@ var require_certificate_issuer = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/certificate_policies.js
+// node_modules/@peculiar/asn1-x509/build/cjs/extensions/certificate_policies.js
 var require_certificate_policies = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/certificate_policies.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509/build/cjs/extensions/certificate_policies.js"(exports2) {
     "use strict";
     var CertificatePolicies_1;
     Object.defineProperty(exports2, "__esModule", { value: true });
@@ -23223,9 +23223,9 @@ var require_certificate_policies = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/crl_number.js
+// node_modules/@peculiar/asn1-x509/build/cjs/extensions/crl_number.js
 var require_crl_number = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/crl_number.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509/build/cjs/extensions/crl_number.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.CRLNumber = exports2.id_ce_cRLNumber = void 0;
@@ -23249,9 +23249,9 @@ var require_crl_number = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/crl_delta_indicator.js
+// node_modules/@peculiar/asn1-x509/build/cjs/extensions/crl_delta_indicator.js
 var require_crl_delta_indicator = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/crl_delta_indicator.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509/build/cjs/extensions/crl_delta_indicator.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.BaseCRLNumber = exports2.id_ce_deltaCRLIndicator = void 0;
@@ -23269,9 +23269,9 @@ var require_crl_delta_indicator = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/crl_distribution_points.js
+// node_modules/@peculiar/asn1-x509/build/cjs/extensions/crl_distribution_points.js
 var require_crl_distribution_points = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/crl_distribution_points.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509/build/cjs/extensions/crl_distribution_points.js"(exports2) {
     "use strict";
     var CRLDistributionPoints_1;
     Object.defineProperty(exports2, "__esModule", { value: true });
@@ -23407,9 +23407,9 @@ var require_crl_distribution_points = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/crl_freshest.js
+// node_modules/@peculiar/asn1-x509/build/cjs/extensions/crl_freshest.js
 var require_crl_freshest = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/crl_freshest.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509/build/cjs/extensions/crl_freshest.js"(exports2) {
     "use strict";
     var FreshestCRL_1;
     Object.defineProperty(exports2, "__esModule", { value: true });
@@ -23435,9 +23435,9 @@ var require_crl_freshest = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/crl_issuing_distribution_point.js
+// node_modules/@peculiar/asn1-x509/build/cjs/extensions/crl_issuing_distribution_point.js
 var require_crl_issuing_distribution_point = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/crl_issuing_distribution_point.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509/build/cjs/extensions/crl_issuing_distribution_point.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.IssuingDistributionPoint = exports2.id_ce_issuingDistributionPoint = void 0;
@@ -23509,9 +23509,9 @@ var require_crl_issuing_distribution_point = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/crl_reason.js
+// node_modules/@peculiar/asn1-x509/build/cjs/extensions/crl_reason.js
 var require_crl_reason = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/crl_reason.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509/build/cjs/extensions/crl_reason.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.CRLReason = exports2.CRLReasons = exports2.id_ce_cRLReasons = void 0;
@@ -23554,9 +23554,9 @@ var require_crl_reason = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/extended_key_usage.js
+// node_modules/@peculiar/asn1-x509/build/cjs/extensions/extended_key_usage.js
 var require_extended_key_usage = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/extended_key_usage.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509/build/cjs/extensions/extended_key_usage.js"(exports2) {
     "use strict";
     var ExtendedKeyUsage_1;
     Object.defineProperty(exports2, "__esModule", { value: true });
@@ -23588,9 +23588,9 @@ var require_extended_key_usage = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/inhibit_any_policy.js
+// node_modules/@peculiar/asn1-x509/build/cjs/extensions/inhibit_any_policy.js
 var require_inhibit_any_policy = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/inhibit_any_policy.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509/build/cjs/extensions/inhibit_any_policy.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.InhibitAnyPolicy = exports2.id_ce_inhibitAnyPolicy = void 0;
@@ -23617,9 +23617,9 @@ var require_inhibit_any_policy = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/invalidity_date.js
+// node_modules/@peculiar/asn1-x509/build/cjs/extensions/invalidity_date.js
 var require_invalidity_date = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/invalidity_date.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509/build/cjs/extensions/invalidity_date.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.InvalidityDate = exports2.id_ce_invalidityDate = void 0;
@@ -23645,9 +23645,9 @@ var require_invalidity_date = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/issuer_alternative_name.js
+// node_modules/@peculiar/asn1-x509/build/cjs/extensions/issuer_alternative_name.js
 var require_issuer_alternative_name = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/issuer_alternative_name.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509/build/cjs/extensions/issuer_alternative_name.js"(exports2) {
     "use strict";
     var IssueAlternativeName_1;
     Object.defineProperty(exports2, "__esModule", { value: true });
@@ -23670,9 +23670,9 @@ var require_issuer_alternative_name = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/key_usage.js
+// node_modules/@peculiar/asn1-x509/build/cjs/extensions/key_usage.js
 var require_key_usage = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/key_usage.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509/build/cjs/extensions/key_usage.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.KeyUsage = exports2.KeyUsageFlags = exports2.id_ce_keyUsage = void 0;
@@ -23732,9 +23732,9 @@ var require_key_usage = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/name_constraints.js
+// node_modules/@peculiar/asn1-x509/build/cjs/extensions/name_constraints.js
 var require_name_constraints = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/name_constraints.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509/build/cjs/extensions/name_constraints.js"(exports2) {
     "use strict";
     var GeneralSubtrees_1;
     Object.defineProperty(exports2, "__esModule", { value: true });
@@ -23812,9 +23812,9 @@ var require_name_constraints = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/policy_constraints.js
+// node_modules/@peculiar/asn1-x509/build/cjs/extensions/policy_constraints.js
 var require_policy_constraints = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/policy_constraints.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509/build/cjs/extensions/policy_constraints.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.PolicyConstraints = exports2.id_ce_policyConstraints = void 0;
@@ -23851,9 +23851,9 @@ var require_policy_constraints = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/policy_mappings.js
+// node_modules/@peculiar/asn1-x509/build/cjs/extensions/policy_mappings.js
 var require_policy_mappings = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/policy_mappings.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509/build/cjs/extensions/policy_mappings.js"(exports2) {
     "use strict";
     var PolicyMappings_1;
     Object.defineProperty(exports2, "__esModule", { value: true });
@@ -23892,9 +23892,9 @@ var require_policy_mappings = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/subject_alternative_name.js
+// node_modules/@peculiar/asn1-x509/build/cjs/extensions/subject_alternative_name.js
 var require_subject_alternative_name = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/subject_alternative_name.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509/build/cjs/extensions/subject_alternative_name.js"(exports2) {
     "use strict";
     var SubjectAlternativeName_1;
     Object.defineProperty(exports2, "__esModule", { value: true });
@@ -23917,9 +23917,9 @@ var require_subject_alternative_name = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/attribute.js
+// node_modules/@peculiar/asn1-x509/build/cjs/attribute.js
 var require_attribute = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/attribute.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509/build/cjs/attribute.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.Attribute = void 0;
@@ -23945,9 +23945,9 @@ var require_attribute = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/subject_directory_attributes.js
+// node_modules/@peculiar/asn1-x509/build/cjs/extensions/subject_directory_attributes.js
 var require_subject_directory_attributes = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/subject_directory_attributes.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509/build/cjs/extensions/subject_directory_attributes.js"(exports2) {
     "use strict";
     var SubjectDirectoryAttributes_1;
     Object.defineProperty(exports2, "__esModule", { value: true });
@@ -23973,9 +23973,9 @@ var require_subject_directory_attributes = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/subject_key_identifier.js
+// node_modules/@peculiar/asn1-x509/build/cjs/extensions/subject_key_identifier.js
 var require_subject_key_identifier = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/subject_key_identifier.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509/build/cjs/extensions/subject_key_identifier.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.SubjectKeyIdentifier = exports2.id_ce_subjectKeyIdentifier = void 0;
@@ -23988,9 +23988,9 @@ var require_subject_key_identifier = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/private_key_usage_period.js
+// node_modules/@peculiar/asn1-x509/build/cjs/extensions/private_key_usage_period.js
 var require_private_key_usage_period = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/private_key_usage_period.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509/build/cjs/extensions/private_key_usage_period.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.PrivateKeyUsagePeriod = exports2.id_ce_privateKeyUsagePeriod = void 0;
@@ -24025,9 +24025,9 @@ var require_private_key_usage_period = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/entrust_version_info.js
+// node_modules/@peculiar/asn1-x509/build/cjs/extensions/entrust_version_info.js
 var require_entrust_version_info = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/entrust_version_info.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509/build/cjs/extensions/entrust_version_info.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.EntrustVersionInfo = exports2.EntrustInfo = exports2.EntrustInfoFlags = exports2.id_entrust_entrustVersInfo = void 0;
@@ -24077,9 +24077,9 @@ var require_entrust_version_info = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/subject_info_access.js
+// node_modules/@peculiar/asn1-x509/build/cjs/extensions/subject_info_access.js
 var require_subject_info_access = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/subject_info_access.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509/build/cjs/extensions/subject_info_access.js"(exports2) {
     "use strict";
     var SubjectInfoAccessSyntax_1;
     Object.defineProperty(exports2, "__esModule", { value: true });
@@ -24105,9 +24105,9 @@ var require_subject_info_access = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/index.js
+// node_modules/@peculiar/asn1-x509/build/cjs/extensions/index.js
 var require_extensions = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extensions/index.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509/build/cjs/extensions/index.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     var tslib_1 = (init_tslib_es6(), __toCommonJS(tslib_es6_exports));
@@ -24139,9 +24139,9 @@ var require_extensions = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/algorithm_identifier.js
+// node_modules/@peculiar/asn1-x509/build/cjs/algorithm_identifier.js
 var require_algorithm_identifier = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/algorithm_identifier.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509/build/cjs/algorithm_identifier.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.AlgorithmIdentifier = void 0;
@@ -24171,9 +24171,9 @@ var require_algorithm_identifier = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/subject_public_key_info.js
+// node_modules/@peculiar/asn1-x509/build/cjs/subject_public_key_info.js
 var require_subject_public_key_info = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/subject_public_key_info.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509/build/cjs/subject_public_key_info.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.SubjectPublicKeyInfo = void 0;
@@ -24197,9 +24197,9 @@ var require_subject_public_key_info = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/time.js
+// node_modules/@peculiar/asn1-x509/build/cjs/time.js
 var require_time = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/time.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509/build/cjs/time.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.Time = void 0;
@@ -24244,9 +24244,9 @@ var require_time = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/validity.js
+// node_modules/@peculiar/asn1-x509/build/cjs/validity.js
 var require_validity = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/validity.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509/build/cjs/validity.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.Validity = void 0;
@@ -24273,9 +24273,9 @@ var require_validity = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extension.js
+// node_modules/@peculiar/asn1-x509/build/cjs/extension.js
 var require_extension2 = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/extension.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509/build/cjs/extension.js"(exports2) {
     "use strict";
     var Extensions_1;
     Object.defineProperty(exports2, "__esModule", { value: true });
@@ -24320,9 +24320,9 @@ var require_extension2 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/types.js
+// node_modules/@peculiar/asn1-x509/build/cjs/types.js
 var require_types2 = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/types.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509/build/cjs/types.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.Version = void 0;
@@ -24335,9 +24335,9 @@ var require_types2 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/tbs_certificate.js
+// node_modules/@peculiar/asn1-x509/build/cjs/tbs_certificate.js
 var require_tbs_certificate = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/tbs_certificate.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509/build/cjs/tbs_certificate.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.TBSCertificate = void 0;
@@ -24419,9 +24419,9 @@ var require_tbs_certificate = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/certificate.js
+// node_modules/@peculiar/asn1-x509/build/cjs/certificate.js
 var require_certificate = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/certificate.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509/build/cjs/certificate.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.Certificate = void 0;
@@ -24454,9 +24454,9 @@ var require_certificate = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/tbs_cert_list.js
+// node_modules/@peculiar/asn1-x509/build/cjs/tbs_cert_list.js
 var require_tbs_cert_list = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/tbs_cert_list.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509/build/cjs/tbs_cert_list.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.TBSCertList = exports2.RevokedCertificate = void 0;
@@ -24543,9 +24543,9 @@ var require_tbs_cert_list = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/certificate_list.js
+// node_modules/@peculiar/asn1-x509/build/cjs/certificate_list.js
 var require_certificate_list = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/certificate_list.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509/build/cjs/certificate_list.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.CertificateList = void 0;
@@ -24578,9 +24578,9 @@ var require_certificate_list = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/index.js
+// node_modules/@peculiar/asn1-x509/build/cjs/index.js
 var require_cjs3 = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509/build/cjs/index.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509/build/cjs/index.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     var tslib_1 = (init_tslib_es6(), __toCommonJS(tslib_es6_exports));
@@ -24603,9 +24603,9 @@ var require_cjs3 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/issuer_and_serial_number.js
+// node_modules/@peculiar/asn1-cms/build/cjs/issuer_and_serial_number.js
 var require_issuer_and_serial_number = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/issuer_and_serial_number.js"(exports2) {
+  "node_modules/@peculiar/asn1-cms/build/cjs/issuer_and_serial_number.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.IssuerAndSerialNumber = void 0;
@@ -24632,9 +24632,9 @@ var require_issuer_and_serial_number = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/signer_identifier.js
+// node_modules/@peculiar/asn1-cms/build/cjs/signer_identifier.js
 var require_signer_identifier = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/signer_identifier.js"(exports2) {
+  "node_modules/@peculiar/asn1-cms/build/cjs/signer_identifier.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.SignerIdentifier = void 0;
@@ -24666,9 +24666,9 @@ var require_signer_identifier = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/types.js
+// node_modules/@peculiar/asn1-cms/build/cjs/types.js
 var require_types3 = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/types.js"(exports2) {
+  "node_modules/@peculiar/asn1-cms/build/cjs/types.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.KeyDerivationAlgorithmIdentifier = exports2.MessageAuthenticationCodeAlgorithm = exports2.ContentEncryptionAlgorithmIdentifier = exports2.KeyEncryptionAlgorithmIdentifier = exports2.SignatureAlgorithmIdentifier = exports2.DigestAlgorithmIdentifier = exports2.CMSVersion = void 0;
@@ -24723,9 +24723,9 @@ var require_types3 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/attribute.js
+// node_modules/@peculiar/asn1-cms/build/cjs/attribute.js
 var require_attribute2 = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/attribute.js"(exports2) {
+  "node_modules/@peculiar/asn1-cms/build/cjs/attribute.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.Attribute = void 0;
@@ -24751,9 +24751,9 @@ var require_attribute2 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/signer_info.js
+// node_modules/@peculiar/asn1-cms/build/cjs/signer_info.js
 var require_signer_info = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/signer_info.js"(exports2) {
+  "node_modules/@peculiar/asn1-cms/build/cjs/signer_info.js"(exports2) {
     "use strict";
     var SignerInfos_1;
     Object.defineProperty(exports2, "__esModule", { value: true });
@@ -24827,9 +24827,9 @@ var require_signer_info = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/attributes/counter_signature.js
+// node_modules/@peculiar/asn1-cms/build/cjs/attributes/counter_signature.js
 var require_counter_signature = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/attributes/counter_signature.js"(exports2) {
+  "node_modules/@peculiar/asn1-cms/build/cjs/attributes/counter_signature.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.CounterSignature = exports2.id_counterSignature = void 0;
@@ -24846,9 +24846,9 @@ var require_counter_signature = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/attributes/message_digest.js
+// node_modules/@peculiar/asn1-cms/build/cjs/attributes/message_digest.js
 var require_message_digest = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/attributes/message_digest.js"(exports2) {
+  "node_modules/@peculiar/asn1-cms/build/cjs/attributes/message_digest.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.MessageDigest = exports2.id_messageDigest = void 0;
@@ -24860,9 +24860,9 @@ var require_message_digest = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/attributes/signing_time.js
+// node_modules/@peculiar/asn1-cms/build/cjs/attributes/signing_time.js
 var require_signing_time = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/attributes/signing_time.js"(exports2) {
+  "node_modules/@peculiar/asn1-cms/build/cjs/attributes/signing_time.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.SigningTime = exports2.id_signingTime = void 0;
@@ -24879,9 +24879,9 @@ var require_signing_time = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/attributes/index.js
+// node_modules/@peculiar/asn1-cms/build/cjs/attributes/index.js
 var require_attributes = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/attributes/index.js"(exports2) {
+  "node_modules/@peculiar/asn1-cms/build/cjs/attributes/index.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.id_contentType = void 0;
@@ -24893,9 +24893,9 @@ var require_attributes = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509-attr/build/cjs/aa_clear_attrs.js
+// node_modules/@peculiar/asn1-x509-attr/build/cjs/aa_clear_attrs.js
 var require_aa_clear_attrs = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509-attr/build/cjs/aa_clear_attrs.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509-attr/build/cjs/aa_clear_attrs.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ACClearAttrs = void 0;
@@ -24926,9 +24926,9 @@ var require_aa_clear_attrs = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509-attr/build/cjs/attr_spec.js
+// node_modules/@peculiar/asn1-x509-attr/build/cjs/attr_spec.js
 var require_attr_spec = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509-attr/build/cjs/attr_spec.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509-attr/build/cjs/attr_spec.js"(exports2) {
     "use strict";
     var AttrSpec_1;
     Object.defineProperty(exports2, "__esModule", { value: true });
@@ -24951,9 +24951,9 @@ var require_attr_spec = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509-attr/build/cjs/aa_controls.js
+// node_modules/@peculiar/asn1-x509-attr/build/cjs/aa_controls.js
 var require_aa_controls = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509-attr/build/cjs/aa_controls.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509-attr/build/cjs/aa_controls.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.AAControls = void 0;
@@ -25001,9 +25001,9 @@ var require_aa_controls = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509-attr/build/cjs/issuer_serial.js
+// node_modules/@peculiar/asn1-x509-attr/build/cjs/issuer_serial.js
 var require_issuer_serial = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509-attr/build/cjs/issuer_serial.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509-attr/build/cjs/issuer_serial.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.IssuerSerial = void 0;
@@ -25037,9 +25037,9 @@ var require_issuer_serial = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509-attr/build/cjs/object_digest_info.js
+// node_modules/@peculiar/asn1-x509-attr/build/cjs/object_digest_info.js
 var require_object_digest_info = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509-attr/build/cjs/object_digest_info.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509-attr/build/cjs/object_digest_info.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ObjectDigestInfo = exports2.DigestedObjectType = void 0;
@@ -25080,9 +25080,9 @@ var require_object_digest_info = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509-attr/build/cjs/v2_form.js
+// node_modules/@peculiar/asn1-x509-attr/build/cjs/v2_form.js
 var require_v2_form = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509-attr/build/cjs/v2_form.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509-attr/build/cjs/v2_form.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.V2Form = void 0;
@@ -25125,9 +25125,9 @@ var require_v2_form = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509-attr/build/cjs/attr_cert_issuer.js
+// node_modules/@peculiar/asn1-x509-attr/build/cjs/attr_cert_issuer.js
 var require_attr_cert_issuer = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509-attr/build/cjs/attr_cert_issuer.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509-attr/build/cjs/attr_cert_issuer.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.AttCertIssuer = void 0;
@@ -25162,9 +25162,9 @@ var require_attr_cert_issuer = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509-attr/build/cjs/attr_cert_validity_period.js
+// node_modules/@peculiar/asn1-x509-attr/build/cjs/attr_cert_validity_period.js
 var require_attr_cert_validity_period = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509-attr/build/cjs/attr_cert_validity_period.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509-attr/build/cjs/attr_cert_validity_period.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.AttCertValidityPeriod = void 0;
@@ -25187,9 +25187,9 @@ var require_attr_cert_validity_period = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509-attr/build/cjs/holder.js
+// node_modules/@peculiar/asn1-x509-attr/build/cjs/holder.js
 var require_holder = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509-attr/build/cjs/holder.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509-attr/build/cjs/holder.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.Holder = void 0;
@@ -25234,9 +25234,9 @@ var require_holder = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509-attr/build/cjs/attribute_certificate_info.js
+// node_modules/@peculiar/asn1-x509-attr/build/cjs/attribute_certificate_info.js
 var require_attribute_certificate_info = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509-attr/build/cjs/attribute_certificate_info.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509-attr/build/cjs/attribute_certificate_info.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.AttributeCertificateInfo = exports2.AttCertVersion = void 0;
@@ -25307,9 +25307,9 @@ var require_attribute_certificate_info = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509-attr/build/cjs/attribute_certificate.js
+// node_modules/@peculiar/asn1-x509-attr/build/cjs/attribute_certificate.js
 var require_attribute_certificate = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509-attr/build/cjs/attribute_certificate.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509-attr/build/cjs/attribute_certificate.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.AttributeCertificate = void 0;
@@ -25338,9 +25338,9 @@ var require_attribute_certificate = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509-attr/build/cjs/class_list.js
+// node_modules/@peculiar/asn1-x509-attr/build/cjs/class_list.js
 var require_class_list = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509-attr/build/cjs/class_list.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509-attr/build/cjs/class_list.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ClassList = exports2.ClassListFlags = void 0;
@@ -25360,9 +25360,9 @@ var require_class_list = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509-attr/build/cjs/security_category.js
+// node_modules/@peculiar/asn1-x509-attr/build/cjs/security_category.js
 var require_security_category = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509-attr/build/cjs/security_category.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509-attr/build/cjs/security_category.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.SecurityCategory = void 0;
@@ -25393,9 +25393,9 @@ var require_security_category = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509-attr/build/cjs/clearance.js
+// node_modules/@peculiar/asn1-x509-attr/build/cjs/clearance.js
 var require_clearance = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509-attr/build/cjs/clearance.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509-attr/build/cjs/clearance.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.Clearance = void 0;
@@ -25430,9 +25430,9 @@ var require_clearance = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509-attr/build/cjs/ietf_attr_syntax.js
+// node_modules/@peculiar/asn1-x509-attr/build/cjs/ietf_attr_syntax.js
 var require_ietf_attr_syntax = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509-attr/build/cjs/ietf_attr_syntax.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509-attr/build/cjs/ietf_attr_syntax.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.IetfAttrSyntax = exports2.IetfAttrSyntaxValueChoices = void 0;
@@ -25482,9 +25482,9 @@ var require_ietf_attr_syntax = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509-attr/build/cjs/object_identifiers.js
+// node_modules/@peculiar/asn1-x509-attr/build/cjs/object_identifiers.js
 var require_object_identifiers2 = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509-attr/build/cjs/object_identifiers.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509-attr/build/cjs/object_identifiers.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.id_at_clearance = exports2.id_at_role = exports2.id_at = exports2.id_aca_encAttrs = exports2.id_aca_group = exports2.id_aca_chargingIdentity = exports2.id_aca_accessIdentity = exports2.id_aca_authenticationInfo = exports2.id_aca = exports2.id_ce_targetInformation = exports2.id_pe_ac_proxying = exports2.id_pe_aaControls = exports2.id_pe_ac_auditIdentity = void 0;
@@ -25505,9 +25505,9 @@ var require_object_identifiers2 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509-attr/build/cjs/target.js
+// node_modules/@peculiar/asn1-x509-attr/build/cjs/target.js
 var require_target = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509-attr/build/cjs/target.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509-attr/build/cjs/target.js"(exports2) {
     "use strict";
     var Targets_1;
     Object.defineProperty(exports2, "__esModule", { value: true });
@@ -25590,9 +25590,9 @@ var require_target = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509-attr/build/cjs/proxy_info.js
+// node_modules/@peculiar/asn1-x509-attr/build/cjs/proxy_info.js
 var require_proxy_info = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509-attr/build/cjs/proxy_info.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509-attr/build/cjs/proxy_info.js"(exports2) {
     "use strict";
     var ProxyInfo_1;
     Object.defineProperty(exports2, "__esModule", { value: true });
@@ -25616,9 +25616,9 @@ var require_proxy_info = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509-attr/build/cjs/role_syntax.js
+// node_modules/@peculiar/asn1-x509-attr/build/cjs/role_syntax.js
 var require_role_syntax = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509-attr/build/cjs/role_syntax.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509-attr/build/cjs/role_syntax.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RoleSyntax = void 0;
@@ -25651,9 +25651,9 @@ var require_role_syntax = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509-attr/build/cjs/svce_auth_info.js
+// node_modules/@peculiar/asn1-x509-attr/build/cjs/svce_auth_info.js
 var require_svce_auth_info = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509-attr/build/cjs/svce_auth_info.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509-attr/build/cjs/svce_auth_info.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.SvceAuthInfo = void 0;
@@ -25684,9 +25684,9 @@ var require_svce_auth_info = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-x509-attr/build/cjs/index.js
+// node_modules/@peculiar/asn1-x509-attr/build/cjs/index.js
 var require_cjs4 = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-x509-attr/build/cjs/index.js"(exports2) {
+  "node_modules/@peculiar/asn1-x509-attr/build/cjs/index.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     var tslib_1 = (init_tslib_es6(), __toCommonJS(tslib_es6_exports));
@@ -25713,9 +25713,9 @@ var require_cjs4 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/certificate_choices.js
+// node_modules/@peculiar/asn1-cms/build/cjs/certificate_choices.js
 var require_certificate_choices = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/certificate_choices.js"(exports2) {
+  "node_modules/@peculiar/asn1-cms/build/cjs/certificate_choices.js"(exports2) {
     "use strict";
     var CertificateSet_1;
     Object.defineProperty(exports2, "__esModule", { value: true });
@@ -25783,9 +25783,9 @@ var require_certificate_choices = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/content_info.js
+// node_modules/@peculiar/asn1-cms/build/cjs/content_info.js
 var require_content_info = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/content_info.js"(exports2) {
+  "node_modules/@peculiar/asn1-cms/build/cjs/content_info.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ContentInfo = void 0;
@@ -25811,9 +25811,9 @@ var require_content_info = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/encapsulated_content_info.js
+// node_modules/@peculiar/asn1-cms/build/cjs/encapsulated_content_info.js
 var require_encapsulated_content_info = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/encapsulated_content_info.js"(exports2) {
+  "node_modules/@peculiar/asn1-cms/build/cjs/encapsulated_content_info.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.EncapsulatedContentInfo = exports2.EncapsulatedContent = void 0;
@@ -25857,9 +25857,9 @@ var require_encapsulated_content_info = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/encrypted_content_info.js
+// node_modules/@peculiar/asn1-cms/build/cjs/encrypted_content_info.js
 var require_encrypted_content_info = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/encrypted_content_info.js"(exports2) {
+  "node_modules/@peculiar/asn1-cms/build/cjs/encrypted_content_info.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.EncryptedContentInfo = exports2.EncryptedContent = void 0;
@@ -25919,9 +25919,9 @@ var require_encrypted_content_info = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/other_key_attribute.js
+// node_modules/@peculiar/asn1-cms/build/cjs/other_key_attribute.js
 var require_other_key_attribute = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/other_key_attribute.js"(exports2) {
+  "node_modules/@peculiar/asn1-cms/build/cjs/other_key_attribute.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.OtherKeyAttribute = void 0;
@@ -25947,9 +25947,9 @@ var require_other_key_attribute = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/key_agree_recipient_info.js
+// node_modules/@peculiar/asn1-cms/build/cjs/key_agree_recipient_info.js
 var require_key_agree_recipient_info = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/key_agree_recipient_info.js"(exports2) {
+  "node_modules/@peculiar/asn1-cms/build/cjs/key_agree_recipient_info.js"(exports2) {
     "use strict";
     var RecipientEncryptedKeys_1;
     Object.defineProperty(exports2, "__esModule", { value: true });
@@ -26120,9 +26120,9 @@ var require_key_agree_recipient_info = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/key_trans_recipient_info.js
+// node_modules/@peculiar/asn1-cms/build/cjs/key_trans_recipient_info.js
 var require_key_trans_recipient_info = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/key_trans_recipient_info.js"(exports2) {
+  "node_modules/@peculiar/asn1-cms/build/cjs/key_trans_recipient_info.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.KeyTransRecipientInfo = exports2.RecipientIdentifier = void 0;
@@ -26177,9 +26177,9 @@ var require_key_trans_recipient_info = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/kek_recipient_info.js
+// node_modules/@peculiar/asn1-cms/build/cjs/kek_recipient_info.js
 var require_kek_recipient_info = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/kek_recipient_info.js"(exports2) {
+  "node_modules/@peculiar/asn1-cms/build/cjs/kek_recipient_info.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.KEKRecipientInfo = exports2.KEKIdentifier = void 0;
@@ -26236,9 +26236,9 @@ var require_kek_recipient_info = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/password_recipient_info.js
+// node_modules/@peculiar/asn1-cms/build/cjs/password_recipient_info.js
 var require_password_recipient_info = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/password_recipient_info.js"(exports2) {
+  "node_modules/@peculiar/asn1-cms/build/cjs/password_recipient_info.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.PasswordRecipientInfo = void 0;
@@ -26274,9 +26274,9 @@ var require_password_recipient_info = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/recipient_info.js
+// node_modules/@peculiar/asn1-cms/build/cjs/recipient_info.js
 var require_recipient_info = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/recipient_info.js"(exports2) {
+  "node_modules/@peculiar/asn1-cms/build/cjs/recipient_info.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RecipientInfo = exports2.OtherRecipientInfo = void 0;
@@ -26355,9 +26355,9 @@ var require_recipient_info = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/recipient_infos.js
+// node_modules/@peculiar/asn1-cms/build/cjs/recipient_infos.js
 var require_recipient_infos = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/recipient_infos.js"(exports2) {
+  "node_modules/@peculiar/asn1-cms/build/cjs/recipient_infos.js"(exports2) {
     "use strict";
     var RecipientInfos_1;
     Object.defineProperty(exports2, "__esModule", { value: true });
@@ -26381,9 +26381,9 @@ var require_recipient_infos = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/revocation_info_choice.js
+// node_modules/@peculiar/asn1-cms/build/cjs/revocation_info_choice.js
 var require_revocation_info_choice = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/revocation_info_choice.js"(exports2) {
+  "node_modules/@peculiar/asn1-cms/build/cjs/revocation_info_choice.js"(exports2) {
     "use strict";
     var RevocationInfoChoices_1;
     Object.defineProperty(exports2, "__esModule", { value: true });
@@ -26441,9 +26441,9 @@ var require_revocation_info_choice = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/originator_info.js
+// node_modules/@peculiar/asn1-cms/build/cjs/originator_info.js
 var require_originator_info = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/originator_info.js"(exports2) {
+  "node_modules/@peculiar/asn1-cms/build/cjs/originator_info.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.OriginatorInfo = void 0;
@@ -26478,9 +26478,9 @@ var require_originator_info = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/enveloped_data.js
+// node_modules/@peculiar/asn1-cms/build/cjs/enveloped_data.js
 var require_enveloped_data = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/enveloped_data.js"(exports2) {
+  "node_modules/@peculiar/asn1-cms/build/cjs/enveloped_data.js"(exports2) {
     "use strict";
     var UnprotectedAttributes_1;
     Object.defineProperty(exports2, "__esModule", { value: true });
@@ -26544,9 +26544,9 @@ var require_enveloped_data = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/object_identifiers.js
+// node_modules/@peculiar/asn1-cms/build/cjs/object_identifiers.js
 var require_object_identifiers3 = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/object_identifiers.js"(exports2) {
+  "node_modules/@peculiar/asn1-cms/build/cjs/object_identifiers.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.id_authData = exports2.id_encryptedData = exports2.id_digestedData = exports2.id_envelopedData = exports2.id_signedData = exports2.id_data = exports2.id_ct_contentInfo = void 0;
@@ -26560,9 +26560,9 @@ var require_object_identifiers3 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/signed_data.js
+// node_modules/@peculiar/asn1-cms/build/cjs/signed_data.js
 var require_signed_data = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/signed_data.js"(exports2) {
+  "node_modules/@peculiar/asn1-cms/build/cjs/signed_data.js"(exports2) {
     "use strict";
     var DigestAlgorithmIdentifiers_1;
     Object.defineProperty(exports2, "__esModule", { value: true });
@@ -26630,9 +26630,9 @@ var require_signed_data = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/index.js
+// node_modules/@peculiar/asn1-cms/build/cjs/index.js
 var require_cjs5 = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-cms/build/cjs/index.js"(exports2) {
+  "node_modules/@peculiar/asn1-cms/build/cjs/index.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     var tslib_1 = (init_tslib_es6(), __toCommonJS(tslib_es6_exports));
@@ -26660,9 +26660,9 @@ var require_cjs5 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-ecc/build/cjs/object_identifiers.js
+// node_modules/@peculiar/asn1-ecc/build/cjs/object_identifiers.js
 var require_object_identifiers4 = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-ecc/build/cjs/object_identifiers.js"(exports2) {
+  "node_modules/@peculiar/asn1-ecc/build/cjs/object_identifiers.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.id_sect571r1 = exports2.id_sect571k1 = exports2.id_secp521r1 = exports2.id_sect409r1 = exports2.id_sect409k1 = exports2.id_secp384r1 = exports2.id_sect283r1 = exports2.id_sect283k1 = exports2.id_secp256r1 = exports2.id_sect233r1 = exports2.id_sect233k1 = exports2.id_secp224r1 = exports2.id_sect163r2 = exports2.id_sect163k1 = exports2.id_secp192r1 = exports2.id_ecdsaWithSHA512 = exports2.id_ecdsaWithSHA384 = exports2.id_ecdsaWithSHA256 = exports2.id_ecdsaWithSHA224 = exports2.id_ecdsaWithSHA1 = exports2.id_ecMQV = exports2.id_ecDH = exports2.id_ecPublicKey = void 0;
@@ -26692,9 +26692,9 @@ var require_object_identifiers4 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-ecc/build/cjs/algorithms.js
+// node_modules/@peculiar/asn1-ecc/build/cjs/algorithms.js
 var require_algorithms = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-ecc/build/cjs/algorithms.js"(exports2) {
+  "node_modules/@peculiar/asn1-ecc/build/cjs/algorithms.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ecdsaWithSHA512 = exports2.ecdsaWithSHA384 = exports2.ecdsaWithSHA256 = exports2.ecdsaWithSHA224 = exports2.ecdsaWithSHA1 = void 0;
@@ -26712,9 +26712,9 @@ var require_algorithms = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-ecc/build/cjs/rfc3279.js
+// node_modules/@peculiar/asn1-ecc/build/cjs/rfc3279.js
 var require_rfc3279 = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-ecc/build/cjs/rfc3279.js"(exports2) {
+  "node_modules/@peculiar/asn1-ecc/build/cjs/rfc3279.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.SpecifiedECDomain = exports2.ECPVer = exports2.Curve = exports2.FieldElement = exports2.ECPoint = exports2.FieldID = void 0;
@@ -26813,9 +26813,9 @@ var require_rfc3279 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-ecc/build/cjs/ec_parameters.js
+// node_modules/@peculiar/asn1-ecc/build/cjs/ec_parameters.js
 var require_ec_parameters = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-ecc/build/cjs/ec_parameters.js"(exports2) {
+  "node_modules/@peculiar/asn1-ecc/build/cjs/ec_parameters.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ECParameters = void 0;
@@ -26846,9 +26846,9 @@ var require_ec_parameters = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-ecc/build/cjs/ec_private_key.js
+// node_modules/@peculiar/asn1-ecc/build/cjs/ec_private_key.js
 var require_ec_private_key = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-ecc/build/cjs/ec_private_key.js"(exports2) {
+  "node_modules/@peculiar/asn1-ecc/build/cjs/ec_private_key.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ECPrivateKey = void 0;
@@ -26888,9 +26888,9 @@ var require_ec_private_key = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-ecc/build/cjs/ec_signature_value.js
+// node_modules/@peculiar/asn1-ecc/build/cjs/ec_signature_value.js
 var require_ec_signature_value = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-ecc/build/cjs/ec_signature_value.js"(exports2) {
+  "node_modules/@peculiar/asn1-ecc/build/cjs/ec_signature_value.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ECDSASigValue = void 0;
@@ -26919,9 +26919,9 @@ var require_ec_signature_value = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-ecc/build/cjs/index.js
+// node_modules/@peculiar/asn1-ecc/build/cjs/index.js
 var require_cjs6 = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-ecc/build/cjs/index.js"(exports2) {
+  "node_modules/@peculiar/asn1-ecc/build/cjs/index.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     var tslib_1 = (init_tslib_es6(), __toCommonJS(tslib_es6_exports));
@@ -26934,9 +26934,9 @@ var require_cjs6 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-rsa/build/cjs/object_identifiers.js
+// node_modules/@peculiar/asn1-rsa/build/cjs/object_identifiers.js
 var require_object_identifiers5 = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-rsa/build/cjs/object_identifiers.js"(exports2) {
+  "node_modules/@peculiar/asn1-rsa/build/cjs/object_identifiers.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.id_mgf1 = exports2.id_md5 = exports2.id_md2 = exports2.id_sha512_256 = exports2.id_sha512_224 = exports2.id_sha512 = exports2.id_sha384 = exports2.id_sha256 = exports2.id_sha224 = exports2.id_sha1 = exports2.id_sha512_256WithRSAEncryption = exports2.id_sha512_224WithRSAEncryption = exports2.id_sha512WithRSAEncryption = exports2.id_sha384WithRSAEncryption = exports2.id_sha256WithRSAEncryption = exports2.id_ssha224WithRSAEncryption = exports2.id_sha224WithRSAEncryption = exports2.id_sha1WithRSAEncryption = exports2.id_md5WithRSAEncryption = exports2.id_md2WithRSAEncryption = exports2.id_RSASSA_PSS = exports2.id_pSpecified = exports2.id_RSAES_OAEP = exports2.id_rsaEncryption = exports2.id_pkcs_1 = void 0;
@@ -26968,9 +26968,9 @@ var require_object_identifiers5 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-rsa/build/cjs/algorithms.js
+// node_modules/@peculiar/asn1-rsa/build/cjs/algorithms.js
 var require_algorithms2 = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-rsa/build/cjs/algorithms.js"(exports2) {
+  "node_modules/@peculiar/asn1-rsa/build/cjs/algorithms.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.sha512_256WithRSAEncryption = exports2.sha512_224WithRSAEncryption = exports2.sha512WithRSAEncryption = exports2.sha384WithRSAEncryption = exports2.sha256WithRSAEncryption = exports2.sha224WithRSAEncryption = exports2.sha1WithRSAEncryption = exports2.md5WithRSAEncryption = exports2.md2WithRSAEncryption = exports2.rsaEncryption = exports2.pSpecifiedEmpty = exports2.mgf1SHA1 = exports2.sha512_256 = exports2.sha512_224 = exports2.sha512 = exports2.sha384 = exports2.sha256 = exports2.sha224 = exports2.sha1 = exports2.md4 = exports2.md2 = void 0;
@@ -27014,9 +27014,9 @@ var require_algorithms2 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-rsa/build/cjs/parameters/rsaes_oaep.js
+// node_modules/@peculiar/asn1-rsa/build/cjs/parameters/rsaes_oaep.js
 var require_rsaes_oaep = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-rsa/build/cjs/parameters/rsaes_oaep.js"(exports2) {
+  "node_modules/@peculiar/asn1-rsa/build/cjs/parameters/rsaes_oaep.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RSAES_OAEP = exports2.RsaEsOaepParams = void 0;
@@ -27065,9 +27065,9 @@ var require_rsaes_oaep = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-rsa/build/cjs/parameters/rsassa_pss.js
+// node_modules/@peculiar/asn1-rsa/build/cjs/parameters/rsassa_pss.js
 var require_rsassa_pss = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-rsa/build/cjs/parameters/rsassa_pss.js"(exports2) {
+  "node_modules/@peculiar/asn1-rsa/build/cjs/parameters/rsassa_pss.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RSASSA_PSS = exports2.RsaSaPssParams = void 0;
@@ -27124,9 +27124,9 @@ var require_rsassa_pss = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-rsa/build/cjs/parameters/rsassa_pkcs1_v1_5.js
+// node_modules/@peculiar/asn1-rsa/build/cjs/parameters/rsassa_pkcs1_v1_5.js
 var require_rsassa_pkcs1_v1_5 = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-rsa/build/cjs/parameters/rsassa_pkcs1_v1_5.js"(exports2) {
+  "node_modules/@peculiar/asn1-rsa/build/cjs/parameters/rsassa_pkcs1_v1_5.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.DigestInfo = void 0;
@@ -27150,9 +27150,9 @@ var require_rsassa_pkcs1_v1_5 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-rsa/build/cjs/parameters/index.js
+// node_modules/@peculiar/asn1-rsa/build/cjs/parameters/index.js
 var require_parameters = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-rsa/build/cjs/parameters/index.js"(exports2) {
+  "node_modules/@peculiar/asn1-rsa/build/cjs/parameters/index.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     var tslib_1 = (init_tslib_es6(), __toCommonJS(tslib_es6_exports));
@@ -27162,9 +27162,9 @@ var require_parameters = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-rsa/build/cjs/other_prime_info.js
+// node_modules/@peculiar/asn1-rsa/build/cjs/other_prime_info.js
 var require_other_prime_info = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-rsa/build/cjs/other_prime_info.js"(exports2) {
+  "node_modules/@peculiar/asn1-rsa/build/cjs/other_prime_info.js"(exports2) {
     "use strict";
     var OtherPrimeInfos_1;
     Object.defineProperty(exports2, "__esModule", { value: true });
@@ -27214,9 +27214,9 @@ var require_other_prime_info = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-rsa/build/cjs/rsa_private_key.js
+// node_modules/@peculiar/asn1-rsa/build/cjs/rsa_private_key.js
 var require_rsa_private_key = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-rsa/build/cjs/rsa_private_key.js"(exports2) {
+  "node_modules/@peculiar/asn1-rsa/build/cjs/rsa_private_key.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RSAPrivateKey = void 0;
@@ -27299,9 +27299,9 @@ var require_rsa_private_key = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-rsa/build/cjs/rsa_public_key.js
+// node_modules/@peculiar/asn1-rsa/build/cjs/rsa_public_key.js
 var require_rsa_public_key = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-rsa/build/cjs/rsa_public_key.js"(exports2) {
+  "node_modules/@peculiar/asn1-rsa/build/cjs/rsa_public_key.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RSAPublicKey = void 0;
@@ -27330,9 +27330,9 @@ var require_rsa_public_key = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-rsa/build/cjs/index.js
+// node_modules/@peculiar/asn1-rsa/build/cjs/index.js
 var require_cjs7 = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-rsa/build/cjs/index.js"(exports2) {
+  "node_modules/@peculiar/asn1-rsa/build/cjs/index.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     var tslib_1 = (init_tslib_es6(), __toCommonJS(tslib_es6_exports));
@@ -27345,7 +27345,7 @@ var require_cjs7 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/tsyringe/node_modules/tslib/tslib.es6.js
+// node_modules/tsyringe/node_modules/tslib/tslib.es6.js
 var tslib_es6_exports2 = {};
 __export(tslib_es6_exports2, {
   __assign: () => __assign2,
@@ -27650,7 +27650,7 @@ function __classPrivateFieldSet2(receiver, privateMap, value) {
 }
 var extendStatics2, __assign2;
 var init_tslib_es62 = __esm({
-  "packages/cli/node_modules/tsyringe/node_modules/tslib/tslib.es6.js"() {
+  "node_modules/tsyringe/node_modules/tslib/tslib.es6.js"() {
     extendStatics2 = function(d, b) {
       extendStatics2 = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function(d2, b2) {
         d2.__proto__ = b2;
@@ -27672,9 +27672,9 @@ var init_tslib_es62 = __esm({
   }
 });
 
-// packages/cli/node_modules/tsyringe/dist/cjs/types/lifecycle.js
+// node_modules/tsyringe/dist/cjs/types/lifecycle.js
 var require_lifecycle = __commonJS({
-  "packages/cli/node_modules/tsyringe/dist/cjs/types/lifecycle.js"(exports2) {
+  "node_modules/tsyringe/dist/cjs/types/lifecycle.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     var Lifecycle;
@@ -27688,9 +27688,9 @@ var require_lifecycle = __commonJS({
   }
 });
 
-// packages/cli/node_modules/tsyringe/dist/cjs/types/index.js
+// node_modules/tsyringe/dist/cjs/types/index.js
 var require_types4 = __commonJS({
-  "packages/cli/node_modules/tsyringe/dist/cjs/types/index.js"(exports2) {
+  "node_modules/tsyringe/dist/cjs/types/index.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     var lifecycle_1 = require_lifecycle();
@@ -27700,9 +27700,9 @@ var require_types4 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/tsyringe/dist/cjs/reflection-helpers.js
+// node_modules/tsyringe/dist/cjs/reflection-helpers.js
 var require_reflection_helpers = __commonJS({
-  "packages/cli/node_modules/tsyringe/dist/cjs/reflection-helpers.js"(exports2) {
+  "node_modules/tsyringe/dist/cjs/reflection-helpers.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.defineInjectionTokenMetadata = exports2.getParamInfo = exports2.INJECTION_TOKEN_METADATA_KEY = void 0;
@@ -27731,9 +27731,9 @@ var require_reflection_helpers = __commonJS({
   }
 });
 
-// packages/cli/node_modules/tsyringe/dist/cjs/providers/class-provider.js
+// node_modules/tsyringe/dist/cjs/providers/class-provider.js
 var require_class_provider = __commonJS({
-  "packages/cli/node_modules/tsyringe/dist/cjs/providers/class-provider.js"(exports2) {
+  "node_modules/tsyringe/dist/cjs/providers/class-provider.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.isClassProvider = void 0;
@@ -27744,9 +27744,9 @@ var require_class_provider = __commonJS({
   }
 });
 
-// packages/cli/node_modules/tsyringe/dist/cjs/providers/factory-provider.js
+// node_modules/tsyringe/dist/cjs/providers/factory-provider.js
 var require_factory_provider = __commonJS({
-  "packages/cli/node_modules/tsyringe/dist/cjs/providers/factory-provider.js"(exports2) {
+  "node_modules/tsyringe/dist/cjs/providers/factory-provider.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.isFactoryProvider = void 0;
@@ -27757,9 +27757,9 @@ var require_factory_provider = __commonJS({
   }
 });
 
-// packages/cli/node_modules/tsyringe/dist/cjs/lazy-helpers.js
+// node_modules/tsyringe/dist/cjs/lazy-helpers.js
 var require_lazy_helpers = __commonJS({
-  "packages/cli/node_modules/tsyringe/dist/cjs/lazy-helpers.js"(exports2) {
+  "node_modules/tsyringe/dist/cjs/lazy-helpers.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.delay = exports2.DelayedConstructor = void 0;
@@ -27817,9 +27817,9 @@ var require_lazy_helpers = __commonJS({
   }
 });
 
-// packages/cli/node_modules/tsyringe/dist/cjs/providers/injection-token.js
+// node_modules/tsyringe/dist/cjs/providers/injection-token.js
 var require_injection_token = __commonJS({
-  "packages/cli/node_modules/tsyringe/dist/cjs/providers/injection-token.js"(exports2) {
+  "node_modules/tsyringe/dist/cjs/providers/injection-token.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.isConstructorToken = exports2.isTransformDescriptor = exports2.isTokenDescriptor = exports2.isNormalToken = void 0;
@@ -27843,9 +27843,9 @@ var require_injection_token = __commonJS({
   }
 });
 
-// packages/cli/node_modules/tsyringe/dist/cjs/providers/token-provider.js
+// node_modules/tsyringe/dist/cjs/providers/token-provider.js
 var require_token_provider = __commonJS({
-  "packages/cli/node_modules/tsyringe/dist/cjs/providers/token-provider.js"(exports2) {
+  "node_modules/tsyringe/dist/cjs/providers/token-provider.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.isTokenProvider = void 0;
@@ -27856,9 +27856,9 @@ var require_token_provider = __commonJS({
   }
 });
 
-// packages/cli/node_modules/tsyringe/dist/cjs/providers/value-provider.js
+// node_modules/tsyringe/dist/cjs/providers/value-provider.js
 var require_value_provider = __commonJS({
-  "packages/cli/node_modules/tsyringe/dist/cjs/providers/value-provider.js"(exports2) {
+  "node_modules/tsyringe/dist/cjs/providers/value-provider.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.isValueProvider = void 0;
@@ -27869,9 +27869,9 @@ var require_value_provider = __commonJS({
   }
 });
 
-// packages/cli/node_modules/tsyringe/dist/cjs/providers/index.js
+// node_modules/tsyringe/dist/cjs/providers/index.js
 var require_providers = __commonJS({
-  "packages/cli/node_modules/tsyringe/dist/cjs/providers/index.js"(exports2) {
+  "node_modules/tsyringe/dist/cjs/providers/index.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     var class_provider_1 = require_class_provider();
@@ -27897,9 +27897,9 @@ var require_providers = __commonJS({
   }
 });
 
-// packages/cli/node_modules/tsyringe/dist/cjs/providers/provider.js
+// node_modules/tsyringe/dist/cjs/providers/provider.js
 var require_provider = __commonJS({
-  "packages/cli/node_modules/tsyringe/dist/cjs/providers/provider.js"(exports2) {
+  "node_modules/tsyringe/dist/cjs/providers/provider.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.isProvider = void 0;
@@ -27914,9 +27914,9 @@ var require_provider = __commonJS({
   }
 });
 
-// packages/cli/node_modules/tsyringe/dist/cjs/registry-base.js
+// node_modules/tsyringe/dist/cjs/registry-base.js
 var require_registry_base = __commonJS({
-  "packages/cli/node_modules/tsyringe/dist/cjs/registry-base.js"(exports2) {
+  "node_modules/tsyringe/dist/cjs/registry-base.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     var RegistryBase = class {
@@ -27959,9 +27959,9 @@ var require_registry_base = __commonJS({
   }
 });
 
-// packages/cli/node_modules/tsyringe/dist/cjs/registry.js
+// node_modules/tsyringe/dist/cjs/registry.js
 var require_registry2 = __commonJS({
-  "packages/cli/node_modules/tsyringe/dist/cjs/registry.js"(exports2) {
+  "node_modules/tsyringe/dist/cjs/registry.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     var registry_base_1 = require_registry_base();
@@ -27971,9 +27971,9 @@ var require_registry2 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/tsyringe/dist/cjs/resolution-context.js
+// node_modules/tsyringe/dist/cjs/resolution-context.js
 var require_resolution_context = __commonJS({
-  "packages/cli/node_modules/tsyringe/dist/cjs/resolution-context.js"(exports2) {
+  "node_modules/tsyringe/dist/cjs/resolution-context.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     var ResolutionContext = class {
@@ -27985,9 +27985,9 @@ var require_resolution_context = __commonJS({
   }
 });
 
-// packages/cli/node_modules/tsyringe/dist/cjs/error-helpers.js
+// node_modules/tsyringe/dist/cjs/error-helpers.js
 var require_error_helpers = __commonJS({
-  "packages/cli/node_modules/tsyringe/dist/cjs/error-helpers.js"(exports2) {
+  "node_modules/tsyringe/dist/cjs/error-helpers.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.formatErrorCtor = void 0;
@@ -28010,9 +28010,9 @@ var require_error_helpers = __commonJS({
   }
 });
 
-// packages/cli/node_modules/tsyringe/dist/cjs/types/disposable.js
+// node_modules/tsyringe/dist/cjs/types/disposable.js
 var require_disposable = __commonJS({
-  "packages/cli/node_modules/tsyringe/dist/cjs/types/disposable.js"(exports2) {
+  "node_modules/tsyringe/dist/cjs/types/disposable.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.isDisposable = void 0;
@@ -28029,9 +28029,9 @@ var require_disposable = __commonJS({
   }
 });
 
-// packages/cli/node_modules/tsyringe/dist/cjs/interceptors.js
+// node_modules/tsyringe/dist/cjs/interceptors.js
 var require_interceptors = __commonJS({
-  "packages/cli/node_modules/tsyringe/dist/cjs/interceptors.js"(exports2) {
+  "node_modules/tsyringe/dist/cjs/interceptors.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.PostResolutionInterceptors = exports2.PreResolutionInterceptors = void 0;
@@ -28052,9 +28052,9 @@ var require_interceptors = __commonJS({
   }
 });
 
-// packages/cli/node_modules/tsyringe/dist/cjs/dependency-container.js
+// node_modules/tsyringe/dist/cjs/dependency-container.js
 var require_dependency_container = __commonJS({
-  "packages/cli/node_modules/tsyringe/dist/cjs/dependency-container.js"(exports2) {
+  "node_modules/tsyringe/dist/cjs/dependency-container.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.instance = exports2.typeInfo = void 0;
@@ -28370,9 +28370,9 @@ var require_dependency_container = __commonJS({
   }
 });
 
-// packages/cli/node_modules/tsyringe/dist/cjs/decorators/auto-injectable.js
+// node_modules/tsyringe/dist/cjs/decorators/auto-injectable.js
 var require_auto_injectable = __commonJS({
-  "packages/cli/node_modules/tsyringe/dist/cjs/decorators/auto-injectable.js"(exports2) {
+  "node_modules/tsyringe/dist/cjs/decorators/auto-injectable.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     var reflection_helpers_1 = require_reflection_helpers();
@@ -28409,9 +28409,9 @@ var require_auto_injectable = __commonJS({
   }
 });
 
-// packages/cli/node_modules/tsyringe/dist/cjs/decorators/inject.js
+// node_modules/tsyringe/dist/cjs/decorators/inject.js
 var require_inject = __commonJS({
-  "packages/cli/node_modules/tsyringe/dist/cjs/decorators/inject.js"(exports2) {
+  "node_modules/tsyringe/dist/cjs/decorators/inject.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     var reflection_helpers_1 = require_reflection_helpers();
@@ -28427,9 +28427,9 @@ var require_inject = __commonJS({
   }
 });
 
-// packages/cli/node_modules/tsyringe/dist/cjs/decorators/injectable.js
+// node_modules/tsyringe/dist/cjs/decorators/injectable.js
 var require_injectable = __commonJS({
-  "packages/cli/node_modules/tsyringe/dist/cjs/decorators/injectable.js"(exports2) {
+  "node_modules/tsyringe/dist/cjs/decorators/injectable.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     var reflection_helpers_1 = require_reflection_helpers();
@@ -28453,9 +28453,9 @@ var require_injectable = __commonJS({
   }
 });
 
-// packages/cli/node_modules/tsyringe/dist/cjs/decorators/registry.js
+// node_modules/tsyringe/dist/cjs/decorators/registry.js
 var require_registry3 = __commonJS({
-  "packages/cli/node_modules/tsyringe/dist/cjs/decorators/registry.js"(exports2) {
+  "node_modules/tsyringe/dist/cjs/decorators/registry.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     var tslib_1 = (init_tslib_es62(), __toCommonJS(tslib_es6_exports2));
@@ -28473,9 +28473,9 @@ var require_registry3 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/tsyringe/dist/cjs/decorators/singleton.js
+// node_modules/tsyringe/dist/cjs/decorators/singleton.js
 var require_singleton = __commonJS({
-  "packages/cli/node_modules/tsyringe/dist/cjs/decorators/singleton.js"(exports2) {
+  "node_modules/tsyringe/dist/cjs/decorators/singleton.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     var injectable_1 = require_injectable();
@@ -28490,9 +28490,9 @@ var require_singleton = __commonJS({
   }
 });
 
-// packages/cli/node_modules/tsyringe/dist/cjs/decorators/inject-all.js
+// node_modules/tsyringe/dist/cjs/decorators/inject-all.js
 var require_inject_all = __commonJS({
-  "packages/cli/node_modules/tsyringe/dist/cjs/decorators/inject-all.js"(exports2) {
+  "node_modules/tsyringe/dist/cjs/decorators/inject-all.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     var reflection_helpers_1 = require_reflection_helpers();
@@ -28508,9 +28508,9 @@ var require_inject_all = __commonJS({
   }
 });
 
-// packages/cli/node_modules/tsyringe/dist/cjs/decorators/inject-all-with-transform.js
+// node_modules/tsyringe/dist/cjs/decorators/inject-all-with-transform.js
 var require_inject_all_with_transform = __commonJS({
-  "packages/cli/node_modules/tsyringe/dist/cjs/decorators/inject-all-with-transform.js"(exports2) {
+  "node_modules/tsyringe/dist/cjs/decorators/inject-all-with-transform.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     var reflection_helpers_1 = require_reflection_helpers();
@@ -28527,9 +28527,9 @@ var require_inject_all_with_transform = __commonJS({
   }
 });
 
-// packages/cli/node_modules/tsyringe/dist/cjs/decorators/inject-with-transform.js
+// node_modules/tsyringe/dist/cjs/decorators/inject-with-transform.js
 var require_inject_with_transform = __commonJS({
-  "packages/cli/node_modules/tsyringe/dist/cjs/decorators/inject-with-transform.js"(exports2) {
+  "node_modules/tsyringe/dist/cjs/decorators/inject-with-transform.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     var reflection_helpers_1 = require_reflection_helpers();
@@ -28543,9 +28543,9 @@ var require_inject_with_transform = __commonJS({
   }
 });
 
-// packages/cli/node_modules/tsyringe/dist/cjs/decorators/scoped.js
+// node_modules/tsyringe/dist/cjs/decorators/scoped.js
 var require_scoped = __commonJS({
-  "packages/cli/node_modules/tsyringe/dist/cjs/decorators/scoped.js"(exports2) {
+  "node_modules/tsyringe/dist/cjs/decorators/scoped.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     var injectable_1 = require_injectable();
@@ -28562,9 +28562,9 @@ var require_scoped = __commonJS({
   }
 });
 
-// packages/cli/node_modules/tsyringe/dist/cjs/decorators/index.js
+// node_modules/tsyringe/dist/cjs/decorators/index.js
 var require_decorators2 = __commonJS({
-  "packages/cli/node_modules/tsyringe/dist/cjs/decorators/index.js"(exports2) {
+  "node_modules/tsyringe/dist/cjs/decorators/index.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     var auto_injectable_1 = require_auto_injectable();
@@ -28606,9 +28606,9 @@ var require_decorators2 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/tsyringe/dist/cjs/factories/instance-caching-factory.js
+// node_modules/tsyringe/dist/cjs/factories/instance-caching-factory.js
 var require_instance_caching_factory = __commonJS({
-  "packages/cli/node_modules/tsyringe/dist/cjs/factories/instance-caching-factory.js"(exports2) {
+  "node_modules/tsyringe/dist/cjs/factories/instance-caching-factory.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     function instanceCachingFactory(factoryFunc) {
@@ -28624,9 +28624,9 @@ var require_instance_caching_factory = __commonJS({
   }
 });
 
-// packages/cli/node_modules/tsyringe/dist/cjs/factories/instance-per-container-caching-factory.js
+// node_modules/tsyringe/dist/cjs/factories/instance-per-container-caching-factory.js
 var require_instance_per_container_caching_factory = __commonJS({
-  "packages/cli/node_modules/tsyringe/dist/cjs/factories/instance-per-container-caching-factory.js"(exports2) {
+  "node_modules/tsyringe/dist/cjs/factories/instance-per-container-caching-factory.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     function instancePerContainerCachingFactory(factoryFunc) {
@@ -28644,9 +28644,9 @@ var require_instance_per_container_caching_factory = __commonJS({
   }
 });
 
-// packages/cli/node_modules/tsyringe/dist/cjs/factories/predicate-aware-class-factory.js
+// node_modules/tsyringe/dist/cjs/factories/predicate-aware-class-factory.js
 var require_predicate_aware_class_factory = __commonJS({
-  "packages/cli/node_modules/tsyringe/dist/cjs/factories/predicate-aware-class-factory.js"(exports2) {
+  "node_modules/tsyringe/dist/cjs/factories/predicate-aware-class-factory.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     function predicateAwareClassFactory(predicate, trueConstructor, falseConstructor, useCaching = true) {
@@ -28668,9 +28668,9 @@ var require_predicate_aware_class_factory = __commonJS({
   }
 });
 
-// packages/cli/node_modules/tsyringe/dist/cjs/factories/index.js
+// node_modules/tsyringe/dist/cjs/factories/index.js
 var require_factories = __commonJS({
-  "packages/cli/node_modules/tsyringe/dist/cjs/factories/index.js"(exports2) {
+  "node_modules/tsyringe/dist/cjs/factories/index.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     var instance_caching_factory_1 = require_instance_caching_factory();
@@ -28688,9 +28688,9 @@ var require_factories = __commonJS({
   }
 });
 
-// packages/cli/node_modules/tsyringe/dist/cjs/index.js
+// node_modules/tsyringe/dist/cjs/index.js
 var require_cjs8 = __commonJS({
-  "packages/cli/node_modules/tsyringe/dist/cjs/index.js"(exports2) {
+  "node_modules/tsyringe/dist/cjs/index.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     var tslib_1 = (init_tslib_es62(), __toCommonJS(tslib_es6_exports2));
@@ -28715,9 +28715,9 @@ var require_cjs8 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-pfx/build/cjs/attribute.js
+// node_modules/@peculiar/asn1-pfx/build/cjs/attribute.js
 var require_attribute3 = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-pfx/build/cjs/attribute.js"(exports2) {
+  "node_modules/@peculiar/asn1-pfx/build/cjs/attribute.js"(exports2) {
     "use strict";
     var PKCS12AttrSet_1;
     Object.defineProperty(exports2, "__esModule", { value: true });
@@ -28757,9 +28757,9 @@ var require_attribute3 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-pfx/build/cjs/authenticated_safe.js
+// node_modules/@peculiar/asn1-pfx/build/cjs/authenticated_safe.js
 var require_authenticated_safe = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-pfx/build/cjs/authenticated_safe.js"(exports2) {
+  "node_modules/@peculiar/asn1-pfx/build/cjs/authenticated_safe.js"(exports2) {
     "use strict";
     var AuthenticatedSafe_1;
     Object.defineProperty(exports2, "__esModule", { value: true });
@@ -28783,9 +28783,9 @@ var require_authenticated_safe = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-pfx/build/cjs/object_identifiers.js
+// node_modules/@peculiar/asn1-pfx/build/cjs/object_identifiers.js
 var require_object_identifiers6 = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-pfx/build/cjs/object_identifiers.js"(exports2) {
+  "node_modules/@peculiar/asn1-pfx/build/cjs/object_identifiers.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.id_bagtypes = exports2.id_pbewithSHAAnd40BitRC2_CBC = exports2.id_pbeWithSHAAnd128BitRC2_CBC = exports2.id_pbeWithSHAAnd2_KeyTripleDES_CBC = exports2.id_pbeWithSHAAnd3_KeyTripleDES_CBC = exports2.id_pbeWithSHAAnd40BitRC4 = exports2.id_pbeWithSHAAnd128BitRC4 = exports2.id_pkcs_12PbeIds = exports2.id_pkcs_12 = exports2.id_pkcs = exports2.id_rsadsi = void 0;
@@ -28803,9 +28803,9 @@ var require_object_identifiers6 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-pfx/build/cjs/bags/types.js
+// node_modules/@peculiar/asn1-pfx/build/cjs/bags/types.js
 var require_types5 = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-pfx/build/cjs/bags/types.js"(exports2) {
+  "node_modules/@peculiar/asn1-pfx/build/cjs/bags/types.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.id_pkcs_9 = exports2.id_SafeContents = exports2.id_SecretBag = exports2.id_CRLBag = exports2.id_certBag = exports2.id_pkcs8ShroudedKeyBag = exports2.id_keyBag = void 0;
@@ -28820,9 +28820,9 @@ var require_types5 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-pfx/build/cjs/bags/cert_bag.js
+// node_modules/@peculiar/asn1-pfx/build/cjs/bags/cert_bag.js
 var require_cert_bag = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-pfx/build/cjs/bags/cert_bag.js"(exports2) {
+  "node_modules/@peculiar/asn1-pfx/build/cjs/bags/cert_bag.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.id_sdsiCertificate = exports2.id_x509Certificate = exports2.id_certTypes = exports2.CertBag = void 0;
@@ -28852,9 +28852,9 @@ var require_cert_bag = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-pfx/build/cjs/bags/crl_bag.js
+// node_modules/@peculiar/asn1-pfx/build/cjs/bags/crl_bag.js
 var require_crl_bag = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-pfx/build/cjs/bags/crl_bag.js"(exports2) {
+  "node_modules/@peculiar/asn1-pfx/build/cjs/bags/crl_bag.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.id_x509CRL = exports2.id_crlTypes = exports2.CRLBag = void 0;
@@ -28883,9 +28883,9 @@ var require_crl_bag = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-pkcs8/build/cjs/encrypted_private_key_info.js
+// node_modules/@peculiar/asn1-pkcs8/build/cjs/encrypted_private_key_info.js
 var require_encrypted_private_key_info = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-pkcs8/build/cjs/encrypted_private_key_info.js"(exports2) {
+  "node_modules/@peculiar/asn1-pkcs8/build/cjs/encrypted_private_key_info.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.EncryptedPrivateKeyInfo = exports2.EncryptedData = void 0;
@@ -28912,9 +28912,9 @@ var require_encrypted_private_key_info = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-pkcs8/build/cjs/private_key_info.js
+// node_modules/@peculiar/asn1-pkcs8/build/cjs/private_key_info.js
 var require_private_key_info = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-pkcs8/build/cjs/private_key_info.js"(exports2) {
+  "node_modules/@peculiar/asn1-pkcs8/build/cjs/private_key_info.js"(exports2) {
     "use strict";
     var Attributes_1;
     Object.defineProperty(exports2, "__esModule", { value: true });
@@ -28972,9 +28972,9 @@ var require_private_key_info = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-pkcs8/build/cjs/index.js
+// node_modules/@peculiar/asn1-pkcs8/build/cjs/index.js
 var require_cjs9 = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-pkcs8/build/cjs/index.js"(exports2) {
+  "node_modules/@peculiar/asn1-pkcs8/build/cjs/index.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     var tslib_1 = (init_tslib_es6(), __toCommonJS(tslib_es6_exports));
@@ -28983,9 +28983,9 @@ var require_cjs9 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-pfx/build/cjs/bags/key_bag.js
+// node_modules/@peculiar/asn1-pfx/build/cjs/bags/key_bag.js
 var require_key_bag = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-pfx/build/cjs/bags/key_bag.js"(exports2) {
+  "node_modules/@peculiar/asn1-pfx/build/cjs/bags/key_bag.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.KeyBag = void 0;
@@ -29001,9 +29001,9 @@ var require_key_bag = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-pfx/build/cjs/bags/pkcs8_shrouded_key_bag.js
+// node_modules/@peculiar/asn1-pfx/build/cjs/bags/pkcs8_shrouded_key_bag.js
 var require_pkcs8_shrouded_key_bag = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-pfx/build/cjs/bags/pkcs8_shrouded_key_bag.js"(exports2) {
+  "node_modules/@peculiar/asn1-pfx/build/cjs/bags/pkcs8_shrouded_key_bag.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.PKCS8ShroudedKeyBag = void 0;
@@ -29019,9 +29019,9 @@ var require_pkcs8_shrouded_key_bag = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-pfx/build/cjs/bags/secret_bag.js
+// node_modules/@peculiar/asn1-pfx/build/cjs/bags/secret_bag.js
 var require_secret_bag = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-pfx/build/cjs/bags/secret_bag.js"(exports2) {
+  "node_modules/@peculiar/asn1-pfx/build/cjs/bags/secret_bag.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.SecretBag = void 0;
@@ -29047,9 +29047,9 @@ var require_secret_bag = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-pfx/build/cjs/bags/index.js
+// node_modules/@peculiar/asn1-pfx/build/cjs/bags/index.js
 var require_bags = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-pfx/build/cjs/bags/index.js"(exports2) {
+  "node_modules/@peculiar/asn1-pfx/build/cjs/bags/index.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     var tslib_1 = (init_tslib_es6(), __toCommonJS(tslib_es6_exports));
@@ -29062,9 +29062,9 @@ var require_bags = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-pfx/build/cjs/mac_data.js
+// node_modules/@peculiar/asn1-pfx/build/cjs/mac_data.js
 var require_mac_data = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-pfx/build/cjs/mac_data.js"(exports2) {
+  "node_modules/@peculiar/asn1-pfx/build/cjs/mac_data.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.MacData = void 0;
@@ -29095,9 +29095,9 @@ var require_mac_data = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-pfx/build/cjs/pfx.js
+// node_modules/@peculiar/asn1-pfx/build/cjs/pfx.js
 var require_pfx = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-pfx/build/cjs/pfx.js"(exports2) {
+  "node_modules/@peculiar/asn1-pfx/build/cjs/pfx.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.PFX = void 0;
@@ -29129,9 +29129,9 @@ var require_pfx = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-pfx/build/cjs/safe_bag.js
+// node_modules/@peculiar/asn1-pfx/build/cjs/safe_bag.js
 var require_safe_bag = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-pfx/build/cjs/safe_bag.js"(exports2) {
+  "node_modules/@peculiar/asn1-pfx/build/cjs/safe_bag.js"(exports2) {
     "use strict";
     var SafeContents_1;
     Object.defineProperty(exports2, "__esModule", { value: true });
@@ -29180,9 +29180,9 @@ var require_safe_bag = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-pfx/build/cjs/index.js
+// node_modules/@peculiar/asn1-pfx/build/cjs/index.js
 var require_cjs10 = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-pfx/build/cjs/index.js"(exports2) {
+  "node_modules/@peculiar/asn1-pfx/build/cjs/index.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     var tslib_1 = (init_tslib_es6(), __toCommonJS(tslib_es6_exports));
@@ -29196,9 +29196,9 @@ var require_cjs10 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-pkcs9/build/cjs/index.js
+// node_modules/@peculiar/asn1-pkcs9/build/cjs/index.js
 var require_cjs11 = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-pkcs9/build/cjs/index.js"(exports2) {
+  "node_modules/@peculiar/asn1-pkcs9/build/cjs/index.js"(exports2) {
     "use strict";
     var ExtensionRequest_1;
     var ExtendedCertificateAttributes_1;
@@ -29505,9 +29505,9 @@ var require_cjs11 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-csr/build/cjs/attributes.js
+// node_modules/@peculiar/asn1-csr/build/cjs/attributes.js
 var require_attributes2 = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-csr/build/cjs/attributes.js"(exports2) {
+  "node_modules/@peculiar/asn1-csr/build/cjs/attributes.js"(exports2) {
     "use strict";
     var Attributes_1;
     Object.defineProperty(exports2, "__esModule", { value: true });
@@ -29531,9 +29531,9 @@ var require_attributes2 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-csr/build/cjs/certification_request_info.js
+// node_modules/@peculiar/asn1-csr/build/cjs/certification_request_info.js
 var require_certification_request_info = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-csr/build/cjs/certification_request_info.js"(exports2) {
+  "node_modules/@peculiar/asn1-csr/build/cjs/certification_request_info.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.CertificationRequestInfo = void 0;
@@ -29571,9 +29571,9 @@ var require_certification_request_info = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-csr/build/cjs/certification_request.js
+// node_modules/@peculiar/asn1-csr/build/cjs/certification_request.js
 var require_certification_request = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-csr/build/cjs/certification_request.js"(exports2) {
+  "node_modules/@peculiar/asn1-csr/build/cjs/certification_request.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.CertificationRequest = void 0;
@@ -29606,9 +29606,9 @@ var require_certification_request = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/asn1-csr/build/cjs/index.js
+// node_modules/@peculiar/asn1-csr/build/cjs/index.js
 var require_cjs12 = __commonJS({
-  "packages/cli/node_modules/@peculiar/asn1-csr/build/cjs/index.js"(exports2) {
+  "node_modules/@peculiar/asn1-csr/build/cjs/index.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     var tslib_1 = (init_tslib_es6(), __toCommonJS(tslib_es6_exports));
@@ -29618,9 +29618,9 @@ var require_cjs12 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@peculiar/x509/build/x509.cjs.js
+// node_modules/@peculiar/x509/build/x509.cjs.js
 var require_x509_cjs = __commonJS({
-  "packages/cli/node_modules/@peculiar/x509/build/x509.cjs.js"(exports2) {
+  "node_modules/@peculiar/x509/build/x509.cjs.js"(exports2) {
     "use strict";
     require_Reflect();
     var asn1Schema = require_cjs2();
@@ -32897,9 +32897,9 @@ var require_x509_cjs = __commonJS({
   }
 });
 
-// packages/cli/node_modules/is-property/is-property.js
+// node_modules/is-property/is-property.js
 var require_is_property = __commonJS({
-  "packages/cli/node_modules/is-property/is-property.js"(exports2, module2) {
+  "node_modules/is-property/is-property.js"(exports2, module2) {
     "use strict";
     function isProperty(str) {
       return /^[$A-Z\_a-z\xaa\xb5\xba\xc0-\xd6\xd8-\xf6\xf8-\u02c1\u02c6-\u02d1\u02e0-\u02e4\u02ec\u02ee\u0370-\u0374\u0376\u0377\u037a-\u037d\u0386\u0388-\u038a\u038c\u038e-\u03a1\u03a3-\u03f5\u03f7-\u0481\u048a-\u0527\u0531-\u0556\u0559\u0561-\u0587\u05d0-\u05ea\u05f0-\u05f2\u0620-\u064a\u066e\u066f\u0671-\u06d3\u06d5\u06e5\u06e6\u06ee\u06ef\u06fa-\u06fc\u06ff\u0710\u0712-\u072f\u074d-\u07a5\u07b1\u07ca-\u07ea\u07f4\u07f5\u07fa\u0800-\u0815\u081a\u0824\u0828\u0840-\u0858\u08a0\u08a2-\u08ac\u0904-\u0939\u093d\u0950\u0958-\u0961\u0971-\u0977\u0979-\u097f\u0985-\u098c\u098f\u0990\u0993-\u09a8\u09aa-\u09b0\u09b2\u09b6-\u09b9\u09bd\u09ce\u09dc\u09dd\u09df-\u09e1\u09f0\u09f1\u0a05-\u0a0a\u0a0f\u0a10\u0a13-\u0a28\u0a2a-\u0a30\u0a32\u0a33\u0a35\u0a36\u0a38\u0a39\u0a59-\u0a5c\u0a5e\u0a72-\u0a74\u0a85-\u0a8d\u0a8f-\u0a91\u0a93-\u0aa8\u0aaa-\u0ab0\u0ab2\u0ab3\u0ab5-\u0ab9\u0abd\u0ad0\u0ae0\u0ae1\u0b05-\u0b0c\u0b0f\u0b10\u0b13-\u0b28\u0b2a-\u0b30\u0b32\u0b33\u0b35-\u0b39\u0b3d\u0b5c\u0b5d\u0b5f-\u0b61\u0b71\u0b83\u0b85-\u0b8a\u0b8e-\u0b90\u0b92-\u0b95\u0b99\u0b9a\u0b9c\u0b9e\u0b9f\u0ba3\u0ba4\u0ba8-\u0baa\u0bae-\u0bb9\u0bd0\u0c05-\u0c0c\u0c0e-\u0c10\u0c12-\u0c28\u0c2a-\u0c33\u0c35-\u0c39\u0c3d\u0c58\u0c59\u0c60\u0c61\u0c85-\u0c8c\u0c8e-\u0c90\u0c92-\u0ca8\u0caa-\u0cb3\u0cb5-\u0cb9\u0cbd\u0cde\u0ce0\u0ce1\u0cf1\u0cf2\u0d05-\u0d0c\u0d0e-\u0d10\u0d12-\u0d3a\u0d3d\u0d4e\u0d60\u0d61\u0d7a-\u0d7f\u0d85-\u0d96\u0d9a-\u0db1\u0db3-\u0dbb\u0dbd\u0dc0-\u0dc6\u0e01-\u0e30\u0e32\u0e33\u0e40-\u0e46\u0e81\u0e82\u0e84\u0e87\u0e88\u0e8a\u0e8d\u0e94-\u0e97\u0e99-\u0e9f\u0ea1-\u0ea3\u0ea5\u0ea7\u0eaa\u0eab\u0ead-\u0eb0\u0eb2\u0eb3\u0ebd\u0ec0-\u0ec4\u0ec6\u0edc-\u0edf\u0f00\u0f40-\u0f47\u0f49-\u0f6c\u0f88-\u0f8c\u1000-\u102a\u103f\u1050-\u1055\u105a-\u105d\u1061\u1065\u1066\u106e-\u1070\u1075-\u1081\u108e\u10a0-\u10c5\u10c7\u10cd\u10d0-\u10fa\u10fc-\u1248\u124a-\u124d\u1250-\u1256\u1258\u125a-\u125d\u1260-\u1288\u128a-\u128d\u1290-\u12b0\u12b2-\u12b5\u12b8-\u12be\u12c0\u12c2-\u12c5\u12c8-\u12d6\u12d8-\u1310\u1312-\u1315\u1318-\u135a\u1380-\u138f\u13a0-\u13f4\u1401-\u166c\u166f-\u167f\u1681-\u169a\u16a0-\u16ea\u16ee-\u16f0\u1700-\u170c\u170e-\u1711\u1720-\u1731\u1740-\u1751\u1760-\u176c\u176e-\u1770\u1780-\u17b3\u17d7\u17dc\u1820-\u1877\u1880-\u18a8\u18aa\u18b0-\u18f5\u1900-\u191c\u1950-\u196d\u1970-\u1974\u1980-\u19ab\u19c1-\u19c7\u1a00-\u1a16\u1a20-\u1a54\u1aa7\u1b05-\u1b33\u1b45-\u1b4b\u1b83-\u1ba0\u1bae\u1baf\u1bba-\u1be5\u1c00-\u1c23\u1c4d-\u1c4f\u1c5a-\u1c7d\u1ce9-\u1cec\u1cee-\u1cf1\u1cf5\u1cf6\u1d00-\u1dbf\u1e00-\u1f15\u1f18-\u1f1d\u1f20-\u1f45\u1f48-\u1f4d\u1f50-\u1f57\u1f59\u1f5b\u1f5d\u1f5f-\u1f7d\u1f80-\u1fb4\u1fb6-\u1fbc\u1fbe\u1fc2-\u1fc4\u1fc6-\u1fcc\u1fd0-\u1fd3\u1fd6-\u1fdb\u1fe0-\u1fec\u1ff2-\u1ff4\u1ff6-\u1ffc\u2071\u207f\u2090-\u209c\u2102\u2107\u210a-\u2113\u2115\u2119-\u211d\u2124\u2126\u2128\u212a-\u212d\u212f-\u2139\u213c-\u213f\u2145-\u2149\u214e\u2160-\u2188\u2c00-\u2c2e\u2c30-\u2c5e\u2c60-\u2ce4\u2ceb-\u2cee\u2cf2\u2cf3\u2d00-\u2d25\u2d27\u2d2d\u2d30-\u2d67\u2d6f\u2d80-\u2d96\u2da0-\u2da6\u2da8-\u2dae\u2db0-\u2db6\u2db8-\u2dbe\u2dc0-\u2dc6\u2dc8-\u2dce\u2dd0-\u2dd6\u2dd8-\u2dde\u2e2f\u3005-\u3007\u3021-\u3029\u3031-\u3035\u3038-\u303c\u3041-\u3096\u309d-\u309f\u30a1-\u30fa\u30fc-\u30ff\u3105-\u312d\u3131-\u318e\u31a0-\u31ba\u31f0-\u31ff\u3400-\u4db5\u4e00-\u9fcc\ua000-\ua48c\ua4d0-\ua4fd\ua500-\ua60c\ua610-\ua61f\ua62a\ua62b\ua640-\ua66e\ua67f-\ua697\ua6a0-\ua6ef\ua717-\ua71f\ua722-\ua788\ua78b-\ua78e\ua790-\ua793\ua7a0-\ua7aa\ua7f8-\ua801\ua803-\ua805\ua807-\ua80a\ua80c-\ua822\ua840-\ua873\ua882-\ua8b3\ua8f2-\ua8f7\ua8fb\ua90a-\ua925\ua930-\ua946\ua960-\ua97c\ua984-\ua9b2\ua9cf\uaa00-\uaa28\uaa40-\uaa42\uaa44-\uaa4b\uaa60-\uaa76\uaa7a\uaa80-\uaaaf\uaab1\uaab5\uaab6\uaab9-\uaabd\uaac0\uaac2\uaadb-\uaadd\uaae0-\uaaea\uaaf2-\uaaf4\uab01-\uab06\uab09-\uab0e\uab11-\uab16\uab20-\uab26\uab28-\uab2e\uabc0-\uabe2\uac00-\ud7a3\ud7b0-\ud7c6\ud7cb-\ud7fb\uf900-\ufa6d\ufa70-\ufad9\ufb00-\ufb06\ufb13-\ufb17\ufb1d\ufb1f-\ufb28\ufb2a-\ufb36\ufb38-\ufb3c\ufb3e\ufb40\ufb41\ufb43\ufb44\ufb46-\ufbb1\ufbd3-\ufd3d\ufd50-\ufd8f\ufd92-\ufdc7\ufdf0-\ufdfb\ufe70-\ufe74\ufe76-\ufefc\uff21-\uff3a\uff41-\uff5a\uff66-\uffbe\uffc2-\uffc7\uffca-\uffcf\uffd2-\uffd7\uffda-\uffdc][$A-Z\_a-z\xaa\xb5\xba\xc0-\xd6\xd8-\xf6\xf8-\u02c1\u02c6-\u02d1\u02e0-\u02e4\u02ec\u02ee\u0370-\u0374\u0376\u0377\u037a-\u037d\u0386\u0388-\u038a\u038c\u038e-\u03a1\u03a3-\u03f5\u03f7-\u0481\u048a-\u0527\u0531-\u0556\u0559\u0561-\u0587\u05d0-\u05ea\u05f0-\u05f2\u0620-\u064a\u066e\u066f\u0671-\u06d3\u06d5\u06e5\u06e6\u06ee\u06ef\u06fa-\u06fc\u06ff\u0710\u0712-\u072f\u074d-\u07a5\u07b1\u07ca-\u07ea\u07f4\u07f5\u07fa\u0800-\u0815\u081a\u0824\u0828\u0840-\u0858\u08a0\u08a2-\u08ac\u0904-\u0939\u093d\u0950\u0958-\u0961\u0971-\u0977\u0979-\u097f\u0985-\u098c\u098f\u0990\u0993-\u09a8\u09aa-\u09b0\u09b2\u09b6-\u09b9\u09bd\u09ce\u09dc\u09dd\u09df-\u09e1\u09f0\u09f1\u0a05-\u0a0a\u0a0f\u0a10\u0a13-\u0a28\u0a2a-\u0a30\u0a32\u0a33\u0a35\u0a36\u0a38\u0a39\u0a59-\u0a5c\u0a5e\u0a72-\u0a74\u0a85-\u0a8d\u0a8f-\u0a91\u0a93-\u0aa8\u0aaa-\u0ab0\u0ab2\u0ab3\u0ab5-\u0ab9\u0abd\u0ad0\u0ae0\u0ae1\u0b05-\u0b0c\u0b0f\u0b10\u0b13-\u0b28\u0b2a-\u0b30\u0b32\u0b33\u0b35-\u0b39\u0b3d\u0b5c\u0b5d\u0b5f-\u0b61\u0b71\u0b83\u0b85-\u0b8a\u0b8e-\u0b90\u0b92-\u0b95\u0b99\u0b9a\u0b9c\u0b9e\u0b9f\u0ba3\u0ba4\u0ba8-\u0baa\u0bae-\u0bb9\u0bd0\u0c05-\u0c0c\u0c0e-\u0c10\u0c12-\u0c28\u0c2a-\u0c33\u0c35-\u0c39\u0c3d\u0c58\u0c59\u0c60\u0c61\u0c85-\u0c8c\u0c8e-\u0c90\u0c92-\u0ca8\u0caa-\u0cb3\u0cb5-\u0cb9\u0cbd\u0cde\u0ce0\u0ce1\u0cf1\u0cf2\u0d05-\u0d0c\u0d0e-\u0d10\u0d12-\u0d3a\u0d3d\u0d4e\u0d60\u0d61\u0d7a-\u0d7f\u0d85-\u0d96\u0d9a-\u0db1\u0db3-\u0dbb\u0dbd\u0dc0-\u0dc6\u0e01-\u0e30\u0e32\u0e33\u0e40-\u0e46\u0e81\u0e82\u0e84\u0e87\u0e88\u0e8a\u0e8d\u0e94-\u0e97\u0e99-\u0e9f\u0ea1-\u0ea3\u0ea5\u0ea7\u0eaa\u0eab\u0ead-\u0eb0\u0eb2\u0eb3\u0ebd\u0ec0-\u0ec4\u0ec6\u0edc-\u0edf\u0f00\u0f40-\u0f47\u0f49-\u0f6c\u0f88-\u0f8c\u1000-\u102a\u103f\u1050-\u1055\u105a-\u105d\u1061\u1065\u1066\u106e-\u1070\u1075-\u1081\u108e\u10a0-\u10c5\u10c7\u10cd\u10d0-\u10fa\u10fc-\u1248\u124a-\u124d\u1250-\u1256\u1258\u125a-\u125d\u1260-\u1288\u128a-\u128d\u1290-\u12b0\u12b2-\u12b5\u12b8-\u12be\u12c0\u12c2-\u12c5\u12c8-\u12d6\u12d8-\u1310\u1312-\u1315\u1318-\u135a\u1380-\u138f\u13a0-\u13f4\u1401-\u166c\u166f-\u167f\u1681-\u169a\u16a0-\u16ea\u16ee-\u16f0\u1700-\u170c\u170e-\u1711\u1720-\u1731\u1740-\u1751\u1760-\u176c\u176e-\u1770\u1780-\u17b3\u17d7\u17dc\u1820-\u1877\u1880-\u18a8\u18aa\u18b0-\u18f5\u1900-\u191c\u1950-\u196d\u1970-\u1974\u1980-\u19ab\u19c1-\u19c7\u1a00-\u1a16\u1a20-\u1a54\u1aa7\u1b05-\u1b33\u1b45-\u1b4b\u1b83-\u1ba0\u1bae\u1baf\u1bba-\u1be5\u1c00-\u1c23\u1c4d-\u1c4f\u1c5a-\u1c7d\u1ce9-\u1cec\u1cee-\u1cf1\u1cf5\u1cf6\u1d00-\u1dbf\u1e00-\u1f15\u1f18-\u1f1d\u1f20-\u1f45\u1f48-\u1f4d\u1f50-\u1f57\u1f59\u1f5b\u1f5d\u1f5f-\u1f7d\u1f80-\u1fb4\u1fb6-\u1fbc\u1fbe\u1fc2-\u1fc4\u1fc6-\u1fcc\u1fd0-\u1fd3\u1fd6-\u1fdb\u1fe0-\u1fec\u1ff2-\u1ff4\u1ff6-\u1ffc\u2071\u207f\u2090-\u209c\u2102\u2107\u210a-\u2113\u2115\u2119-\u211d\u2124\u2126\u2128\u212a-\u212d\u212f-\u2139\u213c-\u213f\u2145-\u2149\u214e\u2160-\u2188\u2c00-\u2c2e\u2c30-\u2c5e\u2c60-\u2ce4\u2ceb-\u2cee\u2cf2\u2cf3\u2d00-\u2d25\u2d27\u2d2d\u2d30-\u2d67\u2d6f\u2d80-\u2d96\u2da0-\u2da6\u2da8-\u2dae\u2db0-\u2db6\u2db8-\u2dbe\u2dc0-\u2dc6\u2dc8-\u2dce\u2dd0-\u2dd6\u2dd8-\u2dde\u2e2f\u3005-\u3007\u3021-\u3029\u3031-\u3035\u3038-\u303c\u3041-\u3096\u309d-\u309f\u30a1-\u30fa\u30fc-\u30ff\u3105-\u312d\u3131-\u318e\u31a0-\u31ba\u31f0-\u31ff\u3400-\u4db5\u4e00-\u9fcc\ua000-\ua48c\ua4d0-\ua4fd\ua500-\ua60c\ua610-\ua61f\ua62a\ua62b\ua640-\ua66e\ua67f-\ua697\ua6a0-\ua6ef\ua717-\ua71f\ua722-\ua788\ua78b-\ua78e\ua790-\ua793\ua7a0-\ua7aa\ua7f8-\ua801\ua803-\ua805\ua807-\ua80a\ua80c-\ua822\ua840-\ua873\ua882-\ua8b3\ua8f2-\ua8f7\ua8fb\ua90a-\ua925\ua930-\ua946\ua960-\ua97c\ua984-\ua9b2\ua9cf\uaa00-\uaa28\uaa40-\uaa42\uaa44-\uaa4b\uaa60-\uaa76\uaa7a\uaa80-\uaaaf\uaab1\uaab5\uaab6\uaab9-\uaabd\uaac0\uaac2\uaadb-\uaadd\uaae0-\uaaea\uaaf2-\uaaf4\uab01-\uab06\uab09-\uab0e\uab11-\uab16\uab20-\uab26\uab28-\uab2e\uabc0-\uabe2\uac00-\ud7a3\ud7b0-\ud7c6\ud7cb-\ud7fb\uf900-\ufa6d\ufa70-\ufad9\ufb00-\ufb06\ufb13-\ufb17\ufb1d\ufb1f-\ufb28\ufb2a-\ufb36\ufb38-\ufb3c\ufb3e\ufb40\ufb41\ufb43\ufb44\ufb46-\ufbb1\ufbd3-\ufd3d\ufd50-\ufd8f\ufd92-\ufdc7\ufdf0-\ufdfb\ufe70-\ufe74\ufe76-\ufefc\uff21-\uff3a\uff41-\uff5a\uff66-\uffbe\uffc2-\uffc7\uffca-\uffcf\uffd2-\uffd7\uffda-\uffdc0-9\u0300-\u036f\u0483-\u0487\u0591-\u05bd\u05bf\u05c1\u05c2\u05c4\u05c5\u05c7\u0610-\u061a\u064b-\u0669\u0670\u06d6-\u06dc\u06df-\u06e4\u06e7\u06e8\u06ea-\u06ed\u06f0-\u06f9\u0711\u0730-\u074a\u07a6-\u07b0\u07c0-\u07c9\u07eb-\u07f3\u0816-\u0819\u081b-\u0823\u0825-\u0827\u0829-\u082d\u0859-\u085b\u08e4-\u08fe\u0900-\u0903\u093a-\u093c\u093e-\u094f\u0951-\u0957\u0962\u0963\u0966-\u096f\u0981-\u0983\u09bc\u09be-\u09c4\u09c7\u09c8\u09cb-\u09cd\u09d7\u09e2\u09e3\u09e6-\u09ef\u0a01-\u0a03\u0a3c\u0a3e-\u0a42\u0a47\u0a48\u0a4b-\u0a4d\u0a51\u0a66-\u0a71\u0a75\u0a81-\u0a83\u0abc\u0abe-\u0ac5\u0ac7-\u0ac9\u0acb-\u0acd\u0ae2\u0ae3\u0ae6-\u0aef\u0b01-\u0b03\u0b3c\u0b3e-\u0b44\u0b47\u0b48\u0b4b-\u0b4d\u0b56\u0b57\u0b62\u0b63\u0b66-\u0b6f\u0b82\u0bbe-\u0bc2\u0bc6-\u0bc8\u0bca-\u0bcd\u0bd7\u0be6-\u0bef\u0c01-\u0c03\u0c3e-\u0c44\u0c46-\u0c48\u0c4a-\u0c4d\u0c55\u0c56\u0c62\u0c63\u0c66-\u0c6f\u0c82\u0c83\u0cbc\u0cbe-\u0cc4\u0cc6-\u0cc8\u0cca-\u0ccd\u0cd5\u0cd6\u0ce2\u0ce3\u0ce6-\u0cef\u0d02\u0d03\u0d3e-\u0d44\u0d46-\u0d48\u0d4a-\u0d4d\u0d57\u0d62\u0d63\u0d66-\u0d6f\u0d82\u0d83\u0dca\u0dcf-\u0dd4\u0dd6\u0dd8-\u0ddf\u0df2\u0df3\u0e31\u0e34-\u0e3a\u0e47-\u0e4e\u0e50-\u0e59\u0eb1\u0eb4-\u0eb9\u0ebb\u0ebc\u0ec8-\u0ecd\u0ed0-\u0ed9\u0f18\u0f19\u0f20-\u0f29\u0f35\u0f37\u0f39\u0f3e\u0f3f\u0f71-\u0f84\u0f86\u0f87\u0f8d-\u0f97\u0f99-\u0fbc\u0fc6\u102b-\u103e\u1040-\u1049\u1056-\u1059\u105e-\u1060\u1062-\u1064\u1067-\u106d\u1071-\u1074\u1082-\u108d\u108f-\u109d\u135d-\u135f\u1712-\u1714\u1732-\u1734\u1752\u1753\u1772\u1773\u17b4-\u17d3\u17dd\u17e0-\u17e9\u180b-\u180d\u1810-\u1819\u18a9\u1920-\u192b\u1930-\u193b\u1946-\u194f\u19b0-\u19c0\u19c8\u19c9\u19d0-\u19d9\u1a17-\u1a1b\u1a55-\u1a5e\u1a60-\u1a7c\u1a7f-\u1a89\u1a90-\u1a99\u1b00-\u1b04\u1b34-\u1b44\u1b50-\u1b59\u1b6b-\u1b73\u1b80-\u1b82\u1ba1-\u1bad\u1bb0-\u1bb9\u1be6-\u1bf3\u1c24-\u1c37\u1c40-\u1c49\u1c50-\u1c59\u1cd0-\u1cd2\u1cd4-\u1ce8\u1ced\u1cf2-\u1cf4\u1dc0-\u1de6\u1dfc-\u1dff\u200c\u200d\u203f\u2040\u2054\u20d0-\u20dc\u20e1\u20e5-\u20f0\u2cef-\u2cf1\u2d7f\u2de0-\u2dff\u302a-\u302f\u3099\u309a\ua620-\ua629\ua66f\ua674-\ua67d\ua69f\ua6f0\ua6f1\ua802\ua806\ua80b\ua823-\ua827\ua880\ua881\ua8b4-\ua8c4\ua8d0-\ua8d9\ua8e0-\ua8f1\ua900-\ua909\ua926-\ua92d\ua947-\ua953\ua980-\ua983\ua9b3-\ua9c0\ua9d0-\ua9d9\uaa29-\uaa36\uaa43\uaa4c\uaa4d\uaa50-\uaa59\uaa7b\uaab0\uaab2-\uaab4\uaab7\uaab8\uaabe\uaabf\uaac1\uaaeb-\uaaef\uaaf5\uaaf6\uabe3-\uabea\uabec\uabed\uabf0-\uabf9\ufb1e\ufe00-\ufe0f\ufe20-\ufe26\ufe33\ufe34\ufe4d-\ufe4f\uff10-\uff19\uff3f]*$/.test(str);
@@ -32908,9 +32908,9 @@ var require_is_property = __commonJS({
   }
 });
 
-// packages/cli/node_modules/generate-function/index.js
+// node_modules/generate-function/index.js
 var require_generate_function = __commonJS({
-  "packages/cli/node_modules/generate-function/index.js"(exports2, module2) {
+  "node_modules/generate-function/index.js"(exports2, module2) {
     var util = require("util");
     var isProperty = require_is_property();
     var INDENT_START = /[\{\[]/;
@@ -33067,9 +33067,9 @@ var require_generate_function = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@shinyoshiaki/binary-data/src/node_modules/internal/linked-list.js
+// node_modules/@shinyoshiaki/binary-data/src/node_modules/internal/linked-list.js
 var require_linked_list = __commonJS({
-  "packages/cli/node_modules/@shinyoshiaki/binary-data/src/node_modules/internal/linked-list.js"(exports2, module2) {
+  "node_modules/@shinyoshiaki/binary-data/src/node_modules/internal/linked-list.js"(exports2, module2) {
     "use strict";
     var Chunk = class {
       /**
@@ -33231,9 +33231,9 @@ var require_linked_list = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@shinyoshiaki/binary-data/src/node_modules/internal/buffer-list.js
+// node_modules/@shinyoshiaki/binary-data/src/node_modules/internal/buffer-list.js
 var require_buffer_list = __commonJS({
-  "packages/cli/node_modules/@shinyoshiaki/binary-data/src/node_modules/internal/buffer-list.js"(exports2, module2) {
+  "node_modules/@shinyoshiaki/binary-data/src/node_modules/internal/buffer-list.js"(exports2, module2) {
     "use strict";
     var createFunction = require_generate_function();
     var LinkedList = require_linked_list();
@@ -33532,9 +33532,9 @@ var require_buffer_list = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@shinyoshiaki/binary-data/src/node_modules/lib/not-enough-data-error.js
+// node_modules/@shinyoshiaki/binary-data/src/node_modules/lib/not-enough-data-error.js
 var require_not_enough_data_error = __commonJS({
-  "packages/cli/node_modules/@shinyoshiaki/binary-data/src/node_modules/lib/not-enough-data-error.js"(exports2, module2) {
+  "node_modules/@shinyoshiaki/binary-data/src/node_modules/lib/not-enough-data-error.js"(exports2, module2) {
     "use strict";
     module2.exports = class NotEnoughDataError extends Error {
       /**
@@ -33551,9 +33551,9 @@ var require_not_enough_data_error = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@shinyoshiaki/binary-data/src/node_modules/lib/binary-stream.js
+// node_modules/@shinyoshiaki/binary-data/src/node_modules/lib/binary-stream.js
 var require_binary_stream = __commonJS({
-  "packages/cli/node_modules/@shinyoshiaki/binary-data/src/node_modules/lib/binary-stream.js"(exports2, module2) {
+  "node_modules/@shinyoshiaki/binary-data/src/node_modules/lib/binary-stream.js"(exports2, module2) {
     "use strict";
     var { Transform } = require("stream");
     var createFunction = require_generate_function();
@@ -33741,9 +33741,9 @@ var require_binary_stream = __commonJS({
   }
 });
 
-// packages/cli/node_modules/isobject/index.js
+// node_modules/isobject/index.js
 var require_isobject = __commonJS({
-  "packages/cli/node_modules/isobject/index.js"(exports2, module2) {
+  "node_modules/isobject/index.js"(exports2, module2) {
     "use strict";
     module2.exports = function isObject(val) {
       return val != null && typeof val === "object" && Array.isArray(val) === false;
@@ -33751,9 +33751,9 @@ var require_isobject = __commonJS({
   }
 });
 
-// packages/cli/node_modules/is-plain-object/index.js
+// node_modules/is-plain-object/index.js
 var require_is_plain_object = __commonJS({
-  "packages/cli/node_modules/is-plain-object/index.js"(exports2, module2) {
+  "node_modules/is-plain-object/index.js"(exports2, module2) {
     "use strict";
     var isObject = require_isobject();
     function isObjectObject(o) {
@@ -33774,9 +33774,9 @@ var require_is_plain_object = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@shinyoshiaki/binary-data/src/node_modules/lib/util.js
+// node_modules/@shinyoshiaki/binary-data/src/node_modules/lib/util.js
 var require_util = __commonJS({
-  "packages/cli/node_modules/@shinyoshiaki/binary-data/src/node_modules/lib/util.js"(exports2, module2) {
+  "node_modules/@shinyoshiaki/binary-data/src/node_modules/lib/util.js"(exports2, module2) {
     "use strict";
     var isPlainObject = require_is_plain_object();
     module2.exports = {
@@ -33804,9 +33804,9 @@ var require_util = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@shinyoshiaki/binary-data/src/node_modules/internal/symbols.js
+// node_modules/@shinyoshiaki/binary-data/src/node_modules/internal/symbols.js
 var require_symbols = __commonJS({
-  "packages/cli/node_modules/@shinyoshiaki/binary-data/src/node_modules/internal/symbols.js"(exports2, module2) {
+  "node_modules/@shinyoshiaki/binary-data/src/node_modules/internal/symbols.js"(exports2, module2) {
     "use strict";
     var skip = /* @__PURE__ */ Symbol("skip");
     var bytes = /* @__PURE__ */ Symbol("bytes");
@@ -33817,9 +33817,9 @@ var require_symbols = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@shinyoshiaki/binary-data/src/node_modules/internal/meta.js
+// node_modules/@shinyoshiaki/binary-data/src/node_modules/internal/meta.js
 var require_meta = __commonJS({
-  "packages/cli/node_modules/@shinyoshiaki/binary-data/src/node_modules/internal/meta.js"(exports2, module2) {
+  "node_modules/@shinyoshiaki/binary-data/src/node_modules/internal/meta.js"(exports2, module2) {
     "use strict";
     var symbols = require_symbols();
     module2.exports = class Metadata {
@@ -33865,9 +33865,9 @@ var require_meta = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@shinyoshiaki/binary-data/src/node_modules/lib/decode.js
+// node_modules/@shinyoshiaki/binary-data/src/node_modules/lib/decode.js
 var require_decode = __commonJS({
-  "packages/cli/node_modules/@shinyoshiaki/binary-data/src/node_modules/lib/decode.js"(exports2, module2) {
+  "node_modules/@shinyoshiaki/binary-data/src/node_modules/lib/decode.js"(exports2, module2) {
     "use strict";
     var { isType, isUserType, isDecodeType } = require_util();
     var BinaryStream = require_binary_stream();
@@ -33932,9 +33932,9 @@ var require_decode = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@shinyoshiaki/binary-data/src/node_modules/lib/encode.js
+// node_modules/@shinyoshiaki/binary-data/src/node_modules/lib/encode.js
 var require_encode = __commonJS({
-  "packages/cli/node_modules/@shinyoshiaki/binary-data/src/node_modules/lib/encode.js"(exports2, module2) {
+  "node_modules/@shinyoshiaki/binary-data/src/node_modules/lib/encode.js"(exports2, module2) {
     "use strict";
     var { isUserType, isEncodeType, isType } = require_util();
     var symbols = require_symbols();
@@ -33997,9 +33997,9 @@ var require_encode = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@shinyoshiaki/binary-data/src/node_modules/lib/encoding-length.js
+// node_modules/@shinyoshiaki/binary-data/src/node_modules/lib/encoding-length.js
 var require_encoding_length = __commonJS({
-  "packages/cli/node_modules/@shinyoshiaki/binary-data/src/node_modules/lib/encoding-length.js"(exports2, module2) {
+  "node_modules/@shinyoshiaki/binary-data/src/node_modules/lib/encoding-length.js"(exports2, module2) {
     "use strict";
     var { isUserType, isType } = require_util();
     var Metadata = require_meta();
@@ -34047,9 +34047,9 @@ var require_encoding_length = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@shinyoshiaki/binary-data/src/node_modules/types/array.js
+// node_modules/@shinyoshiaki/binary-data/src/node_modules/types/array.js
 var require_array = __commonJS({
-  "packages/cli/node_modules/@shinyoshiaki/binary-data/src/node_modules/types/array.js"(exports2, module2) {
+  "node_modules/@shinyoshiaki/binary-data/src/node_modules/types/array.js"(exports2, module2) {
     "use strict";
     var { decodeCommon } = require_decode();
     var { encodeCommon } = require_encode();
@@ -34194,9 +34194,9 @@ var require_array = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@shinyoshiaki/binary-data/src/node_modules/types/buffer.js
+// node_modules/@shinyoshiaki/binary-data/src/node_modules/types/buffer.js
 var require_buffer = __commonJS({
-  "packages/cli/node_modules/@shinyoshiaki/binary-data/src/node_modules/types/buffer.js"(exports2, module2) {
+  "node_modules/@shinyoshiaki/binary-data/src/node_modules/types/buffer.js"(exports2, module2) {
     "use strict";
     var { isType, isFunction } = require_util();
     var NotEnoughDataError = require_not_enough_data_error();
@@ -34299,9 +34299,9 @@ var require_buffer = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@shinyoshiaki/binary-data/src/node_modules/types/bool.js
+// node_modules/@shinyoshiaki/binary-data/src/node_modules/types/bool.js
 var require_bool = __commonJS({
-  "packages/cli/node_modules/@shinyoshiaki/binary-data/src/node_modules/types/bool.js"(exports2, module2) {
+  "node_modules/@shinyoshiaki/binary-data/src/node_modules/types/bool.js"(exports2, module2) {
     "use strict";
     var { isType } = require_util();
     module2.exports = bool;
@@ -34329,9 +34329,9 @@ var require_bool = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@shinyoshiaki/binary-data/src/node_modules/types/reserved.js
+// node_modules/@shinyoshiaki/binary-data/src/node_modules/types/reserved.js
 var require_reserved = __commonJS({
-  "packages/cli/node_modules/@shinyoshiaki/binary-data/src/node_modules/types/reserved.js"(exports2, module2) {
+  "node_modules/@shinyoshiaki/binary-data/src/node_modules/types/reserved.js"(exports2, module2) {
     "use strict";
     var { decodeCommon } = require_decode();
     var { encodeCommon } = require_encode();
@@ -34392,9 +34392,9 @@ var require_reserved = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@shinyoshiaki/binary-data/src/node_modules/types/string.js
+// node_modules/@shinyoshiaki/binary-data/src/node_modules/types/string.js
 var require_string = __commonJS({
-  "packages/cli/node_modules/@shinyoshiaki/binary-data/src/node_modules/types/string.js"(exports2, module2) {
+  "node_modules/@shinyoshiaki/binary-data/src/node_modules/types/string.js"(exports2, module2) {
     "use strict";
     var { isType } = require_util();
     var NotEnoughDataError = require_not_enough_data_error();
@@ -34549,9 +34549,9 @@ var require_string = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@shinyoshiaki/binary-data/src/node_modules/types/numbers.js
+// node_modules/@shinyoshiaki/binary-data/src/node_modules/types/numbers.js
 var require_numbers = __commonJS({
-  "packages/cli/node_modules/@shinyoshiaki/binary-data/src/node_modules/types/numbers.js"(exports2, module2) {
+  "node_modules/@shinyoshiaki/binary-data/src/node_modules/types/numbers.js"(exports2, module2) {
     "use strict";
     var createFunction = require_generate_function();
     module2.exports = {
@@ -34627,9 +34627,9 @@ var require_numbers = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@shinyoshiaki/binary-data/src/node_modules/types/when.js
+// node_modules/@shinyoshiaki/binary-data/src/node_modules/types/when.js
 var require_when = __commonJS({
-  "packages/cli/node_modules/@shinyoshiaki/binary-data/src/node_modules/types/when.js"(exports2, module2) {
+  "node_modules/@shinyoshiaki/binary-data/src/node_modules/types/when.js"(exports2, module2) {
     "use strict";
     var { isType, isFunction, isUserType } = require_util();
     var symbols = require_symbols();
@@ -34689,9 +34689,9 @@ var require_when = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@shinyoshiaki/binary-data/src/node_modules/types/select.js
+// node_modules/@shinyoshiaki/binary-data/src/node_modules/types/select.js
 var require_select = __commonJS({
-  "packages/cli/node_modules/@shinyoshiaki/binary-data/src/node_modules/types/select.js"(exports2, module2) {
+  "node_modules/@shinyoshiaki/binary-data/src/node_modules/types/select.js"(exports2, module2) {
     "use strict";
     var symbols = require_symbols();
     var { decodeCommon } = require_decode();
@@ -34727,9 +34727,9 @@ var require_select = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@shinyoshiaki/binary-data/src/node_modules/lib/transaction.js
+// node_modules/@shinyoshiaki/binary-data/src/node_modules/lib/transaction.js
 var require_transaction = __commonJS({
-  "packages/cli/node_modules/@shinyoshiaki/binary-data/src/node_modules/lib/transaction.js"(exports2, module2) {
+  "node_modules/@shinyoshiaki/binary-data/src/node_modules/lib/transaction.js"(exports2, module2) {
     "use strict";
     var createFunction = require_generate_function();
     var NotEnoughDataError = require_not_enough_data_error();
@@ -34856,9 +34856,9 @@ var require_transaction = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@shinyoshiaki/binary-data/src/index.js
+// node_modules/@shinyoshiaki/binary-data/src/index.js
 var require_src3 = __commonJS({
-  "packages/cli/node_modules/@shinyoshiaki/binary-data/src/index.js"(exports2, module2) {
+  "node_modules/@shinyoshiaki/binary-data/src/index.js"(exports2, module2) {
     "use strict";
     var BinaryStream = require_binary_stream();
     var array = require_array();
@@ -34960,9 +34960,9 @@ var require_src3 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/cipher/const.js
+// node_modules/werift/lib/dtls/src/cipher/const.js
 var require_const = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/cipher/const.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/cipher/const.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.signatures = exports2.certificateTypes = exports2.SignatureScheme = exports2.CurveType = exports2.NamedCurveAlgorithmList = exports2.NamedCurveAlgorithm = exports2.CipherSuiteList = exports2.CipherSuite = exports2.HashAlgorithm = exports2.SignatureAlgorithm = void 0;
@@ -35003,9 +35003,9 @@ var require_const = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@noble/hashes/cryptoNode.js
+// node_modules/@noble/hashes/cryptoNode.js
 var require_cryptoNode = __commonJS({
-  "packages/cli/node_modules/@noble/hashes/cryptoNode.js"(exports2) {
+  "node_modules/@noble/hashes/cryptoNode.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.crypto = void 0;
@@ -35014,9 +35014,9 @@ var require_cryptoNode = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@noble/hashes/utils.js
+// node_modules/@noble/hashes/utils.js
 var require_utils2 = __commonJS({
-  "packages/cli/node_modules/@noble/hashes/utils.js"(exports2) {
+  "node_modules/@noble/hashes/utils.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.wrapXOFConstructorWithOpts = exports2.wrapConstructorWithOpts = exports2.wrapConstructor = exports2.Hash = exports2.nextTick = exports2.swap32IfBE = exports2.byteSwapIfBE = exports2.swap8IfBE = exports2.isLE = void 0;
@@ -35256,9 +35256,9 @@ var require_utils2 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@noble/hashes/_md.js
+// node_modules/@noble/hashes/_md.js
 var require_md = __commonJS({
-  "packages/cli/node_modules/@noble/hashes/_md.js"(exports2) {
+  "node_modules/@noble/hashes/_md.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.SHA512_IV = exports2.SHA384_IV = exports2.SHA224_IV = exports2.SHA256_IV = exports2.HashMD = void 0;
@@ -35434,9 +35434,9 @@ var require_md = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@noble/hashes/_u64.js
+// node_modules/@noble/hashes/_u64.js
 var require_u64 = __commonJS({
-  "packages/cli/node_modules/@noble/hashes/_u64.js"(exports2) {
+  "node_modules/@noble/hashes/_u64.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.toBig = exports2.shrSL = exports2.shrSH = exports2.rotrSL = exports2.rotrSH = exports2.rotrBL = exports2.rotrBH = exports2.rotr32L = exports2.rotr32H = exports2.rotlSL = exports2.rotlSH = exports2.rotlBL = exports2.rotlBH = exports2.add5L = exports2.add5H = exports2.add4L = exports2.add4H = exports2.add3L = exports2.add3H = void 0;
@@ -35530,9 +35530,9 @@ var require_u64 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@noble/hashes/sha2.js
+// node_modules/@noble/hashes/sha2.js
 var require_sha2 = __commonJS({
-  "packages/cli/node_modules/@noble/hashes/sha2.js"(exports2) {
+  "node_modules/@noble/hashes/sha2.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.sha512_224 = exports2.sha512_256 = exports2.sha384 = exports2.sha512 = exports2.sha224 = exports2.sha256 = exports2.SHA512_256 = exports2.SHA512_224 = exports2.SHA384 = exports2.SHA512 = exports2.SHA224 = exports2.SHA256 = void 0;
@@ -36000,9 +36000,9 @@ var require_sha2 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@noble/hashes/hmac.js
+// node_modules/@noble/hashes/hmac.js
 var require_hmac = __commonJS({
-  "packages/cli/node_modules/@noble/hashes/hmac.js"(exports2) {
+  "node_modules/@noble/hashes/hmac.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.hmac = exports2.HMAC = void 0;
@@ -36078,9 +36078,9 @@ var require_hmac = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@noble/curves/utils.js
+// node_modules/@noble/curves/utils.js
 var require_utils3 = __commonJS({
-  "packages/cli/node_modules/@noble/curves/utils.js"(exports2) {
+  "node_modules/@noble/curves/utils.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.notImplemented = exports2.bitMask = exports2.utf8ToBytes = exports2.randomBytes = exports2.isBytes = exports2.hexToBytes = exports2.concatBytes = exports2.bytesToUtf8 = exports2.bytesToHex = exports2.anumber = exports2.abytes = void 0;
@@ -36361,9 +36361,9 @@ var require_utils3 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@noble/curves/abstract/modular.js
+// node_modules/@noble/curves/abstract/modular.js
 var require_modular = __commonJS({
-  "packages/cli/node_modules/@noble/curves/abstract/modular.js"(exports2) {
+  "node_modules/@noble/curves/abstract/modular.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.isNegativeLE = void 0;
@@ -36767,9 +36767,9 @@ var require_modular = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@noble/curves/abstract/curve.js
+// node_modules/@noble/curves/abstract/curve.js
 var require_curve = __commonJS({
-  "packages/cli/node_modules/@noble/curves/abstract/curve.js"(exports2) {
+  "node_modules/@noble/curves/abstract/curve.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.wNAF = void 0;
@@ -37115,9 +37115,9 @@ var require_curve = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@noble/curves/abstract/weierstrass.js
+// node_modules/@noble/curves/abstract/weierstrass.js
 var require_weierstrass = __commonJS({
-  "packages/cli/node_modules/@noble/curves/abstract/weierstrass.js"(exports2) {
+  "node_modules/@noble/curves/abstract/weierstrass.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.DER = exports2.DERErr = void 0;
@@ -38281,9 +38281,9 @@ var require_weierstrass = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@noble/curves/_shortw_utils.js
+// node_modules/@noble/curves/_shortw_utils.js
 var require_shortw_utils = __commonJS({
-  "packages/cli/node_modules/@noble/curves/_shortw_utils.js"(exports2) {
+  "node_modules/@noble/curves/_shortw_utils.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.getHash = getHash;
@@ -38299,9 +38299,9 @@ var require_shortw_utils = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@noble/curves/abstract/hash-to-curve.js
+// node_modules/@noble/curves/abstract/hash-to-curve.js
 var require_hash_to_curve = __commonJS({
-  "packages/cli/node_modules/@noble/curves/abstract/hash-to-curve.js"(exports2) {
+  "node_modules/@noble/curves/abstract/hash-to-curve.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2._DST_scalar = void 0;
@@ -38474,9 +38474,9 @@ var require_hash_to_curve = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@noble/curves/nist.js
+// node_modules/@noble/curves/nist.js
 var require_nist = __commonJS({
-  "packages/cli/node_modules/@noble/curves/nist.js"(exports2) {
+  "node_modules/@noble/curves/nist.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.p521_hasher = exports2.secp521r1 = exports2.secp384r1 = exports2.secp256r1 = exports2.p521 = exports2.p384_hasher = exports2.p384 = exports2.p256_hasher = exports2.p256 = void 0;
@@ -38573,9 +38573,9 @@ var require_nist = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@noble/curves/p256.js
+// node_modules/@noble/curves/p256.js
 var require_p256 = __commonJS({
-  "packages/cli/node_modules/@noble/curves/p256.js"(exports2) {
+  "node_modules/@noble/curves/p256.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.encodeToCurve = exports2.hashToCurve = exports2.secp256r1 = exports2.p256 = void 0;
@@ -38587,9 +38587,9 @@ var require_p256 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/cipher/ec.js
+// node_modules/werift/lib/dtls/src/cipher/ec.js
 var require_ec = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/cipher/ec.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/cipher/ec.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.p256PreMasterSecret = exports2.p256Keypair = void 0;
@@ -38614,9 +38614,9 @@ var require_ec = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/cipher/prf.js
+// node_modules/werift/lib/dtls/src/cipher/prf.js
 var require_prf = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/cipher/prf.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/cipher/prf.js"(exports2) {
     "use strict";
     var __importDefault3 = exports2 && exports2.__importDefault || function(mod) {
       return mod && mod.__esModule ? mod : { "default": mod };
@@ -38716,9 +38716,9 @@ var require_prf = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/cipher/suites/abstract.js
+// node_modules/werift/lib/dtls/src/cipher/suites/abstract.js
 var require_abstract = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/cipher/suites/abstract.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/cipher/suites/abstract.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.SessionType = void 0;
@@ -38797,9 +38797,9 @@ var require_abstract = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/context/cipher.js
+// node_modules/werift/lib/dtls/src/context/cipher.js
 var require_cipher = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/context/cipher.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/context/cipher.js"(exports2) {
     "use strict";
     var __createBinding3 = exports2 && exports2.__createBinding || (Object.create ? (function(o, m, k, k2) {
       if (k2 === void 0) k2 = k;
@@ -39076,9 +39076,9 @@ var require_cipher = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/context/srtp.js
+// node_modules/werift/lib/dtls/src/context/srtp.js
 var require_srtp = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/context/srtp.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/context/srtp.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.SrtpContext = void 0;
@@ -39102,9 +39102,9 @@ var require_srtp = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/helper.js
+// node_modules/werift/lib/dtls/src/helper.js
 var require_helper2 = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/helper.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/helper.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.getObjectSummary = exports2.dumpBuffer = void 0;
@@ -39132,9 +39132,9 @@ var require_helper2 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/record/message/fragment.js
+// node_modules/werift/lib/dtls/src/record/message/fragment.js
 var require_fragment = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/record/message/fragment.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/record/message/fragment.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.FragmentedHandshake = void 0;
@@ -39255,9 +39255,9 @@ var require_fragment = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/handshake/binary.js
+// node_modules/werift/lib/dtls/src/handshake/binary.js
 var require_binary3 = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/handshake/binary.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/handshake/binary.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ProtocolVersion = exports2.SignatureHashAlgorithm = exports2.DistinguishedName = exports2.ClientCertificateType = exports2.ASN11Cert = exports2.ExtensionList = void 0;
@@ -39276,9 +39276,9 @@ var require_binary3 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/handshake/const.js
+// node_modules/werift/lib/dtls/src/handshake/const.js
 var require_const2 = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/handshake/const.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/handshake/const.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.HandshakeType = void 0;
@@ -39299,9 +39299,9 @@ var require_const2 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/handshake/random.js
+// node_modules/werift/lib/dtls/src/handshake/random.js
 var require_random = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/handshake/random.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/handshake/random.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.DtlsRandom = void 0;
@@ -39348,9 +39348,9 @@ var require_random = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/handshake/message/client/hello.js
+// node_modules/werift/lib/dtls/src/handshake/message/client/hello.js
 var require_hello = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/handshake/message/client/hello.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/handshake/message/client/hello.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ClientHello = void 0;
@@ -39451,9 +39451,9 @@ var require_hello = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/imports/common.js
+// node_modules/werift/lib/dtls/src/imports/common.js
 var require_common5 = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/imports/common.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/imports/common.js"(exports2) {
     "use strict";
     var __createBinding3 = exports2 && exports2.__createBinding || (Object.create ? (function(o, m, k, k2) {
       if (k2 === void 0) k2 = k;
@@ -39476,9 +39476,9 @@ var require_common5 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/record/message/header.js
+// node_modules/werift/lib/dtls/src/record/message/header.js
 var require_header = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/record/message/header.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/record/message/header.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.MACHeader = void 0;
@@ -39546,9 +39546,9 @@ var require_header = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/record/message/plaintext.js
+// node_modules/werift/lib/dtls/src/record/message/plaintext.js
 var require_plaintext = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/record/message/plaintext.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/record/message/plaintext.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.DtlsPlaintext = void 0;
@@ -39622,9 +39622,9 @@ var require_plaintext = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/record/builder.js
+// node_modules/werift/lib/dtls/src/record/builder.js
 var require_builder = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/record/builder.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/record/builder.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.createPlaintext = exports2.createFragments = void 0;
@@ -39655,9 +39655,9 @@ var require_builder = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/record/const.js
+// node_modules/werift/lib/dtls/src/record/const.js
 var require_const3 = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/record/const.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/record/const.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.AlertDesc = exports2.ContentType = void 0;
@@ -39699,9 +39699,9 @@ var require_const3 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/flight/flight.js
+// node_modules/werift/lib/dtls/src/flight/flight.js
 var require_flight = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/flight/flight.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/flight/flight.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.Flight = void 0;
@@ -39798,9 +39798,9 @@ var require_flight = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/flight/client/flight1.js
+// node_modules/werift/lib/dtls/src/flight/client/flight1.js
 var require_flight1 = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/flight/client/flight1.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/flight/client/flight1.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.Flight1 = void 0;
@@ -39843,9 +39843,9 @@ var require_flight1 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/flight/client/flight3.js
+// node_modules/werift/lib/dtls/src/flight/client/flight3.js
 var require_flight3 = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/flight/client/flight3.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/flight/client/flight3.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.Flight3 = void 0;
@@ -39874,9 +39874,9 @@ var require_flight3 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/cipher/key-exchange.js
+// node_modules/werift/lib/dtls/src/cipher/key-exchange.js
 var require_key_exchange = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/cipher/key-exchange.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/cipher/key-exchange.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.KeyExchange = void 0;
@@ -39989,9 +39989,9 @@ var require_key_exchange = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/cipher/suites/aead.js
+// node_modules/werift/lib/dtls/src/cipher/suites/aead.js
 var require_aead = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/cipher/suites/aead.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/cipher/suites/aead.js"(exports2) {
     "use strict";
     var __createBinding3 = exports2 && exports2.__createBinding || (Object.create ? (function(o, m, k, k2) {
       if (k2 === void 0) k2 = k;
@@ -40179,9 +40179,9 @@ var require_aead = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/cipher/create.js
+// node_modules/werift/lib/dtls/src/cipher/create.js
 var require_create = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/cipher/create.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/cipher/create.js"(exports2) {
     "use strict";
     var __importDefault3 = exports2 && exports2.__importDefault || function(mod) {
       return mod && mod.__esModule ? mod : { "default": mod };
@@ -40288,9 +40288,9 @@ var require_create = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/cipher/namedCurve.js
+// node_modules/werift/lib/dtls/src/cipher/namedCurve.js
 var require_namedCurve = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/cipher/namedCurve.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/cipher/namedCurve.js"(exports2) {
     "use strict";
     var __importDefault3 = exports2 && exports2.__importDefault || function(mod) {
       return mod && mod.__esModule ? mod : { "default": mod };
@@ -40325,9 +40325,9 @@ var require_namedCurve = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/handshake/extensions/extendedMasterSecret.js
+// node_modules/werift/lib/dtls/src/handshake/extensions/extendedMasterSecret.js
 var require_extendedMasterSecret = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/handshake/extensions/extendedMasterSecret.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/handshake/extensions/extendedMasterSecret.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ExtendedMasterSecret = void 0;
@@ -40343,9 +40343,9 @@ var require_extendedMasterSecret = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/handshake/extensions/renegotiationIndication.js
+// node_modules/werift/lib/dtls/src/handshake/extensions/renegotiationIndication.js
 var require_renegotiationIndication = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/handshake/extensions/renegotiationIndication.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/handshake/extensions/renegotiationIndication.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RenegotiationIndication = void 0;
@@ -40403,9 +40403,9 @@ var require_renegotiationIndication = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/handshake/extensions/useSrtp.js
+// node_modules/werift/lib/dtls/src/handshake/extensions/useSrtp.js
 var require_useSrtp = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/handshake/extensions/useSrtp.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/handshake/extensions/useSrtp.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.UseSRTP = void 0;
@@ -40504,9 +40504,9 @@ var require_useSrtp = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/handshake/message/certificate.js
+// node_modules/werift/lib/dtls/src/handshake/message/certificate.js
 var require_certificate2 = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/handshake/message/certificate.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/handshake/message/certificate.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.Certificate = void 0;
@@ -40564,9 +40564,9 @@ var require_certificate2 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/handshake/message/changeCipherSpec.js
+// node_modules/werift/lib/dtls/src/handshake/message/changeCipherSpec.js
 var require_changeCipherSpec = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/handshake/message/changeCipherSpec.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/handshake/message/changeCipherSpec.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ChangeCipherSpec = void 0;
@@ -40605,9 +40605,9 @@ var require_changeCipherSpec = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/handshake/message/client/certificateVerify.js
+// node_modules/werift/lib/dtls/src/handshake/message/client/certificateVerify.js
 var require_certificateVerify = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/handshake/message/client/certificateVerify.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/handshake/message/client/certificateVerify.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.CertificateVerify = void 0;
@@ -40672,9 +40672,9 @@ var require_certificateVerify = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/handshake/message/client/keyExchange.js
+// node_modules/werift/lib/dtls/src/handshake/message/client/keyExchange.js
 var require_keyExchange = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/handshake/message/client/keyExchange.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/handshake/message/client/keyExchange.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ClientKeyExchange = void 0;
@@ -40732,9 +40732,9 @@ var require_keyExchange = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/handshake/message/finished.js
+// node_modules/werift/lib/dtls/src/handshake/message/finished.js
 var require_finished = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/handshake/message/finished.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/handshake/message/finished.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.Finished = void 0;
@@ -40779,9 +40779,9 @@ var require_finished = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/handshake/message/server/certificateRequest.js
+// node_modules/werift/lib/dtls/src/handshake/message/server/certificateRequest.js
 var require_certificateRequest = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/handshake/message/server/certificateRequest.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/handshake/message/server/certificateRequest.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ServerCertificateRequest = void 0;
@@ -40853,9 +40853,9 @@ var require_certificateRequest = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/handshake/message/server/hello.js
+// node_modules/werift/lib/dtls/src/handshake/message/server/hello.js
 var require_hello2 = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/handshake/message/server/hello.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/handshake/message/server/hello.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ServerHello = void 0;
@@ -40959,9 +40959,9 @@ var require_hello2 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/handshake/message/server/helloDone.js
+// node_modules/werift/lib/dtls/src/handshake/message/server/helloDone.js
 var require_helloDone = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/handshake/message/server/helloDone.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/handshake/message/server/helloDone.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ServerHelloDone = void 0;
@@ -41010,9 +41010,9 @@ var require_helloDone = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/util/binary.js
+// node_modules/werift/lib/dtls/src/util/binary.js
 var require_binary4 = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/util/binary.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/util/binary.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.encodeBuffer = encodeBuffer;
@@ -41023,9 +41023,9 @@ var require_binary4 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/handshake/message/server/keyExchange.js
+// node_modules/werift/lib/dtls/src/handshake/message/server/keyExchange.js
 var require_keyExchange2 = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/handshake/message/server/keyExchange.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/handshake/message/server/keyExchange.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ServerKeyExchange = void 0;
@@ -41133,9 +41133,9 @@ var require_keyExchange2 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/rtp/src/srtp/const.js
+// node_modules/werift/lib/rtp/src/srtp/const.js
 var require_const4 = __commonJS({
-  "packages/cli/node_modules/werift/lib/rtp/src/srtp/const.js"(exports2) {
+  "node_modules/werift/lib/rtp/src/srtp/const.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.saltLength = exports2.keyLength = exports2.Profiles = exports2.ProtectionProfileAeadAes128Gcm = exports2.ProtectionProfileAes128CmHmacSha1_80 = void 0;
@@ -41165,9 +41165,9 @@ var require_const4 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/rtp/src/imports/common.js
+// node_modules/werift/lib/rtp/src/imports/common.js
 var require_common6 = __commonJS({
-  "packages/cli/node_modules/werift/lib/rtp/src/imports/common.js"(exports2) {
+  "node_modules/werift/lib/rtp/src/imports/common.js"(exports2) {
     "use strict";
     var __createBinding3 = exports2 && exports2.__createBinding || (Object.create ? (function(o, m, k, k2) {
       if (k2 === void 0) k2 = k;
@@ -41190,9 +41190,9 @@ var require_common6 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/rtp/src/codec/leb128.js
+// node_modules/werift/lib/rtp/src/codec/leb128.js
 var require_leb128 = __commonJS({
-  "packages/cli/node_modules/werift/lib/rtp/src/codec/leb128.js"(exports2) {
+  "node_modules/werift/lib/rtp/src/codec/leb128.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.leb128encode = leb128encode;
@@ -41215,9 +41215,9 @@ var require_leb128 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/rtp/src/codec/av1.js
+// node_modules/werift/lib/rtp/src/codec/av1.js
 var require_av1 = __commonJS({
-  "packages/cli/node_modules/werift/lib/rtp/src/codec/av1.js"(exports2) {
+  "node_modules/werift/lib/rtp/src/codec/av1.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.AV1Obu = exports2.AV1RtpPayload = void 0;
@@ -41444,9 +41444,9 @@ var require_av1 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/rtp/src/codec/h264.js
+// node_modules/werift/lib/rtp/src/codec/h264.js
 var require_h264 = __commonJS({
-  "packages/cli/node_modules/werift/lib/rtp/src/codec/h264.js"(exports2) {
+  "node_modules/werift/lib/rtp/src/codec/h264.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.NalUnitType = exports2.H264RtpPayload = void 0;
@@ -41583,9 +41583,9 @@ var require_h264 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/rtp/src/codec/opus.js
+// node_modules/werift/lib/rtp/src/codec/opus.js
 var require_opus = __commonJS({
-  "packages/cli/node_modules/werift/lib/rtp/src/codec/opus.js"(exports2) {
+  "node_modules/werift/lib/rtp/src/codec/opus.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.OpusRtpPayload = void 0;
@@ -41622,9 +41622,9 @@ var require_opus = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/rtp/src/codec/vp8.js
+// node_modules/werift/lib/rtp/src/codec/vp8.js
 var require_vp8 = __commonJS({
-  "packages/cli/node_modules/werift/lib/rtp/src/codec/vp8.js"(exports2) {
+  "node_modules/werift/lib/rtp/src/codec/vp8.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.Vp8RtpPayload = void 0;
@@ -41808,9 +41808,9 @@ var require_vp8 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/rtp/src/codec/vp9.js
+// node_modules/werift/lib/rtp/src/codec/vp9.js
 var require_vp9 = __commonJS({
-  "packages/cli/node_modules/werift/lib/rtp/src/codec/vp9.js"(exports2) {
+  "node_modules/werift/lib/rtp/src/codec/vp9.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.Vp9RtpPayload = void 0;
@@ -42072,9 +42072,9 @@ var require_vp9 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/rtp/src/codec/base.js
+// node_modules/werift/lib/rtp/src/codec/base.js
 var require_base = __commonJS({
-  "packages/cli/node_modules/werift/lib/rtp/src/codec/base.js"(exports2) {
+  "node_modules/werift/lib/rtp/src/codec/base.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.DePacketizerBase = void 0;
@@ -42107,9 +42107,9 @@ var require_base = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/rtp/src/codec/index.js
+// node_modules/werift/lib/rtp/src/codec/index.js
 var require_codec = __commonJS({
-  "packages/cli/node_modules/werift/lib/rtp/src/codec/index.js"(exports2) {
+  "node_modules/werift/lib/rtp/src/codec/index.js"(exports2) {
     "use strict";
     var __createBinding3 = exports2 && exports2.__createBinding || (Object.create ? (function(o, m, k, k2) {
       if (k2 === void 0) k2 = k;
@@ -42198,9 +42198,9 @@ var require_codec = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/rtp/src/helper.js
+// node_modules/werift/lib/rtp/src/helper.js
 var require_helper3 = __commonJS({
-  "packages/cli/node_modules/werift/lib/rtp/src/helper.js"(exports2) {
+  "node_modules/werift/lib/rtp/src/helper.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.timer = void 0;
@@ -42241,9 +42241,9 @@ var require_helper3 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/rtp/src/rtcp/header.js
+// node_modules/werift/lib/rtp/src/rtcp/header.js
 var require_header2 = __commonJS({
-  "packages/cli/node_modules/werift/lib/rtp/src/rtcp/header.js"(exports2) {
+  "node_modules/werift/lib/rtp/src/rtcp/header.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RtcpHeader = exports2.RTCP_HEADER_SIZE = void 0;
@@ -42314,9 +42314,9 @@ var require_header2 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/rtp/src/rtcp/psfb/fullIntraRequest.js
+// node_modules/werift/lib/rtp/src/rtcp/psfb/fullIntraRequest.js
 var require_fullIntraRequest = __commonJS({
-  "packages/cli/node_modules/werift/lib/rtp/src/rtcp/psfb/fullIntraRequest.js"(exports2) {
+  "node_modules/werift/lib/rtp/src/rtcp/psfb/fullIntraRequest.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.FullIntraRequest = void 0;
@@ -42380,9 +42380,9 @@ var require_fullIntraRequest = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/rtp/src/rtcp/psfb/pictureLossIndication.js
+// node_modules/werift/lib/rtp/src/rtcp/psfb/pictureLossIndication.js
 var require_pictureLossIndication = __commonJS({
-  "packages/cli/node_modules/werift/lib/rtp/src/rtcp/psfb/pictureLossIndication.js"(exports2) {
+  "node_modules/werift/lib/rtp/src/rtcp/psfb/pictureLossIndication.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.PictureLossIndication = void 0;
@@ -42433,9 +42433,9 @@ var require_pictureLossIndication = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/rtp/src/rtcp/psfb/remb.js
+// node_modules/werift/lib/rtp/src/rtcp/psfb/remb.js
 var require_remb = __commonJS({
-  "packages/cli/node_modules/werift/lib/rtp/src/rtcp/psfb/remb.js"(exports2) {
+  "node_modules/werift/lib/rtp/src/rtcp/psfb/remb.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ReceiverEstimatedMaxBitrate = void 0;
@@ -42553,9 +42553,9 @@ var require_remb = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/rtp/src/rtcp/psfb/index.js
+// node_modules/werift/lib/rtp/src/rtcp/psfb/index.js
 var require_psfb = __commonJS({
-  "packages/cli/node_modules/werift/lib/rtp/src/rtcp/psfb/index.js"(exports2) {
+  "node_modules/werift/lib/rtp/src/rtcp/psfb/index.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RtcpPayloadSpecificFeedback = void 0;
@@ -42614,9 +42614,9 @@ var require_psfb = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/rtp/src/rtcp/rr.js
+// node_modules/werift/lib/rtp/src/rtcp/rr.js
 var require_rr = __commonJS({
-  "packages/cli/node_modules/werift/lib/rtp/src/rtcp/rr.js"(exports2) {
+  "node_modules/werift/lib/rtp/src/rtcp/rr.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RtcpReceiverInfo = exports2.RtcpRrPacket = void 0;
@@ -42755,9 +42755,9 @@ var require_rr = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/rtp/src/rtcp/rtpfb/const.js
+// node_modules/werift/lib/rtp/src/rtcp/rtpfb/const.js
 var require_const5 = __commonJS({
-  "packages/cli/node_modules/werift/lib/rtp/src/rtcp/rtpfb/const.js"(exports2) {
+  "node_modules/werift/lib/rtp/src/rtcp/rtpfb/const.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RtcpTransportLayerFeedbackType = void 0;
@@ -42765,9 +42765,9 @@ var require_const5 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/rtp/src/rtcp/rtpfb/nack.js
+// node_modules/werift/lib/rtp/src/rtcp/rtpfb/nack.js
 var require_nack = __commonJS({
-  "packages/cli/node_modules/werift/lib/rtp/src/rtcp/rtpfb/nack.js"(exports2) {
+  "node_modules/werift/lib/rtp/src/rtcp/rtpfb/nack.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.GenericNack = void 0;
@@ -42873,9 +42873,9 @@ var require_nack = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/rtp/src/rtcp/rtpfb/twcc.js
+// node_modules/werift/lib/rtp/src/rtcp/rtpfb/twcc.js
 var require_twcc = __commonJS({
-  "packages/cli/node_modules/werift/lib/rtp/src/rtcp/rtpfb/twcc.js"(exports2) {
+  "node_modules/werift/lib/rtp/src/rtcp/rtpfb/twcc.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.PacketResult = exports2.PacketStatus = exports2.PacketChunk = exports2.RecvDelta = exports2.StatusVectorChunk = exports2.RunLengthChunk = exports2.TransportWideCC = void 0;
@@ -43306,9 +43306,9 @@ var require_twcc = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/rtp/src/rtcp/rtpfb/index.js
+// node_modules/werift/lib/rtp/src/rtcp/rtpfb/index.js
 var require_rtpfb = __commonJS({
-  "packages/cli/node_modules/werift/lib/rtp/src/rtcp/rtpfb/index.js"(exports2) {
+  "node_modules/werift/lib/rtp/src/rtcp/rtpfb/index.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RtcpTransportLayerFeedback = void 0;
@@ -43369,9 +43369,9 @@ var require_rtpfb = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/rtp/src/rtcp/sdes.js
+// node_modules/werift/lib/rtp/src/rtcp/sdes.js
 var require_sdes = __commonJS({
-  "packages/cli/node_modules/werift/lib/rtp/src/rtcp/sdes.js"(exports2) {
+  "node_modules/werift/lib/rtp/src/rtcp/sdes.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.SourceDescriptionItem = exports2.SourceDescriptionChunk = exports2.RtcpSourceDescriptionPacket = void 0;
@@ -43510,9 +43510,9 @@ var require_sdes = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/rtp/src/rtcp/sr.js
+// node_modules/werift/lib/rtp/src/rtcp/sr.js
 var require_sr = __commonJS({
-  "packages/cli/node_modules/werift/lib/rtp/src/rtcp/sr.js"(exports2) {
+  "node_modules/werift/lib/rtp/src/rtcp/sr.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ntpTime2Sec = exports2.RtcpSenderInfo = exports2.RtcpSrPacket = void 0;
@@ -43640,9 +43640,9 @@ var require_sr = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/rtp/src/rtcp/rtcp.js
+// node_modules/werift/lib/rtp/src/rtcp/rtcp.js
 var require_rtcp = __commonJS({
-  "packages/cli/node_modules/werift/lib/rtp/src/rtcp/rtcp.js"(exports2) {
+  "node_modules/werift/lib/rtp/src/rtcp/rtcp.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RtcpPacketConverter = void 0;
@@ -43701,9 +43701,9 @@ var require_rtcp = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/rtp/src/rtp/headerExtension.js
+// node_modules/werift/lib/rtp/src/rtp/headerExtension.js
 var require_headerExtension = __commonJS({
-  "packages/cli/node_modules/werift/lib/rtp/src/rtp/headerExtension.js"(exports2) {
+  "node_modules/werift/lib/rtp/src/rtp/headerExtension.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RTP_EXTENSION_URI = void 0;
@@ -43820,9 +43820,9 @@ var require_headerExtension = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/rtp/src/rtp/red/packet.js
+// node_modules/werift/lib/rtp/src/rtp/red/packet.js
 var require_packet = __commonJS({
-  "packages/cli/node_modules/werift/lib/rtp/src/rtp/red/packet.js"(exports2) {
+  "node_modules/werift/lib/rtp/src/rtp/red/packet.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RedHeader = exports2.Red = void 0;
@@ -43932,9 +43932,9 @@ var require_packet = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/rtp/src/rtp/red/encoder.js
+// node_modules/werift/lib/rtp/src/rtp/red/encoder.js
 var require_encoder = __commonJS({
-  "packages/cli/node_modules/werift/lib/rtp/src/rtp/red/encoder.js"(exports2) {
+  "node_modules/werift/lib/rtp/src/rtp/red/encoder.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RedEncoder = void 0;
@@ -43997,9 +43997,9 @@ var require_encoder = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/rtp/src/rtp/red/handler.js
+// node_modules/werift/lib/rtp/src/rtp/red/handler.js
 var require_handler = __commonJS({
-  "packages/cli/node_modules/werift/lib/rtp/src/rtp/red/handler.js"(exports2) {
+  "node_modules/werift/lib/rtp/src/rtp/red/handler.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RedHandler = void 0;
@@ -44059,9 +44059,9 @@ var require_handler = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/rtp/src/rtp/rtp.js
+// node_modules/werift/lib/rtp/src/rtp/rtp.js
 var require_rtp = __commonJS({
-  "packages/cli/node_modules/werift/lib/rtp/src/rtp/rtp.js"(exports2) {
+  "node_modules/werift/lib/rtp/src/rtp/rtp.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RtpPacket = exports2.RtpHeader = exports2.ExtensionProfiles = void 0;
@@ -44405,9 +44405,9 @@ var require_rtp = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/rtp/src/rtp/rtx.js
+// node_modules/werift/lib/rtp/src/rtp/rtx.js
 var require_rtx = __commonJS({
-  "packages/cli/node_modules/werift/lib/rtp/src/rtp/rtx.js"(exports2) {
+  "node_modules/werift/lib/rtp/src/rtp/rtx.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.unwrapRtx = unwrapRtx;
@@ -44440,9 +44440,9 @@ var require_rtx = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/rtp/src/srtp/cipher/index.js
+// node_modules/werift/lib/rtp/src/srtp/cipher/index.js
 var require_cipher2 = __commonJS({
-  "packages/cli/node_modules/werift/lib/rtp/src/srtp/cipher/index.js"(exports2) {
+  "node_modules/werift/lib/rtp/src/srtp/cipher/index.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.CipherAesBase = void 0;
@@ -44490,9 +44490,9 @@ var require_cipher2 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/rtp/src/srtp/error.js
+// node_modules/werift/lib/rtp/src/srtp/error.js
 var require_error = __commonJS({
-  "packages/cli/node_modules/werift/lib/rtp/src/srtp/error.js"(exports2) {
+  "node_modules/werift/lib/rtp/src/srtp/error.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.SrtpAuthenticationError = void 0;
@@ -44506,9 +44506,9 @@ var require_error = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/rtp/src/srtp/packet.js
+// node_modules/werift/lib/rtp/src/srtp/packet.js
 var require_packet2 = __commonJS({
-  "packages/cli/node_modules/werift/lib/rtp/src/srtp/packet.js"(exports2) {
+  "node_modules/werift/lib/rtp/src/srtp/packet.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.parseSrtpRtpHeader = parseSrtpRtpHeader;
@@ -44557,9 +44557,9 @@ var require_packet2 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/rtp/src/srtp/cipher/ctr.js
+// node_modules/werift/lib/rtp/src/srtp/cipher/ctr.js
 var require_ctr = __commonJS({
-  "packages/cli/node_modules/werift/lib/rtp/src/srtp/cipher/ctr.js"(exports2) {
+  "node_modules/werift/lib/rtp/src/srtp/cipher/ctr.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.CipherAesCtr = void 0;
@@ -44684,9 +44684,9 @@ var require_ctr = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/rtp/src/srtp/cipher/gcm.js
+// node_modules/werift/lib/rtp/src/srtp/cipher/gcm.js
 var require_gcm = __commonJS({
-  "packages/cli/node_modules/werift/lib/rtp/src/srtp/cipher/gcm.js"(exports2) {
+  "node_modules/werift/lib/rtp/src/srtp/cipher/gcm.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.CipherAesGcm = void 0;
@@ -44848,9 +44848,9 @@ var require_gcm = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/rtp/src/srtp/context/context.js
+// node_modules/werift/lib/rtp/src/srtp/context/context.js
 var require_context = __commonJS({
-  "packages/cli/node_modules/werift/lib/rtp/src/srtp/context/context.js"(exports2) {
+  "node_modules/werift/lib/rtp/src/srtp/context/context.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.Context = void 0;
@@ -45100,9 +45100,9 @@ var require_context = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/rtp/src/srtp/context/srtcp.js
+// node_modules/werift/lib/rtp/src/srtp/context/srtcp.js
 var require_srtcp = __commonJS({
-  "packages/cli/node_modules/werift/lib/rtp/src/srtp/context/srtcp.js"(exports2) {
+  "node_modules/werift/lib/rtp/src/srtp/context/srtcp.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.SrtcpContext = void 0;
@@ -45131,9 +45131,9 @@ var require_srtcp = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/rtp/src/srtp/session.js
+// node_modules/werift/lib/rtp/src/srtp/session.js
 var require_session = __commonJS({
-  "packages/cli/node_modules/werift/lib/rtp/src/srtp/session.js"(exports2) {
+  "node_modules/werift/lib/rtp/src/srtp/session.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.Session = void 0;
@@ -45173,9 +45173,9 @@ var require_session = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/rtp/src/srtp/srtcp.js
+// node_modules/werift/lib/rtp/src/srtp/srtcp.js
 var require_srtcp2 = __commonJS({
-  "packages/cli/node_modules/werift/lib/rtp/src/srtp/srtcp.js"(exports2) {
+  "node_modules/werift/lib/rtp/src/srtp/srtcp.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.SrtcpSession = void 0;
@@ -45210,9 +45210,9 @@ var require_srtcp2 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/rtp/src/srtp/context/srtp.js
+// node_modules/werift/lib/rtp/src/srtp/context/srtp.js
 var require_srtp2 = __commonJS({
-  "packages/cli/node_modules/werift/lib/rtp/src/srtp/context/srtp.js"(exports2) {
+  "node_modules/werift/lib/rtp/src/srtp/context/srtp.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.SrtpContext = void 0;
@@ -45254,9 +45254,9 @@ var require_srtp2 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/rtp/src/srtp/srtp.js
+// node_modules/werift/lib/rtp/src/srtp/srtp.js
 var require_srtp3 = __commonJS({
-  "packages/cli/node_modules/werift/lib/rtp/src/srtp/srtp.js"(exports2) {
+  "node_modules/werift/lib/rtp/src/srtp/srtp.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.SrtpSession = void 0;
@@ -45290,9 +45290,9 @@ var require_srtp3 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/rtp/src/util.js
+// node_modules/werift/lib/rtp/src/util.js
 var require_util2 = __commonJS({
-  "packages/cli/node_modules/werift/lib/rtp/src/util.js"(exports2) {
+  "node_modules/werift/lib/rtp/src/util.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RtpBuilder = void 0;
@@ -45339,9 +45339,9 @@ var require_util2 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/rtp/src/index.js
+// node_modules/werift/lib/rtp/src/index.js
 var require_src4 = __commonJS({
-  "packages/cli/node_modules/werift/lib/rtp/src/index.js"(exports2) {
+  "node_modules/werift/lib/rtp/src/index.js"(exports2) {
     "use strict";
     var __createBinding3 = exports2 && exports2.__createBinding || (Object.create ? (function(o, m, k, k2) {
       if (k2 === void 0) k2 = k;
@@ -45389,9 +45389,9 @@ var require_src4 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/imports/rtp.js
+// node_modules/werift/lib/dtls/src/imports/rtp.js
 var require_rtp2 = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/imports/rtp.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/imports/rtp.js"(exports2) {
     "use strict";
     var __createBinding3 = exports2 && exports2.__createBinding || (Object.create ? (function(o, m, k, k2) {
       if (k2 === void 0) k2 = k;
@@ -45414,9 +45414,9 @@ var require_rtp2 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/flight/client/flight5.js
+// node_modules/werift/lib/dtls/src/flight/client/flight5.js
 var require_flight5 = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/flight/client/flight5.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/flight/client/flight5.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.Flight5 = void 0;
@@ -45621,9 +45621,9 @@ var require_flight5 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/handshake/message/server/helloVerifyRequest.js
+// node_modules/werift/lib/dtls/src/handshake/message/server/helloVerifyRequest.js
 var require_helloVerifyRequest = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/handshake/message/server/helloVerifyRequest.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/handshake/message/server/helloVerifyRequest.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ServerHelloVerifyRequest = void 0;
@@ -45694,9 +45694,9 @@ var require_helloVerifyRequest = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/context/dtls.js
+// node_modules/werift/lib/dtls/src/context/dtls.js
 var require_dtls = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/context/dtls.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/context/dtls.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.DtlsContext = void 0;
@@ -45823,9 +45823,9 @@ var require_dtls = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/context/transport.js
+// node_modules/werift/lib/dtls/src/context/transport.js
 var require_transport2 = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/context/transport.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/context/transport.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.TransportContext = void 0;
@@ -45851,9 +45851,9 @@ var require_transport2 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/handshake/extensions/ellipticCurves.js
+// node_modules/werift/lib/dtls/src/handshake/extensions/ellipticCurves.js
 var require_ellipticCurves = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/handshake/extensions/ellipticCurves.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/handshake/extensions/ellipticCurves.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.EllipticCurves = void 0;
@@ -45915,9 +45915,9 @@ var require_ellipticCurves = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/handshake/extensions/signature.js
+// node_modules/werift/lib/dtls/src/handshake/extensions/signature.js
 var require_signature = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/handshake/extensions/signature.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/handshake/extensions/signature.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.Signature = void 0;
@@ -45980,9 +45980,9 @@ var require_signature = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/handshake/message/alert.js
+// node_modules/werift/lib/dtls/src/handshake/message/alert.js
 var require_alert = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/handshake/message/alert.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/handshake/message/alert.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.Alert = void 0;
@@ -46025,9 +46025,9 @@ var require_alert = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/record/receive.js
+// node_modules/werift/lib/dtls/src/record/receive.js
 var require_receive = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/record/receive.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/record/receive.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.parsePlainText = exports2.parsePacket = void 0;
@@ -46119,9 +46119,9 @@ var require_receive = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/socket.js
+// node_modules/werift/lib/dtls/src/socket.js
 var require_socket = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/socket.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/socket.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.DtlsSocket = void 0;
@@ -46397,9 +46397,9 @@ var require_socket = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/client.js
+// node_modules/werift/lib/dtls/src/client.js
 var require_client = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/client.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/client.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.DtlsClient = void 0;
@@ -46490,9 +46490,9 @@ var require_client = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/flight/server/flight2.js
+// node_modules/werift/lib/dtls/src/flight/server/flight2.js
 var require_flight2 = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/flight/server/flight2.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/flight/server/flight2.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.flight2 = void 0;
@@ -46612,9 +46612,9 @@ var require_flight2 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/flight/server/flight4.js
+// node_modules/werift/lib/dtls/src/flight/server/flight4.js
 var require_flight4 = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/flight/server/flight4.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/flight/server/flight4.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.Flight4 = void 0;
@@ -46721,9 +46721,9 @@ var require_flight4 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/flight/server/flight6.js
+// node_modules/werift/lib/dtls/src/flight/server/flight6.js
 var require_flight6 = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/flight/server/flight6.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/flight/server/flight6.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.Flight6 = void 0;
@@ -46833,9 +46833,9 @@ var require_flight6 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/server.js
+// node_modules/werift/lib/dtls/src/server.js
 var require_server = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/server.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/server.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.DtlsServer = void 0;
@@ -46925,9 +46925,9 @@ var require_server = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/dtls/src/index.js
+// node_modules/werift/lib/dtls/src/index.js
 var require_src5 = __commonJS({
-  "packages/cli/node_modules/werift/lib/dtls/src/index.js"(exports2) {
+  "node_modules/werift/lib/dtls/src/index.js"(exports2) {
     "use strict";
     var __createBinding3 = exports2 && exports2.__createBinding || (Object.create ? (function(o, m, k, k2) {
       if (k2 === void 0) k2 = k;
@@ -46965,9 +46965,9 @@ var require_src5 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/webrtc/src/imports/dtls.js
+// node_modules/werift/lib/webrtc/src/imports/dtls.js
 var require_dtls2 = __commonJS({
-  "packages/cli/node_modules/werift/lib/webrtc/src/imports/dtls.js"(exports2) {
+  "node_modules/werift/lib/webrtc/src/imports/dtls.js"(exports2) {
     "use strict";
     var __createBinding3 = exports2 && exports2.__createBinding || (Object.create ? (function(o, m, k, k2) {
       if (k2 === void 0) k2 = k;
@@ -46990,9 +46990,9 @@ var require_dtls2 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/ice-server/src/stun/const.js
+// node_modules/werift/lib/ice-server/src/stun/const.js
 var require_const6 = __commonJS({
-  "packages/cli/node_modules/werift/lib/ice-server/src/stun/const.js"(exports2) {
+  "node_modules/werift/lib/ice-server/src/stun/const.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.methods = exports2.classes = exports2.AttributeKeys = exports2.RETRY_RTO = exports2.RETRY_MAX = exports2.IPV6_PROTOCOL = exports2.IPV4_PROTOCOL = exports2.INTEGRITY_LENGTH = exports2.HEADER_LENGTH = exports2.FINGERPRINT_XOR = exports2.FINGERPRINT_LENGTH = exports2.COOKIE = void 0;
@@ -47083,9 +47083,9 @@ var require_const6 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/ice/src/stun/const.js
+// node_modules/werift/lib/ice/src/stun/const.js
 var require_const7 = __commonJS({
-  "packages/cli/node_modules/werift/lib/ice/src/stun/const.js"(exports2) {
+  "node_modules/werift/lib/ice/src/stun/const.js"(exports2) {
     "use strict";
     var __createBinding3 = exports2 && exports2.__createBinding || (Object.create ? (function(o, m, k, k2) {
       if (k2 === void 0) k2 = k;
@@ -47108,9 +47108,9 @@ var require_const7 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/ice/src/stun/tcpFrame.js
+// node_modules/werift/lib/ice/src/stun/tcpFrame.js
 var require_tcpFrame = __commonJS({
-  "packages/cli/node_modules/werift/lib/ice/src/stun/tcpFrame.js"(exports2) {
+  "node_modules/werift/lib/ice/src/stun/tcpFrame.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.encodeTcpFrame = encodeTcpFrame;
@@ -47139,9 +47139,9 @@ var require_tcpFrame = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/ice/src/imports/common.js
+// node_modules/werift/lib/ice/src/imports/common.js
 var require_common7 = __commonJS({
-  "packages/cli/node_modules/werift/lib/ice/src/imports/common.js"(exports2) {
+  "node_modules/werift/lib/ice/src/imports/common.js"(exports2) {
     "use strict";
     var __createBinding3 = exports2 && exports2.__createBinding || (Object.create ? (function(o, m, k, k2) {
       if (k2 === void 0) k2 = k;
@@ -47164,9 +47164,9 @@ var require_common7 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/ice-server/src/stun/ip.js
+// node_modules/werift/lib/ice-server/src/stun/ip.js
 var require_ip = __commonJS({
-  "packages/cli/node_modules/werift/lib/ice-server/src/stun/ip.js"(exports2) {
+  "node_modules/werift/lib/ice-server/src/stun/ip.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ipAddressToBuffer = ipAddressToBuffer;
@@ -47247,9 +47247,9 @@ var require_ip = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/ice-server/src/stun/attributes.js
+// node_modules/werift/lib/ice-server/src/stun/attributes.js
 var require_attributes3 = __commonJS({
-  "packages/cli/node_modules/werift/lib/ice-server/src/stun/attributes.js"(exports2) {
+  "node_modules/werift/lib/ice-server/src/stun/attributes.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ATTRIBUTES_BY_NAME = exports2.ATTRIBUTES_BY_TYPE = exports2.AttributeRepository = void 0;
@@ -47461,9 +47461,9 @@ var require_attributes3 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/ice-server/src/stun/message.js
+// node_modules/werift/lib/ice-server/src/stun/message.js
 var require_message = __commonJS({
-  "packages/cli/node_modules/werift/lib/ice-server/src/stun/message.js"(exports2) {
+  "node_modules/werift/lib/ice-server/src/stun/message.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.Message = void 0;
@@ -47653,9 +47653,9 @@ var require_message = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/ice/src/stun/message.js
+// node_modules/werift/lib/ice/src/stun/message.js
 var require_message2 = __commonJS({
-  "packages/cli/node_modules/werift/lib/ice/src/stun/message.js"(exports2) {
+  "node_modules/werift/lib/ice/src/stun/message.js"(exports2) {
     "use strict";
     var __createBinding3 = exports2 && exports2.__createBinding || (Object.create ? (function(o, m, k, k2) {
       if (k2 === void 0) k2 = k;
@@ -47678,9 +47678,9 @@ var require_message2 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/ice/src/exceptions.js
+// node_modules/werift/lib/ice/src/exceptions.js
 var require_exceptions = __commonJS({
-  "packages/cli/node_modules/werift/lib/ice/src/exceptions.js"(exports2) {
+  "node_modules/werift/lib/ice/src/exceptions.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.TransactionTimeout = exports2.TransactionFailed = exports2.TransactionError = void 0;
@@ -47738,9 +47738,9 @@ var require_exceptions = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/ice/src/stun/transaction.js
+// node_modules/werift/lib/ice/src/stun/transaction.js
 var require_transaction2 = __commonJS({
-  "packages/cli/node_modules/werift/lib/ice/src/stun/transaction.js"(exports2) {
+  "node_modules/werift/lib/ice/src/stun/transaction.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.Transaction = void 0;
@@ -48008,9 +48008,9 @@ var require_transaction2 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/ice/src/stun/tcpProtocol.js
+// node_modules/werift/lib/ice/src/stun/tcpProtocol.js
 var require_tcpProtocol = __commonJS({
-  "packages/cli/node_modules/werift/lib/ice/src/stun/tcpProtocol.js"(exports2) {
+  "node_modules/werift/lib/ice/src/stun/tcpProtocol.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.TcpPassiveProtocol = exports2.TcpActiveProtocol = void 0;
@@ -48340,9 +48340,9 @@ var require_tcpProtocol = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/ice/src/stun/protocol.js
+// node_modules/werift/lib/ice/src/stun/protocol.js
 var require_protocol = __commonJS({
-  "packages/cli/node_modules/werift/lib/ice/src/stun/protocol.js"(exports2) {
+  "node_modules/werift/lib/ice/src/stun/protocol.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.StunProtocol = void 0;
@@ -48509,9 +48509,9 @@ var require_protocol = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/ice-server/src/turn/auth.js
+// node_modules/werift/lib/ice-server/src/turn/auth.js
 var require_auth = __commonJS({
-  "packages/cli/node_modules/werift/lib/ice-server/src/turn/auth.js"(exports2) {
+  "node_modules/werift/lib/ice-server/src/turn/auth.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.makeTurnIntegrityKey = makeTurnIntegrityKey;
@@ -48522,9 +48522,9 @@ var require_auth = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/ice/src/helper.js
+// node_modules/werift/lib/ice/src/helper.js
 var require_helper4 = __commonJS({
-  "packages/cli/node_modules/werift/lib/ice/src/helper.js"(exports2) {
+  "node_modules/werift/lib/ice/src/helper.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.cancelable = exports2.PQueue = void 0;
@@ -48612,9 +48612,9 @@ var require_helper4 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/ice-server/src/turn/frame.js
+// node_modules/werift/lib/ice-server/src/turn/frame.js
 var require_frame = __commonJS({
-  "packages/cli/node_modules/werift/lib/ice-server/src/turn/frame.js"(exports2) {
+  "node_modules/werift/lib/ice-server/src/turn/frame.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.isChannelData = isChannelData;
@@ -48684,9 +48684,9 @@ var require_frame = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/ice/src/turn/frame.js
+// node_modules/werift/lib/ice/src/turn/frame.js
 var require_frame2 = __commonJS({
-  "packages/cli/node_modules/werift/lib/ice/src/turn/frame.js"(exports2) {
+  "node_modules/werift/lib/ice/src/turn/frame.js"(exports2) {
     "use strict";
     var __createBinding3 = exports2 && exports2.__createBinding || (Object.create ? (function(o, m, k, k2) {
       if (k2 === void 0) k2 = k;
@@ -48709,9 +48709,9 @@ var require_frame2 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/ice/src/turn/protocol.js
+// node_modules/werift/lib/ice/src/turn/protocol.js
 var require_protocol2 = __commonJS({
-  "packages/cli/node_modules/werift/lib/ice/src/turn/protocol.js"(exports2) {
+  "node_modules/werift/lib/ice/src/turn/protocol.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.TurnProtocol = exports2.StunOverTurnProtocol = void 0;
@@ -49344,9 +49344,9 @@ var require_protocol2 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/ice/src/candidate.js
+// node_modules/werift/lib/ice/src/candidate.js
 var require_candidate = __commonJS({
-  "packages/cli/node_modules/werift/lib/ice/src/candidate.js"(exports2) {
+  "node_modules/werift/lib/ice/src/candidate.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.Candidate = void 0;
@@ -49578,9 +49578,9 @@ var require_candidate = __commonJS({
   }
 });
 
-// packages/cli/node_modules/dns-packet/types.js
+// node_modules/dns-packet/types.js
 var require_types6 = __commonJS({
-  "packages/cli/node_modules/dns-packet/types.js"(exports2) {
+  "node_modules/dns-packet/types.js"(exports2) {
     "use strict";
     exports2.toString = function(type) {
       switch (type) {
@@ -49774,9 +49774,9 @@ var require_types6 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/dns-packet/rcodes.js
+// node_modules/dns-packet/rcodes.js
 var require_rcodes = __commonJS({
-  "packages/cli/node_modules/dns-packet/rcodes.js"(exports2) {
+  "node_modules/dns-packet/rcodes.js"(exports2) {
     "use strict";
     exports2.toString = function(rcode) {
       switch (rcode) {
@@ -49855,9 +49855,9 @@ var require_rcodes = __commonJS({
   }
 });
 
-// packages/cli/node_modules/dns-packet/opcodes.js
+// node_modules/dns-packet/opcodes.js
 var require_opcodes = __commonJS({
-  "packages/cli/node_modules/dns-packet/opcodes.js"(exports2) {
+  "node_modules/dns-packet/opcodes.js"(exports2) {
     "use strict";
     exports2.toString = function(opcode) {
       switch (opcode) {
@@ -49936,9 +49936,9 @@ var require_opcodes = __commonJS({
   }
 });
 
-// packages/cli/node_modules/dns-packet/classes.js
+// node_modules/dns-packet/classes.js
 var require_classes = __commonJS({
-  "packages/cli/node_modules/dns-packet/classes.js"(exports2) {
+  "node_modules/dns-packet/classes.js"(exports2) {
     "use strict";
     exports2.toString = function(klass) {
       switch (klass) {
@@ -49973,9 +49973,9 @@ var require_classes = __commonJS({
   }
 });
 
-// packages/cli/node_modules/dns-packet/optioncodes.js
+// node_modules/dns-packet/optioncodes.js
 var require_optioncodes = __commonJS({
-  "packages/cli/node_modules/dns-packet/optioncodes.js"(exports2) {
+  "node_modules/dns-packet/optioncodes.js"(exports2) {
     "use strict";
     exports2.toString = function(type) {
       switch (type) {
@@ -50067,9 +50067,9 @@ var require_optioncodes = __commonJS({
   }
 });
 
-// packages/cli/node_modules/@leichtgewicht/ip-codec/index.cjs
+// node_modules/@leichtgewicht/ip-codec/index.cjs
 var require_ip_codec = __commonJS({
-  "packages/cli/node_modules/@leichtgewicht/ip-codec/index.cjs"(exports2, module2) {
+  "node_modules/@leichtgewicht/ip-codec/index.cjs"(exports2, module2) {
     var ipCodec = (function(exports3) {
       "use strict";
       Object.defineProperty(exports3, "__esModule", {
@@ -50260,9 +50260,9 @@ var require_ip_codec = __commonJS({
   }
 });
 
-// packages/cli/node_modules/dns-packet/index.js
+// node_modules/dns-packet/index.js
 var require_dns_packet = __commonJS({
-  "packages/cli/node_modules/dns-packet/index.js"(exports2) {
+  "node_modules/dns-packet/index.js"(exports2) {
     "use strict";
     var Buffer2 = require("buffer").Buffer;
     var types = require_types6();
@@ -51688,9 +51688,9 @@ var require_dns_packet = __commonJS({
   }
 });
 
-// packages/cli/node_modules/thunky/index.js
+// node_modules/thunky/index.js
 var require_thunky = __commonJS({
-  "packages/cli/node_modules/thunky/index.js"(exports2, module2) {
+  "node_modules/thunky/index.js"(exports2, module2) {
     "use strict";
     var nextTick = nextTickArgs;
     process.nextTick(upgrade, 42);
@@ -51737,9 +51737,9 @@ var require_thunky = __commonJS({
   }
 });
 
-// packages/cli/node_modules/multicast-dns/index.js
+// node_modules/multicast-dns/index.js
 var require_multicast_dns = __commonJS({
-  "packages/cli/node_modules/multicast-dns/index.js"(exports2, module2) {
+  "node_modules/multicast-dns/index.js"(exports2, module2) {
     var packet = require_dns_packet();
     var dgram = require("dgram");
     var thunky = require_thunky();
@@ -51910,9 +51910,9 @@ var require_multicast_dns = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/ice/src/dns/lookup.js
+// node_modules/werift/lib/ice/src/dns/lookup.js
 var require_lookup = __commonJS({
-  "packages/cli/node_modules/werift/lib/ice/src/dns/lookup.js"(exports2) {
+  "node_modules/werift/lib/ice/src/dns/lookup.js"(exports2) {
     "use strict";
     var __createBinding3 = exports2 && exports2.__createBinding || (Object.create ? (function(o, m, k, k2) {
       if (k2 === void 0) k2 = k;
@@ -52076,9 +52076,9 @@ var require_lookup = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/ice/src/iceBase.js
+// node_modules/werift/lib/ice/src/iceBase.js
 var require_iceBase = __commonJS({
-  "packages/cli/node_modules/werift/lib/ice/src/iceBase.js"(exports2) {
+  "node_modules/werift/lib/ice/src/iceBase.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.defaultOptions = exports2.CandidatePairState = exports2.CONSENT_RESPONSE_TIMEOUT_MIN = exports2.CONSENT_RESPONSE_TIMEOUT = exports2.CONSENT_TIMEOUT = exports2.CONSENT_FAILURES = exports2.CONSENT_INTERVAL = exports2.ICE_FAILED = exports2.ICE_COMPLETED = exports2.CandidatePair = void 0;
@@ -52346,9 +52346,9 @@ var require_iceBase = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/ice/src/internal/selectAddresses.js
+// node_modules/werift/lib/ice/src/internal/selectAddresses.js
 var require_selectAddresses = __commonJS({
-  "packages/cli/node_modules/werift/lib/ice/src/internal/selectAddresses.js"(exports2) {
+  "node_modules/werift/lib/ice/src/internal/selectAddresses.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.selectAddressesFromInterfaces = selectAddressesFromInterfaces;
@@ -52378,9 +52378,9 @@ var require_selectAddresses = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/ice/src/utils.js
+// node_modules/werift/lib/ice/src/utils.js
 var require_utils4 = __commonJS({
-  "packages/cli/node_modules/werift/lib/ice/src/utils.js"(exports2) {
+  "node_modules/werift/lib/ice/src/utils.js"(exports2) {
     "use strict";
     var __createBinding3 = exports2 && exports2.__createBinding || (Object.create ? (function(o, m, k, k2) {
       if (k2 === void 0) k2 = k;
@@ -52469,9 +52469,9 @@ var require_utils4 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/ice/src/ice.js
+// node_modules/werift/lib/ice/src/ice.js
 var require_ice = __commonJS({
-  "packages/cli/node_modules/werift/lib/ice/src/ice.js"(exports2) {
+  "node_modules/werift/lib/ice/src/ice.js"(exports2) {
     "use strict";
     var __createBinding3 = exports2 && exports2.__createBinding || (Object.create ? (function(o, m, k, k2) {
       if (k2 === void 0) k2 = k;
@@ -53734,17 +53734,17 @@ var require_ice = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/ice/src/types/model.js
+// node_modules/werift/lib/ice/src/types/model.js
 var require_model = __commonJS({
-  "packages/cli/node_modules/werift/lib/ice/src/types/model.js"(exports2) {
+  "node_modules/werift/lib/ice/src/types/model.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
   }
 });
 
-// packages/cli/node_modules/werift/lib/ice/src/index.js
+// node_modules/werift/lib/ice/src/index.js
 var require_src6 = __commonJS({
-  "packages/cli/node_modules/werift/lib/ice/src/index.js"(exports2) {
+  "node_modules/werift/lib/ice/src/index.js"(exports2) {
     "use strict";
     var __createBinding3 = exports2 && exports2.__createBinding || (Object.create ? (function(o, m, k, k2) {
       if (k2 === void 0) k2 = k;
@@ -53782,9 +53782,9 @@ var require_src6 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/webrtc/src/imports/ice.js
+// node_modules/werift/lib/webrtc/src/imports/ice.js
 var require_ice2 = __commonJS({
-  "packages/cli/node_modules/werift/lib/webrtc/src/imports/ice.js"(exports2) {
+  "node_modules/werift/lib/webrtc/src/imports/ice.js"(exports2) {
     "use strict";
     var __createBinding3 = exports2 && exports2.__createBinding || (Object.create ? (function(o, m, k, k2) {
       if (k2 === void 0) k2 = k;
@@ -53807,9 +53807,9 @@ var require_ice2 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/webrtc/src/imports/rtp.js
+// node_modules/werift/lib/webrtc/src/imports/rtp.js
 var require_rtp3 = __commonJS({
-  "packages/cli/node_modules/werift/lib/webrtc/src/imports/rtp.js"(exports2) {
+  "node_modules/werift/lib/webrtc/src/imports/rtp.js"(exports2) {
     "use strict";
     var __createBinding3 = exports2 && exports2.__createBinding || (Object.create ? (function(o, m, k, k2) {
       if (k2 === void 0) k2 = k;
@@ -53832,9 +53832,9 @@ var require_rtp3 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/webrtc/src/helper.js
+// node_modules/werift/lib/webrtc/src/helper.js
 var require_helper5 = __commonJS({
-  "packages/cli/node_modules/werift/lib/webrtc/src/helper.js"(exports2) {
+  "node_modules/werift/lib/webrtc/src/helper.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.EventTarget = exports2.PromiseQueue = void 0;
@@ -53942,9 +53942,9 @@ var require_helper5 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/webrtc/src/dataChannel.js
+// node_modules/werift/lib/webrtc/src/dataChannel.js
 var require_dataChannel = __commonJS({
-  "packages/cli/node_modules/werift/lib/webrtc/src/dataChannel.js"(exports2) {
+  "node_modules/werift/lib/webrtc/src/dataChannel.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RTCDataChannelParameters = exports2.RTCDataChannel = void 0;
@@ -54233,9 +54233,9 @@ var require_dataChannel = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/webrtc/src/media/extension/rtcpFeedback.js
+// node_modules/werift/lib/webrtc/src/media/extension/rtcpFeedback.js
 var require_rtcpFeedback = __commonJS({
-  "packages/cli/node_modules/werift/lib/webrtc/src/media/extension/rtcpFeedback.js"(exports2) {
+  "node_modules/werift/lib/webrtc/src/media/extension/rtcpFeedback.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.useTWCC = exports2.useREMB = exports2.usePLI = exports2.useNACK = exports2.useFIR = void 0;
@@ -54252,9 +54252,9 @@ var require_rtcpFeedback = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/webrtc/src/media/parameters.js
+// node_modules/werift/lib/webrtc/src/media/parameters.js
 var require_parameters2 = __commonJS({
-  "packages/cli/node_modules/werift/lib/webrtc/src/media/parameters.js"(exports2) {
+  "node_modules/werift/lib/webrtc/src/media/parameters.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RTCRtpSimulcastParameters = exports2.RTCRtpCodingParameters = exports2.RTCRtpRtxParameters = exports2.RTCRtcpFeedback = exports2.RTCRtcpParameters = exports2.RTCRtpHeaderExtensionParameters = exports2.RTCRtpCodecParameters = void 0;
@@ -54435,9 +54435,9 @@ var require_parameters2 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/webrtc/src/media/codec.js
+// node_modules/werift/lib/webrtc/src/media/codec.js
 var require_codec2 = __commonJS({
-  "packages/cli/node_modules/werift/lib/webrtc/src/media/codec.js"(exports2) {
+  "node_modules/werift/lib/webrtc/src/media/codec.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.supportedAudioCodecs = exports2.supportedVideoCodecs = exports2.supportedCodecs = exports2.usePCMU = exports2.useOPUS = exports2.useAV1X = exports2.useVP9 = exports2.useVP8 = exports2.useH264 = void 0;
@@ -54500,9 +54500,9 @@ var require_codec2 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/webrtc/src/media/extension/rtpExtension.js
+// node_modules/werift/lib/webrtc/src/media/extension/rtpExtension.js
 var require_rtpExtension = __commonJS({
-  "packages/cli/node_modules/werift/lib/webrtc/src/media/extension/rtpExtension.js"(exports2) {
+  "node_modules/werift/lib/webrtc/src/media/extension/rtpExtension.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.useSdesMid = useSdesMid;
@@ -54558,9 +54558,9 @@ var require_rtpExtension = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/webrtc/src/const.js
+// node_modules/werift/lib/webrtc/src/const.js
 var require_const8 = __commonJS({
-  "packages/cli/node_modules/werift/lib/webrtc/src/const.js"(exports2) {
+  "node_modules/werift/lib/webrtc/src/const.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.SignatureAlgorithm = exports2.ReceiverDirection = exports2.SenderDirections = exports2.SRTP_PROFILE = exports2.SSRC_INFO_ATTRS = exports2.FMTP_INT_PARAMETERS = exports2.DTLS_SETUP_ROLE = exports2.DTLS_ROLE_SETUP = exports2.DIRECTIONS = exports2.MEDIA_KINDS = exports2.DISCARD_PORT = exports2.DISCARD_HOST = exports2.WEBRTC_BINARY_EMPTY = exports2.WEBRTC_STRING_EMPTY = exports2.WEBRTC_BINARY = exports2.WEBRTC_STRING = exports2.WEBRTC_DCEP = exports2.DATA_CHANNEL_PARTIAL_RELIABLE_TIMED_UNORDERED = exports2.DATA_CHANNEL_PARTIAL_RELIABLE_REXMIT_UNORDERED = exports2.DATA_CHANNEL_RELIABLE_UNORDERED = exports2.DATA_CHANNEL_PARTIAL_RELIABLE_TIMED = exports2.DATA_CHANNEL_PARTIAL_RELIABLE_REXMIT = exports2.DATA_CHANNEL_RELIABLE = exports2.DATA_CHANNEL_OPEN = exports2.DATA_CHANNEL_ACK = void 0;
@@ -54615,9 +54615,9 @@ var require_const8 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/webrtc/src/media/stats.js
+// node_modules/werift/lib/webrtc/src/media/stats.js
 var require_stats = __commonJS({
-  "packages/cli/node_modules/werift/lib/webrtc/src/media/stats.js"(exports2) {
+  "node_modules/werift/lib/webrtc/src/media/stats.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RTCStatsReport = void 0;
@@ -54696,9 +54696,9 @@ var require_stats = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/webrtc/src/media/rtpTransceiver.js
+// node_modules/werift/lib/webrtc/src/media/rtpTransceiver.js
 var require_rtpTransceiver = __commonJS({
-  "packages/cli/node_modules/werift/lib/webrtc/src/media/rtpTransceiver.js"(exports2) {
+  "node_modules/werift/lib/webrtc/src/media/rtpTransceiver.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.Directions = exports2.Sendrecv = exports2.Recvonly = exports2.Sendonly = exports2.Inactive = exports2.RTCRtpTransceiver = void 0;
@@ -54910,9 +54910,9 @@ var require_rtpTransceiver = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/webrtc/src/media/track.js
+// node_modules/werift/lib/webrtc/src/media/track.js
 var require_track = __commonJS({
-  "packages/cli/node_modules/werift/lib/webrtc/src/media/track.js"(exports2) {
+  "node_modules/werift/lib/webrtc/src/media/track.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.MediaStream = exports2.MediaStreamTrack = void 0;
@@ -55100,9 +55100,9 @@ var require_track = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/webrtc/src/utils.js
+// node_modules/werift/lib/webrtc/src/utils.js
 var require_utils5 = __commonJS({
-  "packages/cli/node_modules/werift/lib/webrtc/src/utils.js"(exports2) {
+  "node_modules/werift/lib/webrtc/src/utils.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.deepMerge = exports2.MediaStreamTrackFactory = exports2.createSelfSignedCertificate = exports2.compactNtp = exports2.ntpTimeToEpochMs = exports2.ntpTime = exports2.timestampSeconds = exports2.microTime = exports2.milliTime = exports2.andDirection = void 0;
@@ -55357,9 +55357,9 @@ var require_utils5 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/webrtc/src/media/receiver/nack.js
+// node_modules/werift/lib/webrtc/src/media/receiver/nack.js
 var require_nack2 = __commonJS({
-  "packages/cli/node_modules/werift/lib/webrtc/src/media/receiver/nack.js"(exports2) {
+  "node_modules/werift/lib/webrtc/src/media/receiver/nack.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.NackHandler = void 0;
@@ -55513,9 +55513,9 @@ var require_nack2 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/webrtc/src/media/receiver/receiverTwcc.js
+// node_modules/werift/lib/webrtc/src/media/receiver/receiverTwcc.js
 var require_receiverTwcc = __commonJS({
-  "packages/cli/node_modules/werift/lib/webrtc/src/media/receiver/receiverTwcc.js"(exports2) {
+  "node_modules/werift/lib/webrtc/src/media/receiver/receiverTwcc.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ReceiverTWCC = void 0;
@@ -55664,9 +55664,9 @@ var require_receiverTwcc = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/webrtc/src/media/receiver/statistics.js
+// node_modules/werift/lib/webrtc/src/media/receiver/statistics.js
 var require_statistics = __commonJS({
-  "packages/cli/node_modules/werift/lib/webrtc/src/media/receiver/statistics.js"(exports2) {
+  "node_modules/werift/lib/webrtc/src/media/receiver/statistics.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.StreamStatistics = void 0;
@@ -55804,9 +55804,9 @@ var require_statistics = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/webrtc/src/transport/dtls.js
+// node_modules/werift/lib/webrtc/src/transport/dtls.js
 var require_dtls3 = __commonJS({
-  "packages/cli/node_modules/werift/lib/webrtc/src/transport/dtls.js"(exports2) {
+  "node_modules/werift/lib/webrtc/src/transport/dtls.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RTCDtlsParameters = exports2.RTCDtlsFingerprint = exports2.RTCCertificate = exports2.DtlsStates = exports2.RTCDtlsTransport = void 0;
@@ -56494,9 +56494,9 @@ var require_dtls3 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/webrtc/src/transport/ice.js
+// node_modules/werift/lib/webrtc/src/transport/ice.js
 var require_ice3 = __commonJS({
-  "packages/cli/node_modules/werift/lib/webrtc/src/transport/ice.js"(exports2) {
+  "node_modules/werift/lib/webrtc/src/transport/ice.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RTCIceParameters = exports2.IceCandidate = exports2.RTCIceCandidate = exports2.RTCIceGatherer = exports2.IceGathererStates = exports2.IceTransportStates = exports2.RTCIceTransport = void 0;
@@ -57114,9 +57114,9 @@ var require_ice3 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/sctp/src/const.js
+// node_modules/werift/lib/sctp/src/const.js
 var require_const9 = __commonJS({
-  "packages/cli/node_modules/werift/lib/sctp/src/const.js"(exports2) {
+  "node_modules/werift/lib/sctp/src/const.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.SCTP_STATE = exports2.WEBRTC_PPID = void 0;
@@ -57142,9 +57142,9 @@ var require_const9 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/sctp/src/imports/common.js
+// node_modules/werift/lib/sctp/src/imports/common.js
 var require_common8 = __commonJS({
-  "packages/cli/node_modules/werift/lib/sctp/src/imports/common.js"(exports2) {
+  "node_modules/werift/lib/sctp/src/imports/common.js"(exports2) {
     "use strict";
     var __createBinding3 = exports2 && exports2.__createBinding || (Object.create ? (function(o, m, k, k2) {
       if (k2 === void 0) k2 = k;
@@ -57167,9 +57167,9 @@ var require_common8 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/sctp/src/chunk.js
+// node_modules/werift/lib/sctp/src/chunk.js
 var require_chunk = __commonJS({
-  "packages/cli/node_modules/werift/lib/sctp/src/chunk.js"(exports2) {
+  "node_modules/werift/lib/sctp/src/chunk.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.CHUNK_BY_TYPE = exports2.ShutdownCompleteChunk = exports2.ShutdownAckChunk = exports2.ShutdownChunk = exports2.SackChunk = exports2.ReconfigChunk = exports2.HeartbeatAckChunk = exports2.HeartbeatChunk = exports2.ErrorChunk = exports2.AbortChunk = exports2.BaseParamsChunk = exports2.CookieAckChunk = exports2.CookieEchoChunk = exports2.DataChunk = exports2.ForwardTsnChunk = exports2.ReConfigChunk = exports2.InitAckChunk = exports2.InitChunk = exports2.BaseInitChunk = exports2.Chunk = void 0;
@@ -57897,9 +57897,9 @@ var require_chunk = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/sctp/src/helper.js
+// node_modules/werift/lib/sctp/src/helper.js
 var require_helper6 = __commonJS({
-  "packages/cli/node_modules/werift/lib/sctp/src/helper.js"(exports2) {
+  "node_modules/werift/lib/sctp/src/helper.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.enumerate = enumerate;
@@ -57917,9 +57917,9 @@ var require_helper6 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/sctp/src/param.js
+// node_modules/werift/lib/sctp/src/param.js
 var require_param = __commonJS({
-  "packages/cli/node_modules/werift/lib/sctp/src/param.js"(exports2) {
+  "node_modules/werift/lib/sctp/src/param.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RECONFIG_PARAM_BY_TYPES = exports2.ReconfigResponseParam = exports2.reconfigResult = exports2.StreamAddOutgoingParam = exports2.OutgoingSSNResetRequestParam = void 0;
@@ -58075,9 +58075,9 @@ var require_param = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/sctp/src/sctp.js
+// node_modules/werift/lib/sctp/src/sctp.js
 var require_sctp = __commonJS({
-  "packages/cli/node_modules/werift/lib/sctp/src/sctp.js"(exports2) {
+  "node_modules/werift/lib/sctp/src/sctp.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RTCSctpCapabilities = exports2.InboundStream = exports2.SCTP = void 0;
@@ -59702,9 +59702,9 @@ var require_sctp = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/sctp/src/transport.js
+// node_modules/werift/lib/sctp/src/transport.js
 var require_transport3 = __commonJS({
-  "packages/cli/node_modules/werift/lib/sctp/src/transport.js"(exports2) {
+  "node_modules/werift/lib/sctp/src/transport.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.createUdpTransport = exports2.UdpTransport = void 0;
@@ -59756,9 +59756,9 @@ var require_transport3 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/sctp/src/index.js
+// node_modules/werift/lib/sctp/src/index.js
 var require_src7 = __commonJS({
-  "packages/cli/node_modules/werift/lib/sctp/src/index.js"(exports2) {
+  "node_modules/werift/lib/sctp/src/index.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.UdpTransport = exports2.createUdpTransport = exports2.SCTP = exports2.WEBRTC_PPID = exports2.SCTP_STATE = void 0;
@@ -59783,9 +59783,9 @@ var require_src7 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/webrtc/src/transport/sctp.js
+// node_modules/werift/lib/webrtc/src/transport/sctp.js
 var require_sctp2 = __commonJS({
-  "packages/cli/node_modules/werift/lib/webrtc/src/transport/sctp.js"(exports2) {
+  "node_modules/werift/lib/webrtc/src/transport/sctp.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RTCSctpCapabilities = exports2.RTCSctpTransport = exports2.DEFAULT_MAX_MESSAGE_SIZE = void 0;
@@ -60216,9 +60216,9 @@ var require_sctp2 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/webrtc/src/sdp.js
+// node_modules/werift/lib/webrtc/src/sdp.js
 var require_sdp = __commonJS({
-  "packages/cli/node_modules/werift/lib/webrtc/src/sdp.js"(exports2) {
+  "node_modules/werift/lib/webrtc/src/sdp.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.SsrcDescription = exports2.RTCSessionDescription = exports2.GroupDescription = exports2.MediaDescription = exports2.SessionDescription = void 0;
@@ -61071,9 +61071,9 @@ var require_sdp = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/webrtc/src/media/rtpReceiver.js
+// node_modules/werift/lib/webrtc/src/media/rtpReceiver.js
 var require_rtpReceiver = __commonJS({
-  "packages/cli/node_modules/werift/lib/webrtc/src/media/rtpReceiver.js"(exports2) {
+  "node_modules/werift/lib/webrtc/src/media/rtpReceiver.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RTCRtpReceiver = void 0;
@@ -61624,9 +61624,9 @@ var require_rtpReceiver = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/webrtc/src/media/router.js
+// node_modules/werift/lib/webrtc/src/media/router.js
 var require_router = __commonJS({
-  "packages/cli/node_modules/werift/lib/webrtc/src/media/router.js"(exports2) {
+  "node_modules/werift/lib/webrtc/src/media/router.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RtpRouter = void 0;
@@ -61788,9 +61788,9 @@ var require_router = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/webrtc/src/media/sender/cumulativeResult.js
+// node_modules/werift/lib/webrtc/src/media/sender/cumulativeResult.js
 var require_cumulativeResult = __commonJS({
-  "packages/cli/node_modules/werift/lib/webrtc/src/media/sender/cumulativeResult.js"(exports2) {
+  "node_modules/werift/lib/webrtc/src/media/sender/cumulativeResult.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.CumulativeResult = void 0;
@@ -61882,9 +61882,9 @@ var require_cumulativeResult = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/webrtc/src/media/sender/senderBWE.js
+// node_modules/werift/lib/webrtc/src/media/sender/senderBWE.js
 var require_senderBWE = __commonJS({
-  "packages/cli/node_modules/werift/lib/webrtc/src/media/sender/senderBWE.js"(exports2) {
+  "node_modules/werift/lib/webrtc/src/media/sender/senderBWE.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.SenderBandwidthEstimator = void 0;
@@ -62025,9 +62025,9 @@ var require_senderBWE = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/webrtc/src/media/rtpSender.js
+// node_modules/werift/lib/webrtc/src/media/rtpSender.js
 var require_rtpSender = __commonJS({
-  "packages/cli/node_modules/werift/lib/webrtc/src/media/rtpSender.js"(exports2) {
+  "node_modules/werift/lib/webrtc/src/media/rtpSender.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RTCRtpSender = void 0;
@@ -62803,9 +62803,9 @@ var require_rtpSender = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/webrtc/src/errors.js
+// node_modules/werift/lib/webrtc/src/errors.js
 var require_errors2 = __commonJS({
-  "packages/cli/node_modules/werift/lib/webrtc/src/errors.js"(exports2) {
+  "node_modules/werift/lib/webrtc/src/errors.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.createWebRtcDomException = createWebRtcDomException;
@@ -62819,9 +62819,9 @@ var require_errors2 = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/webrtc/src/sctpManager.js
+// node_modules/werift/lib/webrtc/src/sctpManager.js
 var require_sctpManager = __commonJS({
-  "packages/cli/node_modules/werift/lib/webrtc/src/sctpManager.js"(exports2) {
+  "node_modules/werift/lib/webrtc/src/sctpManager.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.SctpTransportManager = void 0;
@@ -62988,9 +62988,9 @@ var require_sctpManager = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/webrtc/src/sdpManager.js
+// node_modules/werift/lib/webrtc/src/sdpManager.js
 var require_sdpManager = __commonJS({
-  "packages/cli/node_modules/werift/lib/webrtc/src/sdpManager.js"(exports2) {
+  "node_modules/werift/lib/webrtc/src/sdpManager.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.SDPManager = void 0;
@@ -63390,9 +63390,9 @@ var require_sdpManager = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/webrtc/src/secureTransportManager.js
+// node_modules/werift/lib/webrtc/src/secureTransportManager.js
 var require_secureTransportManager = __commonJS({
-  "packages/cli/node_modules/werift/lib/webrtc/src/secureTransportManager.js"(exports2) {
+  "node_modules/werift/lib/webrtc/src/secureTransportManager.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.SecureTransportManager = void 0;
@@ -63798,9 +63798,9 @@ var require_secureTransportManager = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/webrtc/src/peerConnection.js
+// node_modules/werift/lib/webrtc/src/peerConnection.js
 var require_peerConnection = __commonJS({
-  "packages/cli/node_modules/werift/lib/webrtc/src/peerConnection.js"(exports2) {
+  "node_modules/werift/lib/webrtc/src/peerConnection.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RTCTrackEvent = exports2.defaultPeerConfig = exports2.findCodecByMimeType = exports2.RTCPeerConnection = void 0;
@@ -64903,9 +64903,9 @@ var require_peerConnection = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/webrtc/src/transceiverManager.js
+// node_modules/werift/lib/webrtc/src/transceiverManager.js
 var require_transceiverManager = __commonJS({
-  "packages/cli/node_modules/werift/lib/webrtc/src/transceiverManager.js"(exports2) {
+  "node_modules/werift/lib/webrtc/src/transceiverManager.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.TransceiverManager = void 0;
@@ -65246,9 +65246,9 @@ var require_transceiverManager = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/webrtc/src/media/index.js
+// node_modules/werift/lib/webrtc/src/media/index.js
 var require_media = __commonJS({
-  "packages/cli/node_modules/werift/lib/webrtc/src/media/index.js"(exports2) {
+  "node_modules/werift/lib/webrtc/src/media/index.js"(exports2) {
     "use strict";
     var __createBinding3 = exports2 && exports2.__createBinding || (Object.create ? (function(o, m, k, k2) {
       if (k2 === void 0) k2 = k;
@@ -65281,9 +65281,9 @@ var require_media = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/webrtc/src/types/domain.js
+// node_modules/werift/lib/webrtc/src/types/domain.js
 var require_domain = __commonJS({
-  "packages/cli/node_modules/werift/lib/webrtc/src/types/domain.js"(exports2) {
+  "node_modules/werift/lib/webrtc/src/types/domain.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ConnectionStates = exports2.SignalingStates = void 0;
@@ -65306,9 +65306,9 @@ var require_domain = __commonJS({
   }
 });
 
-// packages/cli/node_modules/werift/lib/webrtc/src/index.js
+// node_modules/werift/lib/webrtc/src/index.js
 var require_src8 = __commonJS({
-  "packages/cli/node_modules/werift/lib/webrtc/src/index.js"(exports2) {
+  "node_modules/werift/lib/webrtc/src/index.js"(exports2) {
     "use strict";
     var __createBinding3 = exports2 && exports2.__createBinding || (Object.create ? (function(o, m, k, k2) {
       if (k2 === void 0) k2 = k;
@@ -65344,9 +65344,9 @@ var require_src8 = __commonJS({
   }
 });
 
-// packages/cli/src/peer.js
+// src/peer.js
 var require_peer = __commonJS({
-  "packages/cli/src/peer.js"(exports2, module2) {
+  "src/peer.js"(exports2, module2) {
     var EventEmitter2 = require("events");
     var { RTCPeerConnection, RTCSessionDescription, RTCIceCandidate } = require_src8();
     var ICE_SERVERS = [
@@ -65538,9 +65538,9 @@ var require_peer = __commonJS({
   }
 });
 
-// packages/cli/src/utils.js
+// src/utils.js
 var require_utils6 = __commonJS({
-  "packages/cli/src/utils.js"(exports2, module2) {
+  "src/utils.js"(exports2, module2) {
     var fs2 = require("fs");
     var path3 = require("path");
     var crypto2 = require("crypto");
@@ -65643,9 +65643,9 @@ var require_utils6 = __commonJS({
   }
 });
 
-// packages/cli/src/transfer.js
+// src/transfer.js
 var require_transfer = __commonJS({
-  "packages/cli/src/transfer.js"(exports2, module2) {
+  "src/transfer.js"(exports2, module2) {
     var fs2 = require("fs");
     var path3 = require("path");
     var EventEmitter2 = require("events");
@@ -65987,9 +65987,9 @@ var require_transfer = __commonJS({
   }
 });
 
-// packages/cli/src/session.js
+// src/session.js
 var require_session2 = __commonJS({
-  "packages/cli/src/session.js"(exports2, module2) {
+  "src/session.js"(exports2, module2) {
     var readline = require("readline");
     var path3 = require("path");
     var fs2 = require("fs");
@@ -66288,7 +66288,7 @@ ${c2.red("Transfer error:")} ${err.message}`);
   }
 });
 
-// packages/cli/index.js
+// index.js
 var { program: program2 } = (init_commander(), __toCommonJS(commander_exports));
 var http = require("http");
 var https = require("https");
